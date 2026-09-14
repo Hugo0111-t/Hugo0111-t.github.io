@@ -4,84 +4,348 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mijn Website</title>
+    <title>Hugo | Mijn Website</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: #111827;
+            background: #0a0a0f;
             color: white;
-            text-align: center;
         }
 
-        header {
-            background: #2563eb;
-            padding: 25px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 40px;
-        }
-
-        main {
-            padding: 80px 20px;
-        }
-
-        main h2 {
-            font-size: 35px;
-        }
-
-        main p {
-            font-size: 20px;
-            color: #d1d5db;
-        }
-
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #1d4ed8;
-        }
-
-        footer {
-            background: #030712;
-            padding: 20px;
+        /* NAVIGATIE */
+        nav {
             position: fixed;
-            bottom: 0;
+            top: 0;
             width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #00aaff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            background:
+                radial-gradient(circle at top, #12345c, transparent 40%),
+                #0a0a0f;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #00aaff;
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #bbbbbb;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 30px;
+            background: #00aaff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px #00aaff;
+        }
+
+        /* SECTIES */
+        section {
+            padding: 100px 10%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px;
+        }
+
+        .title span {
+            color: #00aaff;
+        }
+
+        /* OVER MIJ */
+        .about {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .about p {
+            color: #bbbbbb;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        /* HOBBY KAARTEN */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 40px;
+            background: #14141c;
+            border: 1px solid #292936;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #00aaff;
+            box-shadow: 0 10px 40px rgba(0, 170, 255, 0.2);
+        }
+
+        .card .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* SKILLS */
+        .skills {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 25px;
+        }
+
+        .skill-name {
+            margin-bottom: 8px;
+        }
+
+        .bar {
+            height: 12px;
+            background: #22222d;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: #00aaff;
+            border-radius: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #050508;
+            color: #777;
+        }
+
+        /* MOBIEL */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Mijn Website</h1>
-    </header>
+    <!-- NAVIGATIE -->
+    <nav>
+        <div class="logo">HUGO<span>.</span></div>
 
-    <main>
-        <h2>Welkom! 👋</h2>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#overmij">Over mij</a>
+            <a href="#hobbies">Hobby's</a>
+        </div>
+    </nav>
 
-        <p>
-            Dit is mijn eerste website die ik met HTML heb gemaakt.
-        </p>
 
-        <button onclick="alert('Hallo! Leuk dat je op mijn website bent!')">
-            Klik hier
-        </button>
-    </main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Hey, ik ben <span>Hugo</span> 👋</h1>
 
+            <p>
+                Welkom op mijn website! Hier kun je meer over mij,
+                mijn hobby's en mijn favoriete games vinden.
+            </p>
+
+            <a href="#overmij" class="button">
+                Ontdek meer
+            </a>
+        </div>
+    </section>
+
+
+    <!-- OVER MIJ -->
+    <section id="overmij">
+        <h2 class="title">Over <span>mij</span></h2>
+
+        <div class="about">
+            <p>
+                Ik ben Hugo en ik hou van gamen en sport.
+                Voetbal is een van mijn favoriete sporten en ik vind
+                het leuk om wedstrijden te kijken en zelf te spelen.
+                Daarnaast speel ik graag Rocket League.
+                Ik vind het vooral leuk om beter te worden en
+                tegen andere spelers te spelen.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- HOBBY'S -->
+    <section id="hobbies">
+        <h2 class="title">Mijn <span>hobby's</span></h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">⚽</div>
+
+                <h3>Voetbal</h3>
+
+                <p>
+                    Voetbal is een van mijn grootste hobby's.
+                    Ik vind het leuk om voetbal te kijken,
+                    over voetbal te praten en zelf te voetballen.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🚗</div>
+
+                <h3>Rocket League</h3>
+
+                <p>
+                    Rocket League is een van mijn favoriete games.
+                    Ik speel graag wedstrijden en probeer steeds
+                    beter te worden.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section>
+        <h2 class="title">Mijn <span>interesses</span></h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <div class="skill-name">⚽ Voetbal</div>
+
+                <div class="bar">
+                    <div class="fill" style="width: 95%;"></div>
+                </div>
+            </div>
+
+
+            <div class="skill">
+                <div class="skill-name">🚗 Rocket League</div>
+
+                <div class="bar">
+                    <div class="fill" style="width: 90%;"></div>
+                </div>
+            </div>
+
+
+            <div class="skill">
+                <div class="skill-name">🎮 Gamen</div>
+
+                <div class="bar">
+                    <div class="fill" style="width: 95%;"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
     <footer>
-        © 2026 Mijn Website
+        © 2026 Hugo | Mijn persoonlijke website
     </footer>
 
 </body>
