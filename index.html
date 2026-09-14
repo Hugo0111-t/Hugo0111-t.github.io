@@ -1,18 +1,88 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="nl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Mijn Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: #2563eb;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        main {
+            padding: 80px 20px;
+        }
+
+        main h2 {
+            font-size: 35px;
+        }
+
+        main p {
+            font-size: 20px;
+            color: #d1d5db;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #030712;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1> over mij </h1>
-<h2> dit is Header 2 </h2>
-<h3> dit is Header 3 </h3>
-<h4> dit is Header 4 </h4>
-<h5> dit is Header 5 </h5>
-<h6> dit is Header 6 </h6>
+    <header>
+        <h1>Mijn Website</h1>
+    </header>
+
+    <main>
+        <h2>Welkom! 👋</h2>
+
+        <p>
+            Dit is mijn eerste website die ik met HTML heb gemaakt.
+        </p>
+
+        <button onclick="alert('Hallo! Leuk dat je op mijn website bent!')">
+            Klik hier
+        </button>
+    </main>
+
+    <footer>
+        © 2026 Mijn Website
+    </footer>
 
 </body>
-
 </html>
