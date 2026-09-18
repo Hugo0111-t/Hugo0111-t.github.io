@@ -1,224 +1,160 @@
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hugo | Mijn Website</title>
+    <title>Hugo | Mijn website</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: #0a0a0f;
-            color: white;
+            background: #bfe3ff;
+            color: #102a43;
         }
 
-        /* NAVIGATIE */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 8%;
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 15, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            padding: 20px 7%;
+            background: rgba(255, 255, 255, 0.7);
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #00aaff;
+        header h1 {
+            font-size: 38px;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            margin-left: 30px;
-            transition: 0.3s;
+            color: #102a43;
+            margin-left: 25px;
+            font-weight: bold;
         }
 
         nav a:hover {
-            color: #00aaff;
+            color: #1683d8;
         }
 
-        /* HERO */
         .hero {
-            min-height: 100vh;
+            height: 420px;
+            margin: 20px 3%;
+            border-radius: 20px;
+            background-image:
+                linear-gradient(rgba(0, 80, 150, 0.2), rgba(0, 80, 150, 0.3)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px;
-            background:
-                radial-gradient(circle at top, #12345c, transparent 40%),
-                #0a0a0f;
+            color: white;
         }
 
-        .hero h1 {
-            font-size: 70px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #00aaff;
+        .hero h2 {
+            font-size: 75px;
+            text-shadow: 3px 3px 10px #000;
         }
 
         .hero p {
-            font-size: 22px;
-            color: #bbbbbb;
-            max-width: 650px;
-            margin: auto;
+            font-size: 25px;
+            margin-top: 10px;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 15px 30px;
-            background: #00aaff;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 25px #00aaff;
-        }
-
-        /* SECTIES */
-        section {
-            padding: 100px 10%;
-        }
-
-        .title {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 60px;
-        }
-
-        .title span {
-            color: #00aaff;
-        }
-
-        /* OVER MIJ */
-        .about {
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .about p {
-            color: #bbbbbb;
-            font-size: 19px;
-            line-height: 1.8;
-        }
-
-        /* HOBBY KAARTEN */
-        .cards {
+        .content {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 900px;
-            margin: auto;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 25px;
+            margin: 30px 7%;
         }
 
         .card {
-            padding: 40px;
-            background: #14141c;
-            border: 1px solid #292936;
+            background: white;
             border-radius: 20px;
-            text-align: center;
-            transition: 0.4s;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #00aaff;
-            box-shadow: 0 10px 40px rgba(0, 170, 255, 0.2);
-        }
-
-        .card .icon {
-            font-size: 60px;
+        .card h2 {
+            font-size: 30px;
             margin-bottom: 20px;
         }
 
-        .card h3 {
-            font-size: 28px;
+        .weather {
+            text-align: center;
+        }
+
+        #temperature {
+            font-size: 55px;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        #weatherText {
+            font-size: 20px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .facts {
+            margin-top: 20px;
+            line-height: 2;
+        }
+
+        .photos img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
             margin-bottom: 15px;
         }
 
-        .card p {
-            color: #aaa;
-            line-height: 1.6;
+        .hobbies {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 70px;
         }
 
-        /* SKILLS */
-        .skills {
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .skill {
-            margin-bottom: 25px;
-        }
-
-        .skill-name {
-            margin-bottom: 8px;
-        }
-
-        .bar {
-            height: 12px;
-            background: #22222d;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .fill {
-            height: 100%;
-            background: #00aaff;
-            border-radius: 10px;
-        }
-
-        /* FOOTER */
         footer {
             text-align: center;
-            padding: 30px;
-            background: #050508;
-            color: #777;
+            padding: 35px;
+            font-size: 16px;
         }
 
-        /* MOBIEL */
-        @media (max-width: 700px) {
-            .hero h1 {
-                font-size: 45px;
+        @media (max-width: 800px) {
+            .content {
+                grid-template-columns: 1fr;
             }
 
-            .cards {
+            .about {
                 grid-template-columns: 1fr;
             }
 
             nav {
-                padding: 15px 5%;
+                display: none;
             }
 
-            nav a {
-                margin-left: 10px;
-                font-size: 14px;
+            .hero h2 {
+                font-size: 50px;
             }
         }
     </style>
@@ -226,127 +162,152 @@
 
 <body>
 
-    <!-- NAVIGATIE -->
+<header>
+    <h1>Hugo</h1>
+
     <nav>
-        <div class="logo">HUGO<span>.</span></div>
-
-        <div>
-            <a href="#home">Home</a>
-            <a href="#overmij">Over mij</a>
-            <a href="#hobbies">Hobby's</a>
-        </div>
+        <a href="#home">Home</a>
+        <a href="#overmij">Over mij</a>
+        <a href="#hobby">Hobby's</a>
     </nav>
+</header>
 
+<section class="hero" id="home">
+    <div>
+        <h2>Hugo</h2>
+        <p>⚽ Voetbal • 🎮 Gamen • 🎿 Skiën</p>
+    </div>
+</section>
 
-    <!-- HOME -->
-    <section class="hero" id="home">
-        <div>
-            <h1>Hey, ik ben <span>Hugo</span> 👋</h1>
+<div class="content">
 
-            <p>
-                Welkom op mijn website! Hier kun je meer over mij,
-                mijn hobby's en mijn favoriete games vinden.
-            </p>
+    <!-- WEER -->
+    <section class="card weather">
+        <h2>🌤️ Het weer in Zoeterwoude</h2>
 
-            <a href="#overmij" class="button">
-                Ontdek meer
-            </a>
+        <p>Het is nu:</p>
+
+        <div id="temperature">Laden...</div>
+
+        <p id="weatherText">Weer wordt opgehaald...</p>
+
+        <div class="hobbies">
+            ⚽ 🎿
         </div>
     </section>
-
 
     <!-- OVER MIJ -->
-    <section id="overmij">
-        <h2 class="title">Over <span>mij</span></h2>
+    <section class="card" id="overmij">
 
         <div class="about">
-            <p>
-                Ik ben Hugo en ik hou van gamen en sport.
-                Voetbal is een van mijn favoriete sporten en ik vind
-                het leuk om wedstrijden te kijken en zelf te spelen.
-                Daarnaast speel ik graag Rocket League.
-                Ik vind het vooral leuk om beter te worden en
-                tegen andere spelers te spelen.
-            </p>
-        </div>
-    </section>
 
-
-    <!-- HOBBY'S -->
-    <section id="hobbies">
-        <h2 class="title">Mijn <span>hobby's</span></h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">⚽</div>
-
-                <h3>Voetbal</h3>
+            <div>
+                <h2>👋 Over mij</h2>
 
                 <p>
-                    Voetbal is een van mijn grootste hobby's.
-                    Ik vind het leuk om voetbal te kijken,
-                    over voetbal te praten en zelf te voetballen.
+                    Hallo! Ik ben Hugo. Ik woon in Zoeterwoude en ik zit
+                    op het Vlietland College.
                 </p>
-            </div>
-
-
-            <div class="card">
-                <div class="icon">🚗</div>
-
-                <h3>Rocket League</h3>
 
                 <p>
-                    Rocket League is een van mijn favoriete games.
-                    Ik speel graag wedstrijden en probeer steeds
-                    beter te worden.
+                    Ik vind het heel leuk om te voetballen. In mijn vrije
+                    tijd speel ik ook graag games, vooral Rocket League.
+                    Daarnaast vind ik skiën erg leuk.
                 </p>
+
+                <div class="facts">
+                    👤 <b>Naam:</b> Hugo<br>
+                    🏠 <b>Woonplaats:</b> Zoeterwoude<br>
+                    🏫 <b>School:</b> Vlietland College<br>
+                    ⚽ <b>Hobby:</b> Voetbal<br>
+                    🎮 <b>Game:</b> Rocket League<br>
+                    🎿 <b>Ook leuk:</b> Skiën
+                </div>
+            </div>
+
+            <div class="photos">
+
+                <!-- Voetbal -->
+                <img
+                    src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80"
+                    alt="Voetbal"
+                >
+
+                <!-- Skiën -->
+                <img
+                    src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=600&q=80"
+                    alt="Skiën in de bergen"
+                >
+
             </div>
 
         </div>
     </section>
 
+</div>
 
-    <!-- SKILLS -->
-    <section>
-        <h2 class="title">Mijn <span>interesses</span></h2>
+<section class="card" id="hobby" style="margin: 30px 7%; text-align: center;">
+    <h2>⚽ Mijn hobby's</h2>
 
-        <div class="skills">
+    <p style="font-size: 20px;">
+        Voetbal is een van mijn favoriete hobby's.
+        Ik vind het leuk om wedstrijden te kijken en zelf te voetballen.
+        Ook speel ik graag Rocket League en vind ik skiën leuk.
+    </p>
 
-            <div class="skill">
-                <div class="skill-name">⚽ Voetbal</div>
+    <div class="hobbies">
+        ⚽ 🎮 🎿
+    </div>
+</section>
 
-                <div class="bar">
-                    <div class="fill" style="width: 95%;"></div>
-                </div>
-            </div>
-
-
-            <div class="skill">
-                <div class="skill-name">🚗 Rocket League</div>
-
-                <div class="bar">
-                    <div class="fill" style="width: 90%;"></div>
-                </div>
-            </div>
+<footer>
+    © 2026 Hugo | Mijn persoonlijke website
+</footer>
 
 
-            <div class="skill">
-                <div class="skill-name">🎮 Gamen</div>
+<script>
+    // Weer voor Zoeterwoude
+    // Coördinaten van Zoeterwoude
+    const latitude = 52.12;
+    const longitude = 4.50;
 
-                <div class="bar">
-                    <div class="fill" style="width: 95%;"></div>
-                </div>
-            </div>
+    fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&timezone=Europe%2FAmsterdam`
+    )
+    .then(response => response.json())
+    .then(data => {
 
-        </div>
-    </section>
+        const temperature = data.current.temperature_2m;
+        const code = data.current.weather_code;
 
+        document.getElementById("temperature").innerHTML =
+            temperature + "°C";
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Hugo | Mijn persoonlijke website
-    </footer>
+        let weather = "Onbekend 🌤️";
+
+        if (code === 0) {
+            weather = "Zonnig ☀️";
+        } else if (code <= 3) {
+            weather = "Bewolkt ⛅";
+        } else if (code <= 48) {
+            weather = "Mistig 🌫️";
+        } else if (code <= 67) {
+            weather = "Regen 🌧️";
+        } else if (code <= 77) {
+            weather = "Sneeuw ❄️";
+        } else if (code >= 80) {
+            weather = "Regenbuien 🌦️";
+        }
+
+        document.getElementById("weatherText").innerHTML = weather;
+    })
+    .catch(error => {
+        document.getElementById("temperature").innerHTML = "Geen data";
+        document.getElementById("weatherText").innerHTML =
+            "Het weer kon niet worden geladen.";
+    });
+</script>
 
 </body>
 </html>
+```
