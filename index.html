@@ -1,160 +1,231 @@
-```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hugo | Mijn website</title>
+    <title>Apple - Home</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #bfe3ff;
-            color: #102a43;
+            background: #f5f5f7;
+            color: #1d1d1f;
         }
 
-        header {
+        /* Navigatie */
+        nav {
+            height: 48px;
+            background: rgba(0, 0, 0, 0.92);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 20px 7%;
-            background: rgba(255, 255, 255, 0.7);
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 38px;
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 38px;
         }
 
         nav a {
+            color: #ddd;
             text-decoration: none;
-            color: #102a43;
-            margin-left: 25px;
-            font-weight: bold;
+            font-size: 14px;
+            transition: 0.2s;
         }
 
         nav a:hover {
-            color: #1683d8;
-        }
-
-        .hero {
-            height: 420px;
-            margin: 20px 3%;
-            border-radius: 20px;
-            background-image:
-                linear-gradient(rgba(0, 80, 150, 0.2), rgba(0, 80, 150, 0.3)),
-                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80");
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             color: white;
         }
 
-        .hero h2 {
-            font-size: 75px;
-            text-shadow: 3px 3px 10px #000;
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 650px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: white;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 25px;
-            margin-top: 10px;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #555;
         }
 
-        .content {
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            background: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .button:hover {
+            background: #0077ed;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: #0071e3;
+            border: 1px solid #0071e3;
+        }
+
+        .button-outline:hover {
+            background: #0071e3;
+            color: white;
+        }
+
+        /* Product afbeelding */
+        .phone {
+            margin-top: 50px;
+            width: 220px;
+            height: 400px;
+            background: linear-gradient(145deg, #222, #777);
+            border-radius: 38px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+            position: relative;
+        }
+
+        .phone::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85px;
+            height: 25px;
+            background: black;
+            border-radius: 20px;
+        }
+
+        .phone::after {
+            content: "";
+            color: white;
+            font-size: 45px;
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Product kaarten */
+        .products {
+            padding: 70px 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+
+        .cards {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin: 30px 7%;
         }
 
         .card {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 25px;
+            padding: 40px 25px;
+            text-align: center;
+            min-height: 400px;
+            transition: 0.3s;
         }
 
-        .card h2 {
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
             font-size: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .weather {
-            text-align: center;
+        .card p {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 25px;
         }
 
-        #temperature {
-            font-size: 55px;
-            font-weight: bold;
-            margin: 20px;
-        }
-
-        #weatherText {
-            font-size: 20px;
-        }
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .about p {
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .facts {
-            margin-top: 20px;
-            line-height: 2;
-        }
-
-        .photos img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 15px;
-        }
-
-        .hobbies {
+        .product-icon {
+            height: 190px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            font-size: 70px;
+            font-size: 110px;
+            margin-bottom: 10px;
         }
 
+        /* Footer */
         footer {
+            background: #1d1d1f;
+            color: #aaa;
+            padding: 40px;
             text-align: center;
-            padding: 35px;
-            font-size: 16px;
+            margin-top: 40px;
         }
 
+        footer h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        /* Mobiel */
         @media (max-width: 800px) {
-            .content {
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 21px;
+            }
+
+            .cards {
                 grid-template-columns: 1fr;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .hero h2 {
-                font-size: 50px;
             }
         }
     </style>
@@ -162,152 +233,69 @@
 
 <body>
 
-<header>
-    <h1>Hugo</h1>
-
+    <!-- Navigatie -->
     <nav>
-        <a href="#home">Home</a>
-        <a href="#overmij">Over mij</a>
-        <a href="#hobby">Hobby's</a>
+        <ul>
+            <li class="logo"></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Mac</a></li>
+            <li><a href="#">iPhone</a></li>
+            <li><a href="#">iPad</a></li>
+            <li><a href="#">Watch</a></li>
+            <li><a href="#">AirPods</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
     </nav>
-</header>
 
-<section class="hero" id="home">
-    <div>
-        <h2>Hugo</h2>
-        <p>⚽ Voetbal • 🎮 Gamen • 🎿 Skiën</p>
-    </div>
-</section>
+    <!-- Hoofdsectie -->
+    <section class="hero">
+        <h1>iPhone</h1>
+        <p>Powerful. Beautiful. Different.</p>
 
-<div class="content">
-
-    <!-- WEER -->
-    <section class="card weather">
-        <h2>🌤️ Het weer in Zoeterwoude</h2>
-
-        <p>Het is nu:</p>
-
-        <div id="temperature">Laden...</div>
-
-        <p id="weatherText">Weer wordt opgehaald...</p>
-
-        <div class="hobbies">
-            ⚽ 🎿
+        <div class="buttons">
+            <a href="#" class="button">Bekijk iPhone</a>
+            <a href="#" class="button button-outline">Meer informatie</a>
         </div>
+
+        <div class="phone"></div>
     </section>
 
-    <!-- OVER MIJ -->
-    <section class="card" id="overmij">
+    <!-- Producten -->
+    <section class="products">
+        <h2>Ontdek onze producten</h2>
 
-        <div class="about">
+        <div class="cards">
 
-            <div>
-                <h2>👋 Over mij</h2>
-
-                <p>
-                    Hallo! Ik ben Hugo. Ik woon in Zoeterwoude en ik zit
-                    op het Vlietland College.
-                </p>
-
-                <p>
-                    Ik vind het heel leuk om te voetballen. In mijn vrije
-                    tijd speel ik ook graag games, vooral Rocket League.
-                    Daarnaast vind ik skiën erg leuk.
-                </p>
-
-                <div class="facts">
-                    👤 <b>Naam:</b> Hugo<br>
-                    🏠 <b>Woonplaats:</b> Zoeterwoude<br>
-                    🏫 <b>School:</b> Vlietland College<br>
-                    ⚽ <b>Hobby:</b> Voetbal<br>
-                    🎮 <b>Game:</b> Rocket League<br>
-                    🎿 <b>Ook leuk:</b> Skiën
-                </div>
+            <div class="card">
+                <div class="product-icon">💻</div>
+                <h3>MacBook</h3>
+                <p>Krachtig genoeg voor alles wat je wilt doen.</p>
+                <a href="#" class="button">Bekijk</a>
             </div>
 
-            <div class="photos">
+            <div class="card">
+                <div class="product-icon">📱</div>
+                <h3>iPhone</h3>
+                <p>Een nieuwe generatie iPhone.</p>
+                <a href="#" class="button">Bekijk</a>
+            </div>
 
-                <!-- Voetbal -->
-                <img
-                    src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80"
-                    alt="Voetbal"
-                >
-
-                <!-- Skiën -->
-                <img
-                    src="https://images.unsplash.com/photo-1551524559-8af4e6624178?auto=format&fit=crop&w=600&q=80"
-                    alt="Skiën in de bergen"
-                >
-
+            <div class="card">
+                <div class="product-icon">⌚</div>
+                <h3>Apple Watch</h3>
+                <p>Technologie om je pols.</p>
+                <a href="#" class="button">Bekijk</a>
             </div>
 
         </div>
     </section>
 
-</div>
-
-<section class="card" id="hobby" style="margin: 30px 7%; text-align: center;">
-    <h2>⚽ Mijn hobby's</h2>
-
-    <p style="font-size: 20px;">
-        Voetbal is een van mijn favoriete hobby's.
-        Ik vind het leuk om wedstrijden te kijken en zelf te voetballen.
-        Ook speel ik graag Rocket League en vind ik skiën leuk.
-    </p>
-
-    <div class="hobbies">
-        ⚽ 🎮 🎿
-    </div>
-</section>
-
-<footer>
-    © 2026 Hugo | Mijn persoonlijke website
-</footer>
-
-
-<script>
-    // Weer voor Zoeterwoude
-    // Coördinaten van Zoeterwoude
-    const latitude = 52.12;
-    const longitude = 4.50;
-
-    fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&timezone=Europe%2FAmsterdam`
-    )
-    .then(response => response.json())
-    .then(data => {
-
-        const temperature = data.current.temperature_2m;
-        const code = data.current.weather_code;
-
-        document.getElementById("temperature").innerHTML =
-            temperature + "°C";
-
-        let weather = "Onbekend 🌤️";
-
-        if (code === 0) {
-            weather = "Zonnig ☀️";
-        } else if (code <= 3) {
-            weather = "Bewolkt ⛅";
-        } else if (code <= 48) {
-            weather = "Mistig 🌫️";
-        } else if (code <= 67) {
-            weather = "Regen 🌧️";
-        } else if (code <= 77) {
-            weather = "Sneeuw ❄️";
-        } else if (code >= 80) {
-            weather = "Regenbuien 🌦️";
-        }
-
-        document.getElementById("weatherText").innerHTML = weather;
-    })
-    .catch(error => {
-        document.getElementById("temperature").innerHTML = "Geen data";
-        document.getElementById("weatherText").innerHTML =
-            "Het weer kon niet worden geladen.";
-    });
-</script>
+    <!-- Footer -->
+    <footer>
+        <h3> Apple</h3>
+        <p>Een zelfgemaakte Apple-geïnspireerde website.</p>
+        <p>© 2026 Mijn Website</p>
+    </footer>
 
 </body>
 </html>
-```
