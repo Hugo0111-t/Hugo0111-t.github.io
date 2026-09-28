@@ -55,6 +55,7 @@
             );
         }
 
+        /* TEKST */
         .content {
             text-align: center;
             margin-top: 50px;
@@ -69,23 +70,29 @@
             font-size: 20px;
         }
 
-        /* GROTE KAART / AFBEELDING */
+        /* BERGEN FOTO */
         .afbeelding {
             position: absolute;
             right: 60px;
             bottom: 70px;
-            width: 350px;
-            height: 220px;
-            background-color: white;
+
+            width: 400px;
+            height: 250px;
+
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80");
+            background-size: cover;
+            background-position: center;
 
-            font-size: 28px;
-            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+            transition: transform 0.3s;
+        }
+
+        /* FOTO GROTER BIJ HOVER */
+        .afbeelding:hover {
+            transform: scale(1.03);
         }
 
         /* FOOTER */
@@ -93,9 +100,12 @@
             position: absolute;
             left: 40px;
             bottom: 20px;
+
             background-color: white;
             padding: 25px 35px;
+
             border-radius: 15px;
+
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
     </style>
@@ -113,7 +123,6 @@
         </div>
     </header>
 
-
     <main class="achtergrond">
 
         <div class="content">
@@ -121,12 +130,11 @@
             <p>Dit is mijn website</p>
         </div>
 
-        <div class="afbeelding">
-            AFBEELDING
-        </div>
+        <!-- BERGEN MET ZONSONDERGANG -->
+        <div class="afbeelding"></div>
 
         <footer>
-            Footer<br>
+            <b>Footer</b><br>
             © 2026 Mijn Website
         </footer>
 
