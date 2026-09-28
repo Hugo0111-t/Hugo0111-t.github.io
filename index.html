@@ -3,299 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple - Home</title>
+    <title>Mijn Website</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
-            background: #f5f5f7;
-            color: #1d1d1f;
+            font-family: Arial, sans-serif;
+            background-color: #dff3ff;
+            min-height: 100vh;
         }
 
-        /* Navigatie */
-        nav {
-            height: 48px;
-            background: rgba(0, 0, 0, 0.92);
+        /* HEADER */
+        header {
+            height: 90px;
+            background-color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 38px;
-        }
-
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        nav a:hover {
-            color: white;
+            justify-content: space-between;
+            padding: 0 50px;
+            border-bottom: 2px solid #ddd;
         }
 
         .logo {
-            color: white;
-            font-size: 22px;
+            background-color: #e9e9e9;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 24px;
             font-weight: bold;
         }
 
-        /* Hero */
-        .hero {
-            min-height: 650px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: white;
-            padding: 50px 20px;
+        .menu {
+            background-color: #e9e9e9;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
-        .hero h1 {
-            font-size: 64px;
-            font-weight: 700;
+        /* ACHTERGROND */
+        .achtergrond {
+            min-height: 600px;
+            padding: 60px;
+            position: relative;
+            background: linear-gradient(
+                rgba(190, 230, 255, 0.7),
+                rgba(220, 245, 255, 0.9)
+            );
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .content h1 {
+            font-size: 50px;
             margin-bottom: 15px;
         }
 
-        .hero p {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #555;
+        .content p {
+            font-size: 20px;
         }
 
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .button {
-            background: #0071e3;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-
-        .button:hover {
-            background: #0077ed;
-        }
-
-        .button-outline {
-            background: transparent;
-            color: #0071e3;
-            border: 1px solid #0071e3;
-        }
-
-        .button-outline:hover {
-            background: #0071e3;
-            color: white;
-        }
-
-        /* Product afbeelding */
-        .phone {
-            margin-top: 50px;
-            width: 220px;
-            height: 400px;
-            background: linear-gradient(145deg, #222, #777);
-            border-radius: 38px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-            position: relative;
-        }
-
-        .phone::before {
-            content: "";
+        /* GROTE KAART / AFBEELDING */
+        .afbeelding {
             position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85px;
-            height: 25px;
-            background: black;
+            right: 60px;
+            bottom: 70px;
+            width: 350px;
+            height: 220px;
+            background-color: white;
             border-radius: 20px;
-        }
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 
-        .phone::after {
-            content: "";
-            color: white;
-            font-size: 45px;
-            position: absolute;
-            top: 47%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Product kaarten */
-        .products {
-            padding: 70px 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .products h2 {
-            text-align: center;
-            font-size: 42px;
-            margin-bottom: 40px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px 25px;
-            text-align: center;
-            min-height: 400px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-
-        .card h3 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #666;
-            font-size: 17px;
-            margin-bottom: 25px;
-        }
-
-        .product-icon {
-            height: 190px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 110px;
-            margin-bottom: 10px;
+
+            font-size: 28px;
+            font-weight: bold;
         }
 
-        /* Footer */
+        /* FOOTER */
         footer {
-            background: #1d1d1f;
-            color: #aaa;
-            padding: 40px;
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        footer h3 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        /* Mobiel */
-        @media (max-width: 800px) {
-            nav ul {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .hero h1 {
-                font-size: 45px;
-            }
-
-            .hero p {
-                font-size: 21px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
+            position: absolute;
+            left: 40px;
+            bottom: 20px;
+            background-color: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Navigatie -->
-    <nav>
-        <ul>
-            <li class="logo"></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Mac</a></li>
-            <li><a href="#">iPhone</a></li>
-            <li><a href="#">iPad</a></li>
-            <li><a href="#">Watch</a></li>
-            <li><a href="#">AirPods</a></li>
-            <li><a href="#">Support</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hoofdsectie -->
-    <section class="hero">
-        <h1>iPhone</h1>
-        <p>Powerful. Beautiful. Different.</p>
-
-        <div class="buttons">
-            <a href="#" class="button">Bekijk iPhone</a>
-            <a href="#" class="button button-outline">Meer informatie</a>
+    <header>
+        <div class="logo">
+            LOGO
         </div>
 
-        <div class="phone"></div>
-    </section>
-
-    <!-- Producten -->
-    <section class="products">
-        <h2>Ontdek onze producten</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="product-icon">💻</div>
-                <h3>MacBook</h3>
-                <p>Krachtig genoeg voor alles wat je wilt doen.</p>
-                <a href="#" class="button">Bekijk</a>
-            </div>
-
-            <div class="card">
-                <div class="product-icon">📱</div>
-                <h3>iPhone</h3>
-                <p>Een nieuwe generatie iPhone.</p>
-                <a href="#" class="button">Bekijk</a>
-            </div>
-
-            <div class="card">
-                <div class="product-icon">⌚</div>
-                <h3>Apple Watch</h3>
-                <p>Technologie om je pols.</p>
-                <a href="#" class="button">Bekijk</a>
-            </div>
-
+        <div class="menu">
+            MENU ☰
         </div>
-    </section>
+    </header>
 
-    <!-- Footer -->
-    <footer>
-        <h3> Apple</h3>
-        <p>Een zelfgemaakte Apple-geïnspireerde website.</p>
-        <p>© 2026 Mijn Website</p>
-    </footer>
+
+    <main class="achtergrond">
+
+        <div class="content">
+            <h1>Welkom!</h1>
+            <p>Dit is mijn website</p>
+        </div>
+
+        <div class="afbeelding">
+            AFBEELDING
+        </div>
+
+        <footer>
+            Footer<br>
+            © 2026 Mijn Website
+        </footer>
+
+    </main>
 
 </body>
 </html>
