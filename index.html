@@ -31,6 +31,8 @@
             padding: 0 50px;
 
             border-bottom: 2px solid #ddd;
+
+            position: relative;
         }
 
         /* NAAM */
@@ -38,6 +40,36 @@
             font-size: 28px;
             font-weight: bold;
             color: #222;
+        }
+
+        /* WEERBLOK */
+        .weer {
+            position: absolute;
+
+            left: 150px;
+            top: 12px;
+
+            background: #f3f8fc;
+
+            padding: 8px 14px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+            min-width: 150px;
+        }
+
+        .weer-titel {
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: #222;
+        }
+
+        .weer-info {
+            color: #555;
         }
 
         /* MENU */
@@ -146,8 +178,25 @@
                 padding: 0 20px;
             }
 
+            .logo {
+                font-size: 24px;
+            }
+
+            .weer {
+                left: 20px;
+                top: 58px;
+            }
+
+            .menu {
+                padding: 12px 18px;
+            }
+
             .achtergrond {
                 padding: 30px 20px;
+            }
+
+            .content {
+                margin-top: 80px;
             }
 
             .content h1 {
@@ -183,9 +232,22 @@
     <!-- HEADER -->
     <header>
 
-        <!-- JOUW NAAM -->
+        <!-- NAAM -->
         <div class="logo">
             Hugo T
+        </div>
+
+        <!-- ACTUEEL WEER LEIDEN -->
+        <div class="weer">
+
+            <div class="weer-titel">
+                🌤️ Leiden
+            </div>
+
+            <div class="weer-info" id="weerInfo">
+                Weer laden...
+            </div>
+
         </div>
 
         <!-- MENU -->
@@ -210,7 +272,7 @@
         </div>
 
 
-        <!-- FOTO VAN DE BERGEN -->
+        <!-- BERGEN MET ZONSONDERGANG -->
         <div class="afbeelding"></div>
 
 
@@ -224,6 +286,86 @@
         </footer>
 
     </main>
+
+
+    <!-- WEER SCRIPT -->
+    <script>
+
+        async function laadWeer() {
+
+            const latitude = 52.1601;
+            const longitude = 4.4970;
+
+            const url =
+                `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=Europe%2FAmsterdam`;
+
+            try {
+
+                const response = await fetch(url);
+
+                const data = await response.json();
+
+                const weer = data.current;
+
+                const temperatuur = Math.round(weer.temperature_2m);
+                const gevoel = Math.round(weer.apparent_temperature);
+                const wind = Math.round(weer.wind_speed_10m);
+
+                const code = weer.weather_code;
+
+                let omschrijving = "Onbekend";
+                let emoji = "🌤️";
+
+                if (code === 0) {
+                    omschrijving = "Onbewolkt";
+                    emoji = "☀️";
+                }
+                else if (code <= 3) {
+                    omschrijving = "Bewolkt";
+                    emoji = "🌤️";
+                }
+                else if (code <= 48) {
+                    omschrijving = "Mistig";
+                    emoji = "🌫️";
+                }
+                else if (code <= 67) {
+                    omschrijving = "Regen";
+                    emoji = "🌧️";
+                }
+                else if (code <= 77) {
+                    omschrijving = "Sneeuw";
+                    emoji = "❄️";
+                }
+                else if (code <= 82) {
+                    omschrijving = "Buien";
+                    emoji = "🌦️";
+                }
+                else if (code <= 99) {
+                    omschrijving = "Onweer";
+                    emoji = "⛈️";
+                }
+
+                document.getElementById("weerInfo").innerHTML =
+                    `${emoji} ${temperatuur}°C · ${omschrijving}<br>
+                     Gevoel ${gevoel}°C · Wind ${wind} km/u`;
+
+            }
+
+            catch (error) {
+
+                document.getElementById("weerInfo").innerHTML =
+                    "Weer tijdelijk niet beschikbaar";
+
+            }
+
+        }
+
+        laadWeer();
+
+        // Vernieuw het weer iedere 10 minuten
+        setInterval(laadWeer, 600000);
+
+    </script>
 
 </body>
 </html>
