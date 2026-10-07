@@ -24,15 +24,11 @@
         header {
             height: 90px;
             background-color: white;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 0 50px;
-
             border-bottom: 2px solid #ddd;
-
             position: relative;
         }
 
@@ -43,23 +39,16 @@
             color: #222;
         }
 
-        /* WEERBLOK */
+        /* WEER */
         .weer {
             position: absolute;
-
             left: 150px;
             top: 12px;
-
             background: #f3f8fc;
-
             padding: 8px 14px;
-
             border-radius: 10px;
-
             font-size: 13px;
-
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
             min-width: 150px;
         }
 
@@ -73,29 +62,106 @@
             color: #555;
         }
 
-        /* MENU */
-        .menu {
-            background-color: #e9e9e9;
+        /* ZOEKBALK */
+        .zoek-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
 
-            padding: 15px 25px;
+            display: flex;
+            align-items: center;
 
-            border-radius: 10px;
+            width: 400px;
+            height: 45px;
 
-            cursor: pointer;
-
-            font-size: 16px;
+            background-color: #f1f3f4;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            padding-left: 18px;
         }
 
-        .menu:hover {
+        .zoek-input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .zoek-knop {
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 15px;
+        }
+
+        /* MENU */
+        .menu-container {
+            position: relative;
+        }
+
+        .menu-knop {
+            background-color: #e9e9e9;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+        }
+
+        .menu-knop:hover {
             background-color: #d8d8d8;
+        }
+
+        /* UITKLAPMENU */
+        .menu-inhoud {
+            display: none;
+
+            position: absolute;
+            right: 0;
+            top: 55px;
+
+            width: 200px;
+
+            background-color: white;
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+
+            overflow: hidden;
+
+            z-index: 100;
+        }
+
+        .menu-inhoud.open {
+            display: block;
+        }
+
+        .menu-inhoud a {
+            display: block;
+
+            padding: 15px 18px;
+
+            text-decoration: none;
+
+            color: #222;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+        }
+
+        .menu-inhoud a:hover {
+            background-color: #e9f6ff;
         }
 
         /* ACHTERGROND */
         .achtergrond {
             min-height: 600px;
-
             padding: 60px;
-
             position: relative;
 
             background: linear-gradient(
@@ -107,25 +173,21 @@
         /* TEKST */
         .content {
             text-align: center;
-
             margin-top: 50px;
         }
 
         .content h1 {
             font-size: 50px;
-
             margin-bottom: 15px;
-
             color: #1c1c1c;
         }
 
         .content p {
             font-size: 20px;
-
             color: #444;
         }
 
-        /* BERGEN MET ZONSONDERGANG */
+        /* BERGEN */
         .afbeelding {
             position: absolute;
 
@@ -145,13 +207,6 @@
             background-position: center;
 
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-
-            transition: transform 0.3s;
-        }
-
-        /* FOTO WORDT IETS GROTER */
-        .afbeelding:hover {
-            transform: scale(1.03);
         }
 
         /* TELEFOON */
@@ -170,7 +225,11 @@
                 top: 58px;
             }
 
-            .menu {
+            .zoek-container {
+                width: 250px;
+            }
+
+            .menu-knop {
                 padding: 12px 18px;
             }
 
@@ -188,13 +247,10 @@
 
             .afbeelding {
                 position: relative;
-
                 right: auto;
                 bottom: auto;
-
                 width: 100%;
                 height: 250px;
-
                 margin-top: 100px;
             }
         }
@@ -206,12 +262,11 @@
     <!-- HEADER -->
     <header>
 
-        <!-- NAAM -->
         <div class="logo">
             Hugo T
         </div>
 
-        <!-- ACTUEEL WEER LEIDEN -->
+        <!-- WEER -->
         <div class="weer">
 
             <div class="weer-titel">
@@ -224,9 +279,61 @@
 
         </div>
 
+        <!-- ZOEKBALK -->
+        <form class="zoek-container" onsubmit="zoekGoogle(event)">
+
+            <input
+                type="text"
+                id="zoekInput"
+                class="zoek-input"
+                placeholder="Zoeken..."
+            >
+
+            <button
+                type="submit"
+                class="zoek-knop">
+                🔍
+            </button>
+
+        </form>
+
         <!-- MENU -->
-        <div class="menu">
-            MENU ☰
+        <div class="menu-container">
+
+            <button class="menu-knop" onclick="toggleMenu()">
+                MENU ☰
+            </button>
+
+            <!--
+            ==========================================
+            HIER KUN JE ZELF JE MENU AANPASSEN
+            ==========================================
+            -->
+
+            <div class="menu-inhoud" id="menuInhoud">
+
+                <!-- MENU ITEM 1 -->
+                <a href="#" onclick="veranderPagina('Home', 'Welkom op mijn website')">
+                    🏠 Home
+                </a>
+
+                <!-- MENU ITEM 2 -->
+                <a href="#" onclick="veranderPagina('Over mij', 'Hoi! Ik ben Hugo.')">
+                    👤 Over mij
+                </a>
+
+                <!-- MENU ITEM 3 -->
+                <a href="#" onclick="veranderPagina('Voetbal', 'Ik hou van voetbal ⚽')">
+                    ⚽ Voetbal
+                </a>
+
+                <!-- MENU ITEM 4 -->
+                <a href="#" onclick="veranderPagina('Rocket League', 'Ik speel graag Rocket League 🎮')">
+                    🎮 Rocket League
+                </a>
+
+            </div>
+
         </div>
 
     </header>
@@ -237,23 +344,80 @@
 
         <div class="content">
 
-            <h1>Welkom</h1>
+            <h1 id="titel">
+                Welkom
+            </h1>
 
-            <p>
+            <p id="tekst">
                 Op mijn website
             </p>
 
         </div>
 
-
-        <!-- BERGEN MET ZONSONDERGANG -->
         <div class="afbeelding"></div>
 
     </main>
 
 
-    <!-- WEER SCRIPT -->
     <script>
+
+        /* ==============================
+           MENU OPENEN / SLUITEN
+        ============================== */
+
+        function toggleMenu() {
+
+            const menu =
+                document.getElementById("menuInhoud");
+
+            menu.classList.toggle("open");
+        }
+
+
+        /* ==============================
+           PAGINA AANPASSEN
+        ============================== */
+
+        function veranderPagina(titel, tekst) {
+
+            document.getElementById("titel").innerText =
+                titel;
+
+            document.getElementById("tekst").innerText =
+                tekst;
+
+            document
+                .getElementById("menuInhoud")
+                .classList.remove("open");
+        }
+
+
+        /* ==============================
+           GOOGLE ZOEKEN
+        ============================== */
+
+        function zoekGoogle(event) {
+
+            event.preventDefault();
+
+            const zoekopdracht =
+                document.getElementById("zoekInput").value.trim();
+
+            if (zoekopdracht !== "") {
+
+                window.open(
+                    "https://www.google.com/search?q=" +
+                    encodeURIComponent(zoekopdracht),
+                    "_blank"
+                );
+
+            }
+        }
+
+
+        /* ==============================
+           WEER LEIDEN
+        ============================== */
 
         async function laadWeer() {
 
@@ -271,11 +435,17 @@
 
                 const weer = data.current;
 
-                const temperatuur = Math.round(weer.temperature_2m);
-                const gevoel = Math.round(weer.apparent_temperature);
-                const wind = Math.round(weer.wind_speed_10m);
+                const temperatuur =
+                    Math.round(weer.temperature_2m);
 
-                const code = weer.weather_code;
+                const gevoel =
+                    Math.round(weer.apparent_temperature);
+
+                const wind =
+                    Math.round(weer.wind_speed_10m);
+
+                const code =
+                    weer.weather_code;
 
                 let omschrijving = "Onbekend";
                 let emoji = "🌤️";
@@ -321,12 +491,10 @@
                     "Weer tijdelijk niet beschikbaar";
 
             }
-
         }
 
         laadWeer();
- bal
-        // Vernieuw het weer iedere 10 minuten
+
         setInterval(laadWeer, 600000);
 
     </script>
