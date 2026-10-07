@@ -46,12 +46,10 @@
         /* WEERBLOK */
         .weer {
             position: absolute;
-
             left: 150px;
             top: 12px;
 
             background: #f3f8fc;
-
             padding: 8px 14px;
 
             border-radius: 10px;
@@ -71,6 +69,67 @@
 
         .weer-info {
             color: #555;
+        }
+
+        /* ZOEKBALK */
+        .zoek-container {
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            align-items: center;
+
+            width: 400px;
+            height: 45px;
+
+            background-color: #f1f3f4;
+
+            border: 1px solid #ddd;
+
+            border-radius: 25px;
+
+            padding-left: 18px;
+
+            transition: 0.2s;
+        }
+
+        .zoek-container:focus-within {
+            background-color: white;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .zoek-input {
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            width: 100%;
+
+            font-size: 16px;
+
+            padding: 5px;
+        }
+
+        .zoek-knop {
+            border: none;
+
+            background: transparent;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            padding: 0 15px;
+        }
+
+        .zoek-knop:hover {
+            transform: scale(1.1);
         }
 
         /* MENU */
@@ -149,7 +208,6 @@
             transition: transform 0.3s;
         }
 
-        /* FOTO WORDT IETS GROTER */
         .afbeelding:hover {
             transform: scale(1.03);
         }
@@ -168,6 +226,10 @@
             .weer {
                 left: 20px;
                 top: 58px;
+            }
+
+            .zoek-container {
+                width: 250px;
             }
 
             .menu {
@@ -224,6 +286,26 @@
 
         </div>
 
+        <!-- ZOEKBALK -->
+        <form class="zoek-container" onsubmit="zoekGoogle(event)">
+
+            <input
+                type="text"
+                id="zoekInput"
+                class="zoek-input"
+                placeholder="Zoeken..."
+                autocomplete="off"
+            >
+
+            <button
+                type="submit"
+                class="zoek-knop"
+                aria-label="Zoeken">
+                🔍
+            </button>
+
+        </form>
+
         <!-- MENU -->
         <div class="menu">
             MENU ☰
@@ -245,15 +327,125 @@
 
         </div>
 
-
         <!-- BERGEN MET ZONSONDERGANG -->
         <div class="afbeelding"></div>
 
     </main>
 
 
-    <!-- WEER SCRIPT -->
+    <!-- SCRIPTS -->
     <script>
 
-        async funct
+        /* GOOGLE ZOEKEN */
+        function zoekGoogle(event) {
+
+            event.preventDefault();
+
+            const zoekopdracht =
+                document.getElementById("zoekInput").value.trim();
+
+            if (zoekopdracht !== "") {
+
+                window.open(
+                    "https://www.google.com/search?q=" +
+                    encodeURIComponent(zoekopdracht),
+                    "_blank"
+                );
+
+            }
+
+        }
+
+
+        /* WEER */
+        async function laadWeer() {
+
+            const latitude = 52.1601;
+            const longitude = 4.4970;
+
+            const url =
+                `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=Europe%2FAmsterdam`;
+
+            try {
+
+                const response = await fetch(url);
+
+                const data = await response.json();
+
+                const weer = data.current;
+
+                const temperatuur =
+                    Math.round(weer.temperature_2m);
+
+                const gevoel =
+                    Math.round(weer.apparent_temperature);
+
+                const wind =
+                    Math.round(weer.wind_speed_10m);
+
+                const code =
+                    weer.weather_code;
+
+                let omschrijving = "Onbekend";
+                let emoji = "🌤️";
+
+                if (code === 0) {
+                    omschrijving = "Onbewolkt";
+                    emoji = "☀️";
+                }
+
+                else if (code <= 3) {
+                    omschrijving = "Bewolkt";
+                    emoji = "🌤️";
+                }
+
+                else if (code <= 48) {
+                    omschrijving = "Mistig";
+                    emoji = "🌫️";
+                }
+
+                else if (code <= 67) {
+                    omschrijving = "Regen";
+                    emoji = "🌧️";
+                }
+
+                else if (code <= 77) {
+                    omschrijving = "Sneeuw";
+                    emoji = "❄️";
+                }
+
+                else if (code <= 82) {
+                    omschrijving = "Buien";
+                    emoji = "🌦️";
+                }
+
+                else if (code <= 99) {
+                    omschrijving = "Onweer";
+                    emoji = "⛈️";
+                }
+
+                document.getElementById("weerInfo").innerHTML =
+                    `${emoji} ${temperatuur}°C · ${omschrijving}<br>
+                     Gevoel ${gevoel}°C · Wind ${wind} km/u`;
+
+            }
+
+            catch (error) {
+
+                document.getElementById("weerInfo").innerHTML =
+                    "Weer tijdelijk niet beschikbaar";
+
+            }
+
+        }
+
+        laadWeer();
+
+        // Vernieuw het weer iedere 10 minuten
+        setInterval(laadWeer, 600000);
+
+    </script>
+
+</body>
+</html>
 ```
