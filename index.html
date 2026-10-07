@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -153,24 +154,6 @@
             transform: scale(1.03);
         }
 
-        /* FOOTER */
-        footer {
-            position: absolute;
-
-            left: 40px;
-            bottom: 20px;
-
-            background-color: white;
-
-            padding: 25px 35px;
-
-            border-radius: 15px;
-
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-
-            color: #333;
-        }
-
         /* TELEFOON */
         @media (max-width: 700px) {
 
@@ -213,15 +196,6 @@
                 height: 250px;
 
                 margin-top: 100px;
-            }
-
-            footer {
-                position: relative;
-
-                left: auto;
-                bottom: auto;
-
-                margin-top: 30px;
             }
         }
     </style>
@@ -275,97 +249,11 @@
         <!-- BERGEN MET ZONSONDERGANG -->
         <div class="afbeelding"></div>
 
-
-        <!-- FOOTER -->
-        <footer>
-
-            <b>Footer</b><br>
-
-            © 2026 Hugo T
-
-        </footer>
-
     </main>
 
 
     <!-- WEER SCRIPT -->
     <script>
 
-        async function laadWeer() {
-
-            const latitude = 52.1601;
-            const longitude = 4.4970;
-
-            const url =
-                `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=Europe%2FAmsterdam`;
-
-            try {
-
-                const response = await fetch(url);
-
-                const data = await response.json();
-
-                const weer = data.current;
-
-                const temperatuur = Math.round(weer.temperature_2m);
-                const gevoel = Math.round(weer.apparent_temperature);
-                const wind = Math.round(weer.wind_speed_10m);
-
-                const code = weer.weather_code;
-
-                let omschrijving = "Onbekend";
-                let emoji = "🌤️";
-
-                if (code === 0) {
-                    omschrijving = "Onbewolkt";
-                    emoji = "☀️";
-                }
-                else if (code <= 3) {
-                    omschrijving = "Bewolkt";
-                    emoji = "🌤️";
-                }
-                else if (code <= 48) {
-                    omschrijving = "Mistig";
-                    emoji = "🌫️";
-                }
-                else if (code <= 67) {
-                    omschrijving = "Regen";
-                    emoji = "🌧️";
-                }
-                else if (code <= 77) {
-                    omschrijving = "Sneeuw";
-                    emoji = "❄️";
-                }
-                else if (code <= 82) {
-                    omschrijving = "Buien";
-                    emoji = "🌦️";
-                }
-                else if (code <= 99) {
-                    omschrijving = "Onweer";
-                    emoji = "⛈️";
-                }
-
-                document.getElementById("weerInfo").innerHTML =
-                    `${emoji} ${temperatuur}°C · ${omschrijving}<br>
-                     Gevoel ${gevoel}°C · Wind ${wind} km/u`;
-
-            }
-
-            catch (error) {
-
-                document.getElementById("weerInfo").innerHTML =
-                    "Weer tijdelijk niet beschikbaar";
-
-            }
-
-        }
-
-        laadWeer();
-
-        // Vernieuw het weer iedere 10 minuten
-        setInterval(laadWeer, 600000);
-
-    </script>
-
-</body>
-</html>
+        async funct
+```
