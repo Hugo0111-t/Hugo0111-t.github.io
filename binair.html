@@ -1,0 +1,359 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binair stelsel | Hugo T</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dff3ff, #f4faff);
+            color: #17324d;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #1877c9;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #17324d;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #1877c9;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px #17324d12;
+        }
+
+        h2 {
+            color: #1877c9;
+            margin-bottom: 12px;
+        }
+
+        .numbers {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .number {
+            background: #e4f3ff;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .game-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+        }
+
+        .game-image {
+            width: 100%;
+            max-width: 600px;
+            min-height: 180px;
+            margin: 15px auto;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #10234a, #1877c9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            transition: transform 0.2s;
+        }
+
+        .game-image:hover {
+            transform: scale(1.02);
+        }
+
+        .game-image .binary {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #8ee8ff;
+        }
+
+        .game-image .game-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .game-image .game-subtitle {
+            font-size: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            border: none;
+            background: #1877c9;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #105b9c;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #b8d5eb;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        #quizResultaat {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #5b7185;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 6px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Hugo T</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1> Het binaire stelsel</h1>
+    <p>
+        Computers gebruiken een bijzondere manier om getallen op te slaan:
+        het binaire stelsel. Ontdek hieronder hoe het werkt!
+    </p>
+</section>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Wat is het binaire stelsel?</h2>
+
+        <p>
+            Wij gebruiken meestal het tientallig stelsel. Dat betekent dat
+            we de cijfers 0 tot en met 9 gebruiken. Computers werken met
+            het binaire stelsel. Hierbij worden alleen de cijfers
+            <strong>0 en 1</strong> gebruikt.
+        </p>
+
+        <p>
+            Een 0 en een 1 worden bits genoemd. Met veel bits kan een
+            computer informatie opslaan, zoals tekst, foto's, video's
+            en spelletjes.
+        </p>
+
+        <div class="numbers">
+            <div class="number">0 = uit</div>
+            <div class="number">1 = aan</div>
+            <div class="number">8 bits = 1 byte</div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Hoe werkt het?</h2>
+
+        <p>
+            Elke plek in een binair getal heeft een waarde. Van rechts
+            naar links zijn die waarden 1, 2, 4, 8, 16, enzovoort.
+            Je telt de waarden op waar een 1 staat.
+        </p>
+
+        <p><strong>Voorbeeld: het binaire getal 1011</strong></p>
+
+        <div class="numbers">
+            <div class="number">1 × 8 = 8</div>
+            <div class="number">0 × 4 = 0</div>
+            <div class="number">1 × 2 = 2</div>
+            <div class="number">1 × 1 = 1</div>
+        </div>
+
+        <p>
+            8 + 0 + 2 + 1 = <strong>11</strong>.
+            Het binaire getal 1011 is dus 11 in het tientallig stelsel.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2>Probeer het zelf!</h2>
+
+        <p>
+            Welk gewoon getal hoort bij het binaire getal
+            <strong>110</strong>?
+        </p>
+
+        <select id="antwoord">
+            <option value="">Kies je antwoord</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+
+        <br>
+
+        <button class="button" onclick="controleerAntwoord()">
+            Controleer antwoord
+        </button>
+
+        <p id="quizResultaat"></p>
+    </section>
+
+    <section class="card">
+        <h2>🎮 Speel Binary Bonanza</h2>
+
+        <p>
+            Wil je oefenen met binaire getallen? Probeer dan Binary
+            Bonanza! Klik op de afbeelding hieronder om naar het spel
+            te gaan.
+        </p>
+
+        <!-- Vervang de voorbeeldlink hieronder door de echte link -->
+        <a class="game-link"
+           href="PLAK_HIER_DE_ECHTE_BINARY_BONANZA_LINK"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Open Binary Bonanza">
+
+            <div class="game-image">
+                <div class="binary">0101 1010 1100</div>
+                <div class="game-title">BINARY BONANZA</div>
+                <div class="game-subtitle">
+                    Klik hier om het spel te openen →
+                </div>
+            </div>
+        </a>
+
+        <p>
+            <strong>Wist je dat?</strong> Computers gebruiken bits om
+            allerlei soorten informatie weer te geven. Ook afbeeldingen
+            en geluid kunnen uiteindelijk als digitale gegevens worden
+            opgeslagen.
+        </p>
+    </section>
+
+    <div style="text-align: center; margin-bottom: 35px;">
+        <a class="button" href="index.html">← Terug naar de homepage</a>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 Hugo T | Informatica
+</footer>
+
+<script>
+    function controleerAntwoord() {
+        const antwoord = document.getElementById("antwoord").value;
+        const resultaat = document.getElementById("quizResultaat");
+
+        if (antwoord === "6") {
+            resultaat.textContent = "Goed gedaan! 110 = 4 + 2 = 6.";
+            resultaat.style.color = "green";
+        } else if (antwoord === "") {
+            resultaat.textContent = "Kies eerst een antwoord.";
+            resultaat.style.color = "#b45309";
+        } else {
+            resultaat.textContent = "Helaas! Probeer het nog eens.";
+            resultaat.style.color = "#c0392b";
+        }
+    }
+</script>
+
+</body>
+</html>
+```
