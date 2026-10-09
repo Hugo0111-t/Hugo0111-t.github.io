@@ -15,31 +15,38 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #dff3ff, #f4faff);
             color: #17324d;
+            background: linear-gradient(135deg, #dff3ff, #f5faff);
             line-height: 1.7;
         }
 
         header {
-            background: #ffffff;
-            padding: 20px 8%;
+            background: white;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
             box-shadow: 0 3px 12px #00000010;
         }
 
         .logo {
-            font-size: 25px;
+            font-size: 26px;
             font-weight: bold;
             color: #1877c9;
         }
 
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         nav a {
-            text-decoration: none;
             color: #17324d;
+            text-decoration: none;
             font-weight: bold;
-            margin-left: 20px;
         }
 
         nav a:hover {
@@ -52,8 +59,8 @@
         }
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: clamp(30px, 5vw, 46px);
+            margin-bottom: 12px;
         }
 
         .hero p {
@@ -63,9 +70,9 @@
         }
 
         .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
+            width: 90%;
+            max-width: 950px;
+            margin: 0 auto;
         }
 
         .card {
@@ -81,95 +88,108 @@
             margin-bottom: 12px;
         }
 
-        .numbers {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 20px 0;
+        p {
+            margin-bottom: 12px;
         }
 
-        .number {
-            background: #e4f3ff;
-            padding: 15px 20px;
+        .example {
+            background: #eaf6ff;
+            padding: 18px;
             border-radius: 12px;
+            margin: 18px 0;
             text-align: center;
+        }
+
+        .binary-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .bit {
+            background: #1877c9;
+            color: white;
+            border-radius: 10px;
+            padding: 12px 17px;
+            font-size: 23px;
             font-weight: bold;
         }
 
         .game-link {
             display: block;
             text-decoration: none;
-            color: inherit;
-            text-align: center;
-        }
-
-        .game-image {
-            width: 100%;
-            max-width: 600px;
-            min-height: 180px;
-            margin: 15px auto;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #10234a, #1877c9);
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 25px;
-            transition: transform 0.2s;
+            margin: 20px 0;
         }
 
-        .game-image:hover {
-            transform: scale(1.02);
+        .game-banner {
+            background: linear-gradient(135deg, #10234a, #1877c9);
+            border-radius: 18px;
+            padding: 35px 15px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .game-image .binary {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 5px;
+        .game-banner:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px #1877c940;
+        }
+
+        .game-banner .digits {
             color: #8ee8ff;
+            font-size: 20px;
+            letter-spacing: 5px;
+            overflow-wrap: anywhere;
         }
 
-        .game-image .game-title {
-            font-size: 32px;
-            font-weight: bold;
-            margin: 10px 0;
+        .game-banner h3 {
+            font-size: clamp(25px, 5vw, 36px);
+            margin: 12px 0;
         }
 
-        .game-image .game-subtitle {
-            font-size: 15px;
+        .game-banner p {
+            margin: 0;
         }
 
-        .button {
+        .quiz select {
+            display: block;
+            padding: 12px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #b8d5eb;
+            border-radius: 9px;
+            font-size: 16px;
+            margin: 15px 0;
+            background: white;
+        }
+
+        button, .button {
             display: inline-block;
             border: none;
             background: #1877c9;
             color: white;
-            padding: 12px 22px;
+            padding: 12px 20px;
             border-radius: 10px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 10px;
         }
 
-        .button:hover {
+        button:hover, .button:hover {
             background: #105b9c;
         }
 
-        select {
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #b8d5eb;
-            font-size: 16px;
-            margin: 10px 0;
+        #resultaat {
+            margin-top: 15px;
+            font-weight: bold;
         }
 
-        #quizResultaat {
-            margin-top: 12px;
-            font-weight: bold;
+        .back {
+            text-align: center;
+            margin: 35px 0;
         }
 
         footer {
@@ -181,16 +201,6 @@
         @media (max-width: 600px) {
             header {
                 flex-direction: column;
-                gap: 10px;
-            }
-
-            nav a {
-                margin: 0 6px;
-                font-size: 14px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
             }
 
             .card {
@@ -212,10 +222,10 @@
 </header>
 
 <section class="hero">
-    <h1> Het binaire stelsel</h1>
+    <h1>💻 Het binaire stelsel</h1>
     <p>
-        Computers gebruiken een bijzondere manier om getallen op te slaan:
-        het binaire stelsel. Ontdek hieronder hoe het werkt!
+        Hoe begrijpt een computer getallen? Ontdek hoe computers
+        met alleen nullen en enen informatie verwerken!
     </p>
 </section>
 
@@ -225,51 +235,60 @@
         <h2>Wat is het binaire stelsel?</h2>
 
         <p>
-            Wij gebruiken meestal het tientallig stelsel. Dat betekent dat
-            we de cijfers 0 tot en met 9 gebruiken. Computers werken met
-            het binaire stelsel. Hierbij worden alleen de cijfers
-            <strong>0 en 1</strong> gebruikt.
+            Wij gebruiken meestal het tientallig stelsel. Dat betekent
+            dat we de cijfers 0 tot en met 9 gebruiken. Computers gebruiken
+            het binaire stelsel, waarin alleen de cijfers
+            <strong>0 en 1</strong> voorkomen.
         </p>
 
         <p>
-            Een 0 en een 1 worden bits genoemd. Met veel bits kan een
-            computer informatie opslaan, zoals tekst, foto's, video's
-            en spelletjes.
+            Een 0 of 1 noemen we een bit. Met bits kan een computer
+            informatie opslaan en verwerken, zoals tekst, foto's,
+            video's en games.
         </p>
 
-        <div class="numbers">
-            <div class="number">0 = uit</div>
-            <div class="number">1 = aan</div>
-            <div class="number">8 bits = 1 byte</div>
-        </div>
-    </section>
-
-    <section class="card">
-        <h2>Hoe werkt het?</h2>
-
-        <p>
-            Elke plek in een binair getal heeft een waarde. Van rechts
-            naar links zijn die waarden 1, 2, 4, 8, 16, enzovoort.
-            Je telt de waarden op waar een 1 staat.
-        </p>
-
-        <p><strong>Voorbeeld: het binaire getal 1011</strong></p>
-
-        <div class="numbers">
-            <div class="number">1 × 8 = 8</div>
-            <div class="number">0 × 4 = 0</div>
-            <div class="number">1 × 2 = 2</div>
-            <div class="number">1 × 1 = 1</div>
+        <div class="binary-numbers">
+            <div class="bit">0</div>
+            <div class="bit">1</div>
+            <div class="bit">0</div>
+            <div class="bit">1</div>
+            <div class="bit">1</div>
+            <div class="bit">0</div>
         </div>
 
         <p>
-            8 + 0 + 2 + 1 = <strong>11</strong>.
-            Het binaire getal 1011 is dus 11 in het tientallig stelsel.
+            <strong>Wist je dat?</strong> Acht bits samen vormen één byte.
+            Bytes worden onder andere gebruikt om de grootte van bestanden
+            aan te geven.
         </p>
     </section>
 
     <section class="card">
-        <h2>Probeer het zelf!</h2>
+        <h2>Hoe reken je binair?</h2>
+
+        <p>
+            Elke positie heeft een waarde. Van rechts naar links zijn dat
+            1, 2, 4, 8, 16, enzovoort. Tel de waarden op waar een 1 staat.
+        </p>
+
+        <div class="example">
+            <h3>Voorbeeld: 1011</h3>
+
+            <div class="binary-numbers">
+                <div class="bit">1</div>
+                <div class="bit">0</div>
+                <div class="bit">1</div>
+                <div class="bit">1</div>
+            </div>
+
+            <p>Waarden: 8 | 4 | 2 | 1</p>
+            <p>Berekening: 8 + 0 + 2 + 1 = <strong>11</strong></p>
+            <p>Dus 1011 binair is 11 in het tientallig stelsel.</p>
+        </div>
+    </section>
+
+    <section class="card quiz">
+        <h2>🧠 Test je kennis</h2>
 
         <p>
             Welk gewoon getal hoort bij het binaire getal
@@ -284,49 +303,44 @@
             <option value="7">7</option>
         </select>
 
-        <br>
-
-        <button class="button" onclick="controleerAntwoord()">
+        <button onclick="controleerAntwoord()">
             Controleer antwoord
         </button>
 
-        <p id="quizResultaat"></p>
+        <p id="resultaat" aria-live="polite"></p>
     </section>
 
     <section class="card">
         <h2>🎮 Speel Binary Bonanza</h2>
 
         <p>
-            Wil je oefenen met binaire getallen? Probeer dan Binary
-            Bonanza! Klik op de afbeelding hieronder om naar het spel
-            te gaan.
+            Wil je zelf oefenen met binaire getallen? Klik op de banner
+            hieronder om Binary Bonanza te openen.
         </p>
 
-        <!-- Vervang de voorbeeldlink hieronder door de echte link -->
-        <a class="game-link"
-           href=https://games.penjee.com/binary-bonanza/
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Open Binary Bonanza">
-
-            <div class="game-image">
-                <div class="binary">0101 1010 1100</div>
-                <div class="game-title">BINARY BONANZA</div>
-                <div class="game-subtitle">
-                    Klik hier om het spel te openen →
-                </div>
+        <!-- Vervang de voorbeeld-URL door de echte link naar Binary Bonanza -->
+        <a
+<a
+    class="game-link"
+    href="https://games.penjee.com/binary-bonanza/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+        >
+            <div class="game-banner">
+                <div class="digits">0101 1010 1100 0011</div>
+                <h3>BINARY BONANZA</h3>
+                <p>Klik hier om het spel te openen →</p>
             </div>
         </a>
 
         <p>
-            <strong>Wist je dat?</strong> Computers gebruiken bits om
-            allerlei soorten informatie weer te geven. Ook afbeeldingen
-            en geluid kunnen uiteindelijk als digitale gegevens worden
-            opgeslagen.
+            <strong>Waarom is dit handig?</strong> Door te oefenen leer je
+            sneller binaire getallen herkennen en omzetten.
         </p>
     </section>
 
-    <div style="text-align: center; margin-bottom: 35px;">
+    <div class="back">
         <a class="button" href="index.html">← Terug naar de homepage</a>
     </div>
 
@@ -339,16 +353,19 @@
 <script>
     function controleerAntwoord() {
         const antwoord = document.getElementById("antwoord").value;
-        const resultaat = document.getElementById("quizResultaat");
+        const resultaat = document.getElementById("resultaat");
 
         if (antwoord === "6") {
-            resultaat.textContent = "Goed gedaan! 110 = 4 + 2 = 6.";
+            resultaat.textContent =
+                "Goed gedaan! 110 = 4 + 2 = 6.";
             resultaat.style.color = "green";
         } else if (antwoord === "") {
-            resultaat.textContent = "Kies eerst een antwoord.";
+            resultaat.textContent =
+                "Kies eerst een antwoord.";
             resultaat.style.color = "#b45309";
         } else {
-            resultaat.textContent = "Helaas! Probeer het nog eens.";
+            resultaat.textContent =
+                "Dat is niet goed. Probeer het nog eens!";
             resultaat.style.color = "#c0392b";
         }
     }
