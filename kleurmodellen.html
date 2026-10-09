@@ -1,0 +1,324 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleurmodellen | Hugo T</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #dff3ff;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: white;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .terug {
+            background: #e9e9e9;
+            color: #222;
+            padding: 10px 17px;
+            border-radius: 9px;
+            text-decoration: none;
+        }
+
+        .terug:hover {
+            background: #d2eaff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px;
+            background: linear-gradient(135deg, #d8efff, #fff);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .kaart {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px #0000000c;
+        }
+
+        h2 {
+            color: #175a83;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            margin: 18px 0 8px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+
+        .kleuren {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .kleur {
+            padding: 24px 8px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .rood {
+            background: #ff4444;
+            color: white;
+        }
+
+        .groen {
+            background: #24b85a;
+            color: white;
+        }
+
+        .blauw {
+            background: #3478f6;
+            color: white;
+        }
+
+        .voorbeeld {
+            background: #edf7ff;
+            padding: 16px;
+            border-left: 5px solid #3995d6;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .quiz-vraag {
+            margin: 18px 0;
+            font-weight: bold;
+        }
+
+        .quiz-knop {
+            display: inline-block;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #1769aa;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        #antwoord {
+            margin-top: 14px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background: white;
+            padding: 22px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .kaart {
+                padding: 20px;
+            }
+
+            .kleuren {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Hugo T</div>
+    <a class="terug" href="index.html">← Terug naar home</a>
+</header>
+
+<section class="hero">
+    <h1>🎨 Kleurmodellen</h1>
+    <p>Leer hoe computers kleuren weergeven en afdrukken.</p>
+</section>
+
+<main>
+
+    <section class="kaart">
+        <h2>1. Wat is een kleurmodel?</h2>
+        <p>
+            Een kleurmodel is een manier om kleuren met getallen
+            te beschrijven. Computers gebruiken kleurmodellen om
+            kleuren op een scherm te tonen of op papier af te drukken.
+        </p>
+
+        <div class="voorbeeld">
+            <strong>Voorbeeld:</strong>
+            Een computer kan een bepaalde kleur beschrijven met
+            waarden voor rood, groen en blauw.
+        </div>
+    </section>
+
+    <section class="kaart">
+        <h2>2. Het RGB-kleurmodel</h2>
+        <p>
+            RGB staat voor Red, Green en Blue: rood, groen en blauw.
+            Dit model wordt vooral gebruikt bij beeldschermen,
+            televisies, telefoons en computermonitoren.
+        </p>
+
+        <div class="kleuren">
+            <div class="kleur rood">Rood</div>
+            <div class="kleur groen">Groen</div>
+            <div class="kleur blauw">Blauw</div>
+        </div>
+
+        <h3>Hoe werkt RGB?</h3>
+        <p>
+            De drie kleuren licht worden met elkaar gecombineerd.
+            Door de hoeveelheid licht van iedere kleur te veranderen,
+            kan een scherm veel verschillende kleuren maken.
+        </p>
+
+        <ul>
+            <li>Rood: RGB (255, 0, 0)</li>
+            <li>Groen: RGB (0, 255, 0)</li>
+            <li>Blauw: RGB (0, 0, 255)</li>
+            <li>Wit: RGB (255, 255, 255)</li>
+            <li>Zwart: RGB (0, 0, 0)</li>
+        </ul>
+
+        <div class="voorbeeld">
+            <strong>Onthouden:</strong>
+            RGB gebruikt licht. Bij maximale waarden voor rood,
+            groen en blauw ontstaat wit.
+        </div>
+    </section>
+
+    <section class="kaart">
+        <h2>3. Het CMYK-kleurmodel</h2>
+        <p>
+            CMYK wordt vooral gebruikt bij printers. De letters
+            staan voor Cyan, Magenta, Yellow en Key (zwart).
+        </p>
+
+        <ul>
+            <li>Cyaan: een blauwgroene kleur.</li>
+            <li>Magenta: een rozeachtige kleur.</li>
+            <li>Geel: yellow.</li>
+            <li>Zwart: zorgt onder andere voor donkere details.</li>
+        </ul>
+
+        <h3>Hoe werkt CMYK?</h3>
+        <p>
+            Een printer gebruikt inkt om kleuren op papier te maken.
+            Door de inktkleuren te combineren, ontstaan verschillende
+            kleuren en tinten.
+        </p>
+
+        <div class="voorbeeld">
+            <strong>Onthouden:</strong>
+            RGB is vooral voor schermen. CMYK is vooral voor printen.
+        </div>
+    </section>
+
+    <section class="kaart">
+        <h2>4. RGB versus CMYK</h2>
+
+        <ul>
+            <li><strong>RGB:</strong> werkt met gekleurd licht.</li>
+            <li><strong>CMYK:</strong> werkt met gekleurde inkt.</li>
+            <li><strong>RGB:</strong> gebruik je op een monitor.</li>
+            <li><strong>CMYK:</strong> gebruik je bijvoorbeeld voor flyers.</li>
+        </ul>
+
+        <p>
+            Een kleur kan er op een scherm anders uitzien dan op papier.
+            Dat komt doordat een scherm licht uitzendt en papier licht
+            weerkaatst.
+        </p>
+    </section>
+
+    <section class="kaart">
+        <h2>5. Test jezelf</h2>
+
+        <p class="quiz-vraag">
+            Welk kleurmodel wordt meestal gebruikt bij beeldschermen?
+        </p>
+
+        <button class="quiz-knop"
+                onclick="controleer('RGB')">RGB</button>
+
+        <button class="quiz-knop"
+                onclick="controleer('CMYK')">CMYK</button>
+
+        <p id="antwoord" aria-live="polite"></p>
+    </section>
+
+</main>
+
+<footer>
+    Hugo T © 2026
+</footer>
+
+<script>
+    function controleer(keuze) {
+        const antwoord = document.getElementById("antwoord");
+
+        if (keuze === "RGB") {
+            antwoord.textContent =
+                "Goed gedaan! RGB wordt vooral gebruikt bij schermen. ✅";
+            antwoord.style.color = "#16803c";
+        } else {
+            antwoord.textContent =
+                "Nog niet goed. Denk aan rood, groen en blauw. Probeer opnieuw!";
+            antwoord.style.color = "#c0392b";
+        }
+    }
+</script>
+
+</body>
+</html>
+```
