@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AI - Hugo T</title>
 
     <style>
@@ -14,7 +16,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #dff3ff;
+            background-color: #dff3ff;
             color: #222;
         }
 
@@ -23,13 +25,14 @@
             padding: 22px 35px;
             border-bottom: 2px solid #ddd;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
             font-size: 28px;
             font-weight: bold;
+            color: #222;
         }
 
         .terug {
@@ -51,45 +54,63 @@
         }
 
         .intro {
+            background: linear-gradient(135deg, #1769aa, #55b8ed);
+            color: white;
             text-align: center;
-            padding: 35px 20px;
-            background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
-            border-radius: 18px;
-            margin-bottom: 25px;
+            padding: 45px 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
         }
 
         .intro h1 {
-            font-size: 42px;
+            font-size: 36px;
             margin-bottom: 15px;
         }
 
         .intro p {
-            font-size: 18px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .kaart {
             background: white;
             padding: 28px;
             border-radius: 16px;
-            margin-bottom: 22px;
-            box-shadow: 0 4px 15px #0000000c;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        h2 {
-            color: #175a83;
-            margin-bottom: 14px;
+        .kaart h2 {
+            color: #1769aa;
+            margin-bottom: 15px;
         }
 
         .kaart p {
             line-height: 1.8;
-            color: #444;
+            margin-bottom: 12px;
         }
 
-        ul {
-            padding-left: 24px;
-            line-height: 1.9;
-            color: #444;
+        .kaart ul {
+            margin-left: 25px;
+            line-height: 1.8;
+        }
+
+        .video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         footer {
@@ -97,25 +118,25 @@
             padding: 25px;
             background: white;
             color: #666;
-            margin-top: 40px;
         }
 
         @media (max-width: 600px) {
             header {
                 padding: 18px;
                 gap: 15px;
+                flex-wrap: wrap;
             }
 
             .logo {
-                font-size: 23px;
+                font-size: 24px;
             }
 
             .intro h1 {
-                font-size: 34px;
+                font-size: 28px;
             }
 
             .kaart {
-                padding: 22px;
+                padding: 20px;
             }
         }
     </style>
@@ -125,6 +146,7 @@
 
 <header>
     <div class="logo">Hugo T</div>
+
     <a class="terug" href="index.html">← Terug naar home</a>
 </header>
 
@@ -133,75 +155,99 @@
     <section class="intro">
         <h1>🤖 Kunstmatige intelligentie</h1>
         <p>
-            Op deze pagina lees je wat AI is, waarvoor ik het gebruik
-            en hoe kunstmatige intelligentie in een mobiele telefoon zit.
+            Op deze pagina leer je wat AI is, waarvoor je het kunt gebruiken
+            en hoe kunstmatige intelligentie in het dagelijks leven voorkomt.
         </p>
     </section>
 
     <section class="kaart">
         <h2>Wat is AI?</h2>
+
         <p>
-            AI betekent kunstmatige intelligentie. Het is technologie
-            waarmee computers taken kunnen uitvoeren waarvoor normaal
-            gesproken menselijke intelligentie nodig is. AI kan
-            bijvoorbeeld teksten maken, vragen beantwoorden,
-            afbeeldingen herkennen en informatie uitleggen.
+            AI betekent kunstmatige intelligentie. Het is technologie waarmee
+            computers taken kunnen uitvoeren waarvoor normaal gesproken
+            menselijke vaardigheden nodig zijn.
+        </p>
+
+        <p>
+            AI kan bijvoorbeeld teksten maken, vragen beantwoorden,
+            afbeeldingen herkennen en helpen bij het vertalen van talen.
         </p>
     </section>
 
     <section class="kaart">
         <h2>Waar gebruik ik zelf AI voor en leer ik er iets van?</h2>
+
         <p>
-            Ik gebruik AI vooral voor school. Ik kan vragen stellen
-            als ik iets niet begrijp en moeilijke onderwerpen op een
-            makkelijkere manier laten uitleggen. Ook kan ik AI gebruiken
-            om ideeën te bedenken en mijn werk te controleren.
-            Ik leer er iets van als ik de uitleg goed lees en zelf
-            probeer te begrijpen hoe het werkt.
+            Ik gebruik AI bijvoorbeeld voor school. Ik kan vragen stellen
+            als ik iets niet begrijp, uitleg krijgen over moeilijke
+            onderwerpen en ideeën opdoen voor opdrachten.
+        </p>
+
+        <p>
+            Ik leer er iets van als ik de uitleg goed lees en probeer
+            te begrijpen waarom een antwoord klopt. Het is wel belangrijk
+            om antwoorden te controleren, want AI kan fouten maken.
         </p>
     </section>
 
     <section class="kaart">
         <h2>Welke mobiel heb ik?</h2>
+
         <p>
-            Ik heb een iPhone 11 Pro Max. Deze telefoon gebruikt
-            verschillende vormen van AI en machine learning.
+            Ik heb een iPhone 11 Pro Max. Op deze telefoon worden verschillende
+            slimme technieken gebruikt die met AI of machine learning te maken
+            hebben.
         </p>
 
         <ul>
-            <li>
-                <strong>Face ID:</strong>
-                de telefoon herkent mijn gezicht om te ontgrendelen.
-            </li>
-            <li>
-                <strong>Camera:</strong>
-                slimme beeldverwerking helpt om foto's beter te maken.
-            </li>
-            <li>
-                <strong>Siri:</strong>
-                de spraakassistent kan gesproken vragen begrijpen
-                en opdrachten uitvoeren.
-            </li>
-            <li>
-                <strong>Toetsenbord:</strong>
-                tekstvoorspelling en autocorrectie helpen bij het typen.
-            </li>
+            <li><strong>Face ID:</strong> herkent mijn gezicht om de telefoon te ontgrendelen.</li>
+            <li><strong>Camera:</strong> verwerkt foto's om ze er beter uit te laten zien.</li>
+            <li><strong>Siri:</strong> kan gesproken opdrachten herkennen en beantwoorden.</li>
+            <li><strong>Toetsenbord:</strong> kan woorden voorspellen en spelfouten helpen verbeteren.</li>
         </ul>
 
-        <p style="margin-top: 15px;">
-            De iPhone 11 Pro Max heeft dus slimme functies die
-            machine learning gebruiken. Het toestel ondersteunt
-            niet de nieuwere Apple Intelligence-functies.
+        <p>
+            De iPhone 11 Pro Max ondersteunt Apple Intelligence niet.
         </p>
     </section>
 
     <section class="kaart">
         <h2>Wat vind ik van AI?</h2>
+
         <p>
-            Ik vind AI handig omdat ik snel uitleg en informatie
-            kan krijgen. Toch moet je niet alles zomaar geloven.
-            AI kan fouten maken. Daarom is het belangrijk om
-            informatie te controleren en zelf na te blijven denken.
+            Ik vind AI handig, omdat je snel uitleg en informatie kunt krijgen.
+            Het kan helpen bij school en bij het bedenken van ideeën.
+        </p>
+
+        <p>
+            Toch moet je niet alles geloven wat AI zegt. Je moet zelf blijven
+            nadenken en controleren of de informatie klopt.
+        </p>
+    </section>
+
+    <section class="kaart">
+        <h2>Video over kunstmatige intelligentie</h2>
+
+        <p>
+            In deze video wordt uitgelegd wat AI is, hoe het werkt en waar
+            kunstmatige intelligentie voor wordt gebruikt.
+        </p>
+
+        <div class="video">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/C4SHDZQwLYA"
+                title="Artificial Intelligence Explained for Beginners"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            <strong>Waarom deze video?</strong>
+            Ik heb deze video gekozen omdat hij uitlegt wat AI is en
+            voorbeelden geeft van hoe kunstmatige intelligentie wordt gebruikt.
+            Hierdoor kun je het onderwerp beter begrijpen.
         </p>
     </section>
 

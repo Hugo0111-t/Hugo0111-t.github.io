@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -10,6 +11,10 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,13 +39,17 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
+        /* WEER */
         .weer {
             background: #f3f8fc;
             padding: 10px 14px;
             border-radius: 12px;
+            min-width: 170px;
             font-size: 13px;
+            box-shadow: 0 2px 8px #00000010;
         }
 
         .weer-titel {
@@ -48,6 +57,12 @@
             margin-bottom: 5px;
         }
 
+        #weerInfo {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* ZOEKEN */
         .zoek-container {
             display: flex;
             align-items: center;
@@ -57,6 +72,11 @@
             padding-left: 16px;
             height: 45px;
             width: min(350px, 35vw);
+        }
+
+        .zoek-container:focus-within {
+            background: white;
+            box-shadow: 0 2px 10px #00000018;
         }
 
         .zoek-input {
@@ -76,6 +96,7 @@
             font-size: 19px;
         }
 
+        /* DROPDOWNMENU */
         .dropdown {
             position: relative;
         }
@@ -87,10 +108,20 @@
             background: #e9e9e9;
             font-size: 16px;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .menu-knop:hover {
             background: #d8eaff;
+        }
+
+        .pijltje {
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .dropdown.open .pijltje {
+            transform: rotate(180deg);
         }
 
         .dropdown-inhoud {
@@ -121,8 +152,9 @@
             background: #eaf6ff;
         }
 
+        /* WELKOM */
         .hero {
-            min-height: 450px;
+            min-height: 520px;
             padding: 65px 30px;
             background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
             display: flex;
@@ -150,6 +182,7 @@
             box-shadow: 0 8px 25px #00000025;
         }
 
+        /* ONDERWERPEN */
         .onderwerpen {
             padding: 50px 25px;
             background: #f5fbff;
@@ -214,6 +247,7 @@
             color: #666;
         }
 
+        /* MOBIELE TELEFOONS EN TABLETS */
         @media (max-width: 850px) {
             header {
                 flex-wrap: wrap;
@@ -224,17 +258,48 @@
                 flex: 1;
             }
 
+            .weer {
+                order: 3;
+            }
+
             .zoek-container {
+                order: 4;
                 width: 100%;
                 flex-basis: 100%;
+            }
+
+            .dropdown {
+                order: 2;
+            }
+
+            .hero h1 {
+                font-size: 40px;
             }
 
             .kaarten {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 450px) {
+            .logo {
+                font-size: 23px;
+            }
+
+            .menu-knop {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 40px 18px;
+            }
 
             .hero h1 {
-                font-size: 40px;
+                font-size: 35px;
+            }
+
+            .bergen {
+                height: 210px;
             }
         }
     </style>
@@ -256,9 +321,12 @@
             id="zoekInput"
             type="text"
             placeholder="Zoeken op Google..."
-            aria-label="Zoeken"
+            aria-label="Zoeken op Google"
         >
-        <button class="zoek-knop" type="submit">🔍</button>
+
+        <button class="zoek-knop" type="submit" aria-label="Zoeken">
+            🔍
+        </button>
     </form>
 
     <div class="dropdown" id="dropdown">
@@ -267,16 +335,17 @@
             id="menuKnop"
             type="button"
             aria-expanded="false"
+            aria-controls="dropdownInhoud"
             onclick="toggleMenu()"
         >
-            MENU ☰
+            MENU ☰ <span class="pijltje">⌄</span>
         </button>
 
-        <nav class="dropdown-inhoud">
-            <a href="kleurmodellen.html">Kleurmodellen</a>
-            <a href="#compressie" onclick="sluitMenu()">Compressie</a>
-            <a href="binair.html">Binair stelsel</a>
-            <a href="AI.html">AI</a>
+        <nav class="dropdown-inhoud" id="dropdownInhoud">
+            <a href="kleurmodellen.html">🎨 Kleurmodellen</a>
+            <a href="compressie.html">🗜️ Compressie</a>
+            <a href="binair.html">💻 Binair stelsel</a>
+            <a href="AI.html">🤖 AI</a>
         </nav>
     </div>
 </header>
@@ -295,12 +364,12 @@
 
     <section class="onderwerpen">
         <h2>Mijn onderwerpen</h2>
+
         <p class="intro">
             Ontdek hier meer over verschillende onderwerpen.
         </p>
 
         <div class="kaarten">
-
             <article class="kaart">
                 <h3>🎨 Kleurmodellen</h3>
                 <p>
@@ -312,20 +381,23 @@
                 </a>
             </article>
 
-            <article class="kaart" id="compressie">
+            <article class="kaart">
                 <h3>🗜️ Compressie</h3>
                 <p>
-                    Compressie maakt bestanden kleiner.
-                    Bitmapafbeeldingen bestaan uit pixels.
-                    Vectorafbeeldingen bestaan uit lijnen en vormen.
+                    Ontdek hoe bestanden kleiner worden en wat het
+                    verschil is tussen bitmap- en vectorafbeeldingen
+                    en verschillende soorten compressie.
                 </p>
+                <a class="lees-meer" href="compressie.html">
+                    Bekijk de pagina →
+                </a>
             </article>
 
             <article class="kaart">
                 <h3>💻 Binair stelsel</h3>
                 <p>
-                    Computers gebruiken nullen en enen om
-                    informatie digitaal op te slaan.
+                    Leer hoe computers met nullen en enen werken
+                    en hoe informatie digitaal wordt opgeslagen.
                 </p>
                 <a class="lees-meer" href="binair.html">
                     Bekijk de pagina →
@@ -335,23 +407,13 @@
             <article class="kaart">
                 <h3>🤖 Kunstmatige intelligentie</h3>
                 <p>
-                    Lees wat AI is, waarvoor ik het gebruik
-                    en hoe AI op een mobiele telefoon werkt.
+                    Ontdek wat AI is en hoe computers teksten,
+                    afbeeldingen en antwoorden kunnen maken.
                 </p>
                 <a class="lees-meer" href="AI.html">
-                    Bekijk de AI-pagina →
+                    Bekijk de pagina →
                 </a>
             </article>
-
-            <article class="kaart">
-                <h3>🔄 Invoer, verwerking en uitvoer</h3>
-                <p>
-                    Invoer is wat je in een computer stopt.
-                    De computer verwerkt die informatie.
-                    Uitvoer is het resultaat dat je terugkrijgt.
-                </p>
-            </article>
-
         </div>
     </section>
 </main>
@@ -370,9 +432,11 @@
     }
 
     function sluitMenu() {
-        document.getElementById("dropdown").classList.remove("open");
-        document.getElementById("menuKnop")
-            .setAttribute("aria-expanded", "false");
+        const dropdown = document.getElementById("dropdown");
+        const knop = document.getElementById("menuKnop");
+
+        dropdown.classList.remove("open");
+        knop.setAttribute("aria-expanded", "false");
     }
 
     document.addEventListener("click", function(event) {
@@ -423,7 +487,7 @@
             const weer = data.current;
             const code = weer.weather_code;
 
-            let omschrijving = "Onbekend";
+            let omschrijving = "Wisselend weer";
             let emoji = "🌤️";
 
             if (code === 0) {
@@ -442,7 +506,7 @@
                 omschrijving = "Sneeuw";
                 emoji = "❄️";
             } else if (code <= 82) {
-                omschrijving = "Buien";
+                omschrijving = "Regenbuien";
                 emoji = "🌦️";
             } else if (code <= 99) {
                 omschrijving = "Onweer";

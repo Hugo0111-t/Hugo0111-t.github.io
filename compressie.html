@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -150,6 +150,26 @@
             display: block;
         }
 
+        /* VIDEO */
+        .video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 18px 0;
+        }
+
+        .video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .quiz select {
             display: block;
             padding: 12px;
@@ -225,7 +245,7 @@
 </header>
 
 <section class="hero">
-    <h1> Compressie</h1>
+    <h1>Compressie</h1>
 
     <p>
         Hoe maak je bestanden kleiner zonder onnodig veel ruimte
@@ -252,7 +272,7 @@
         </p>
 
         <div class="example">
-            <h3> Voorbeeld</h3>
+            <h3>Voorbeeld</h3>
 
             <p>
                 Een foto is eerst 10 MB groot. Na compressie is
@@ -273,7 +293,7 @@
         <div class="comparison">
 
             <div class="comparison-box">
-                <h3> Zonder kwaliteitsverlies</h3>
+                <h3>Zonder kwaliteitsverlies</h3>
 
                 <p>
                     Het bestand wordt kleiner, maar alle oorspronkelijke
@@ -286,7 +306,7 @@
             </div>
 
             <div class="comparison-box">
-                <h3> Met kwaliteitsverlies</h3>
+                <h3>Met kwaliteitsverlies</h3>
 
                 <p>
                     Het bestand wordt kleiner door een deel van de
@@ -435,9 +455,36 @@
         </div>
     </section>
 
+    <!-- YOUTUBE VIDEO -->
+    <section class="card">
+        <h2>🎥 Video over compressie</h2>
+
+        <p>
+            In deze video van Schooltv leer je hoe digitale informatie
+            kleiner kan worden gemaakt en waarom compressie handig is
+            bij bijvoorbeeld foto's, muziek en video's.
+        </p>
+
+        <p>
+            <a class="button"
+               href="https://schooltv.nl/video-item/compressie-informatie-samendrukken"
+               target="_blank"
+               rel="noopener noreferrer">
+                Bekijk de video over compressie →
+            </a>
+        </p>
+
+        <p>
+            <strong>Waarom heb ik deze video gekozen?</strong>
+            De video legt uit wat compressie betekent en hoe het ervoor
+            zorgt dat bestanden minder opslagruimte gebruiken. Dit past
+            bij de uitleg op deze pagina.
+        </p>
+    </section>
+
     <!-- QUIZ -->
     <section class="card quiz">
-        <h2> Test je kennis</h2>
+        <h2>Test je kennis</h2>
 
         <p>
             Wat gebeurt er bij compressie zonder kwaliteitsverlies?
@@ -490,4 +537,3 @@
 
 </body>
 </html>
-```

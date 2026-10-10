@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -116,6 +116,26 @@
             padding: 12px 17px;
             font-size: 23px;
             font-weight: bold;
+        }
+
+        /* VIDEO */
+        .video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 18px 0;
+        }
+
+        .video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* BINARY BONANZA LINK */
@@ -294,6 +314,33 @@
         </div>
     </section>
 
+    <!-- YOUTUBE VIDEO -->
+    <section class="card">
+        <h2>🎥 Video over het binaire stelsel</h2>
+
+        <p>
+            In deze Nederlandse video leer je wat binaire getallen zijn,
+            wat bits en bytes betekenen en hoe je gewone getallen omzet
+            naar binaire getallen.
+        </p>
+
+        <div class="video">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/OpaB2SaNIyA"
+                title="Wat zijn binaire getallen? Bits en bytes uitgelegd"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            <strong>Waarom heb ik deze video gekozen?</strong>
+            De video legt op een duidelijke manier uit hoe het binaire
+            stelsel werkt. Je leert ook hoe je getallen kunt omzetten.
+            Dat sluit aan bij de uitleg op deze pagina.
+        </p>
+    </section>
+
     <!-- QUIZ -->
     <section class="card quiz">
         <h2>🧠 Test je kennis</h2>
@@ -385,4 +432,3 @@
 
 </body>
 </html>
-```
