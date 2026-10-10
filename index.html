@@ -240,6 +240,46 @@
             background: #104d80;
         }
 
+        /* INFO OVER MIJ */
+        .info-mij {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 25px;
+        }
+
+        .info-knop {
+            display: block;
+            width: 100%;
+            background: white;
+            color: #175a83;
+            border: none;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px #0000000c;
+        }
+
+        .info-knop:hover {
+            background: #f5fbff;
+        }
+
+        .info-inhoud {
+            display: none;
+            background: white;
+            padding: 25px;
+            margin-top: 10px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px #0000000c;
+            line-height: 1.8;
+        }
+
+        .info-inhoud.open {
+            display: block;
+        }
+
         footer {
             text-align: center;
             padding: 25px;
@@ -362,6 +402,27 @@
         >
     </section>
 
+    <!-- INFO OVER MIJ -->
+    <section class="info-mij">
+        <button
+            class="info-knop"
+            type="button"
+            onclick="toggleInfo()"
+            aria-expanded="false"
+            aria-controls="infoInhoud"
+            id="infoKnop"
+        >
+            👋 Info over mij <span id="infoPijltje">＋</span>
+        </button>
+
+        <div class="info-inhoud" id="infoInhoud">
+            <h2>Over mij</h2>
+            <p>Ik zit op tennis en vind het leuk om te sporten.</p>
+            <p>In mijn vrije tijd vind ik gamen soms leuk.</p>
+            <p>Ik spreek ook graag af met mijn vrienden.</p>
+        </div>
+    </section>
+
     <section class="onderwerpen">
         <h2>Mijn onderwerpen</h2>
 
@@ -452,6 +513,17 @@
             sluitMenu();
         }
     });
+
+    function toggleInfo() {
+        const inhoud = document.getElementById("infoInhoud");
+        const knop = document.getElementById("infoKnop");
+        const pijltje = document.getElementById("infoPijltje");
+
+        const geopend = inhoud.classList.toggle("open");
+
+        knop.setAttribute("aria-expanded", geopend);
+        pijltje.textContent = geopend ? "－" : "＋";
+    }
 
     function zoekGoogle(event) {
         event.preventDefault();
