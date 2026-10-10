@@ -1,0 +1,500 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compressie | Hugo T</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #17324d;
+            background: linear-gradient(135deg, #dff3ff, #f5faff);
+            line-height: 1.7;
+        }
+
+        header {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #1877c9;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #17324d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #1877c9;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px #17324d12;
+        }
+
+        h2 {
+            color: #1877c9;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        .example {
+            background: #eaf6ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 18px 0;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .comparison-box {
+            background: #f3f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .comparison-box h3 {
+            color: #1769aa;
+            margin-bottom: 10px;
+        }
+
+        .pixel-art {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 3px;
+            max-width: 240px;
+            margin: 15px auto;
+            aspect-ratio: 1;
+        }
+
+        .pixel {
+            background: #1877c9;
+            border-radius: 2px;
+        }
+
+        .pixel:nth-child(2n),
+        .pixel:nth-child(5n) {
+            background: #8ee8ff;
+        }
+
+        .pixel:nth-child(3n) {
+            background: #17324d;
+        }
+
+        .vector-example {
+            max-width: 240px;
+            width: 100%;
+            height: auto;
+            margin: 15px auto;
+            display: block;
+        }
+
+        .quiz select {
+            display: block;
+            padding: 12px;
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid #b8d5eb;
+            border-radius: 9px;
+            font-size: 16px;
+            margin: 15px 0;
+            background: white;
+        }
+
+        button, .button {
+            display: inline-block;
+            border: none;
+            background: #1877c9;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        button:hover, .button:hover {
+            background: #105b9c;
+        }
+
+        #resultaat {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .back {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #5b7185;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Hugo T</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="onderwerpen.html">Mijn onderwerpen</a>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+        <a href="binair.html">Binair stelsel</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1> Compressie</h1>
+
+    <p>
+        Hoe maak je bestanden kleiner zonder onnodig veel ruimte
+        in te nemen? Ontdek hoe compressie werkt en wat bitmap
+        en vector met afbeeldingen te maken hebben.
+    </p>
+</section>
+
+<main class="container">
+
+    <!-- WAT IS COMPRESSIE? -->
+    <section class="card">
+        <h2>Wat is compressie?</h2>
+
+        <p>
+            Compressie is het kleiner maken van een bestand.
+            Hierdoor neemt het minder opslagruimte in en kan het
+            sneller via internet worden verstuurd.
+        </p>
+
+        <p>
+            Compressie wordt bijvoorbeeld gebruikt bij foto's,
+            video's, muziek en documenten.
+        </p>
+
+        <div class="example">
+            <h3> Voorbeeld</h3>
+
+            <p>
+                Een foto is eerst 10 MB groot. Na compressie is
+                de foto bijvoorbeeld nog maar 3 MB groot.
+            </p>
+
+            <p>
+                <strong>Het voordeel:</strong> de foto neemt minder
+                ruimte in op je telefoon of computer.
+            </p>
+        </div>
+    </section>
+
+    <!-- SOORTEN COMPRESSIE -->
+    <section class="card">
+        <h2>Compressie met en zonder kwaliteitsverlies</h2>
+
+        <div class="comparison">
+
+            <div class="comparison-box">
+                <h3> Zonder kwaliteitsverlies</h3>
+
+                <p>
+                    Het bestand wordt kleiner, maar alle oorspronkelijke
+                    informatie kan weer worden teruggehaald.
+                </p>
+
+                <p>
+                    <strong>Voorbeeld:</strong> ZIP-bestanden en PNG-compressie.
+                </p>
+            </div>
+
+            <div class="comparison-box">
+                <h3> Met kwaliteitsverlies</h3>
+
+                <p>
+                    Het bestand wordt kleiner door een deel van de
+                    informatie weg te laten. Daardoor kan de kwaliteit
+                    minder worden.
+                </p>
+
+                <p>
+                    <strong>Voorbeeld:</strong> JPEG-foto's en veel MP3-bestanden.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BITMAP EN VECTOR -->
+    <section class="card">
+        <h2>Bitmap en vector</h2>
+
+        <p>
+            Afbeeldingen kunnen op verschillende manieren worden opgeslagen.
+            Twee belangrijke soorten zijn bitmap en vector.
+        </p>
+
+        <div class="comparison">
+
+            <div class="comparison-box">
+                <h3>Bitmap</h3>
+
+                <div class="pixel-art" aria-label="Voorbeeld van pixels">
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                    <div class="pixel"></div>
+                </div>
+
+                <p>
+                    Een bitmap bestaat uit pixels. Als je sterk inzoomt,
+                    kun je de pixels zien.
+                </p>
+
+                <p>
+                    <strong>Voorbeelden:</strong> JPEG en PNG.
+                </p>
+            </div>
+
+            <div class="comparison-box">
+                <h3>Vector</h3>
+
+                <svg class="vector-example"
+                     viewBox="0 0 200 200"
+                     role="img"
+                     aria-label="Voorbeeld van een vectorafbeelding met vormen">
+                    <circle cx="100" cy="100" r="78"
+                            fill="#dff3ff"
+                            stroke="#1877c9"
+                            stroke-width="5"/>
+                    <path d="M100 35 L119 80 L168 85 L132 118
+                             L142 165 L100 140 L58 165 L68 118
+                             L32 85 L81 80 Z"
+                          fill="#1877c9"/>
+                </svg>
+
+                <p>
+                    Een vectorafbeelding bestaat uit lijnen, punten
+                    en vormen die met berekeningen worden beschreven.
+                </p>
+
+                <p>
+                    Je kunt een vectorafbeelding vergroten zonder dat
+                    de randen wazig worden.
+                </p>
+
+                <p>
+                    <strong>Voorbeeld:</strong> SVG.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="card quiz">
+        <h2> Test je kennis</h2>
+
+        <p>
+            Wat gebeurt er bij compressie zonder kwaliteitsverlies?
+        </p>
+
+        <select id="antwoord">
+            <option value="">Kies je antwoord</option>
+            <option value="a">
+                Een deel van de informatie verdwijnt
+            </option>
+            <option value="b">
+                Alle oorspronkelijke informatie kan worden teruggehaald
+            </option>
+            <option value="c">
+                Het bestand wordt altijd groter
+            </option>
+        </select>
+
+        <button onclick="controleerAntwoord()">
+            Controleer antwoord
+        </button>
+
+        <p id="resultaat" aria-live="polite"></p>
+    </section>
+
+    <!-- TERUG -->
+    <div class="back">
+        <a class="button" href="onderwerpen.html">
+            ← Terug naar mijn onderwerpen
+        </a>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 Hugo T | Informatica
+</footer>
+
+<script>
+    function controleerAntwoord() {
+        const antwoord = document.getElementById("antwoord").value;
+        const resultaat = document.getElementById("resultaat");
+
+        if (antwoord === "b") {
+            resultaat.textContent =
+                "Goed gedaan! Alle oorspronkelijke informatie kan worden teruggehaald.";
+            resultaat.style.color = "green";
+        } else if (antwoord === "") {
+            resultaat.textContent = "Kies eerst een antwoord.";
+            resultaat.style.color = "#b45309";
+        } else {
+            resultaat.textContent = "Dat is niet goed. Probeer het nog eens!";
+            resultaat.style.color = "#c0392b";
+        }
+    }
+</script>
+
+</body>
+</html>
+```
