@@ -1,0 +1,337 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunstmatige intelligentie | Hugo T</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dff3ff, #f3e8ff);
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #7546c8;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px;
+            background: linear-gradient(135deg, #6741c6, #3788db);
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 22px;
+            border-radius: 16px;
+            box-shadow: 0 5px 16px #00000010;
+        }
+
+        h3 {
+            color: #6741c6;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        .example {
+            background: #f0eaff;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
+        .phone {
+            text-align: center;
+            background: #171717;
+            color: white;
+            border-radius: 28px;
+            max-width: 260px;
+            margin: 20px auto 0;
+            padding: 25px 15px;
+            border: 6px solid #555;
+        }
+
+        .phone .screen {
+            background: linear-gradient(135deg, #7553d9, #47a4e8);
+            padding: 28px 12px;
+            border-radius: 18px;
+        }
+
+        .phone .emoji {
+            font-size: 48px;
+        }
+
+        .question {
+            margin: 18px 0;
+        }
+
+        .question label {
+            display: block;
+            margin: 7px 0;
+            cursor: pointer;
+        }
+
+        button {
+            display: inline-block;
+            background: #6741c6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            background: #50309e;
+        }
+
+        #resultaat {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Hugo T</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="onderwerpen.html">Mijn onderwerpen</a>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+        <a href="compressie.html">Compressie</a>
+        <a href="binair.html">Binair stelsel</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>🤖 Kunstmatige intelligentie</h2>
+    <p>
+        Ontdek wat AI is, waarvoor je het kunt gebruiken
+        en hoe kunstmatige intelligentie in je telefoon zit.
+    </p>
+</div>
+
+<main>
+
+    <section>
+        <h3>Wat is AI?</h3>
+
+        <p>
+            AI betekent kunstmatige intelligentie. Het is technologie waarmee
+            computers taken kunnen uitvoeren waarvoor normaal gesproken
+            menselijke intelligentie nodig is. AI kan bijvoorbeeld teksten
+            maken, vragen beantwoorden, afbeeldingen herkennen en helpen
+            met vertalen.
+        </p>
+
+        <div class="example">
+            <strong>Wist je dat?</strong>
+            Sommige AI-systemen kunnen leren van voorbeelden.
+            Toch kunnen ze fouten maken. Daarom is het slim om belangrijke
+            informatie altijd te controleren.
+        </div>
+    </section>
+
+    <section>
+        <h3>Waar gebruik ik AI voor?</h3>
+
+        <p>
+            Ik gebruik AI vooral om dingen makkelijk en snel op te zoeken.
+            Als je AI op een goede manier gebruikt, kan het ook leerzaam zijn.
+            Je kunt bijvoorbeeld uitleg vragen over onderwerpen die je nog
+            niet goed begrijpt. Zo kun je nieuwe dingen leren.
+            Het is wel belangrijk om zelf na te blijven denken en te
+            controleren of de informatie klopt.
+        </p>
+    </section>
+
+    <section>
+        <h3>AI in mijn mobiele telefoon</h3>
+
+        <p>
+            Ik heb een iPhone 11 Pro Max. AI is op veel plekken te vinden,
+            bijvoorbeeld in Google en verschillende apps. Het kan helpen
+            bij het zoeken naar informatie, het herkennen van dingen en het
+            verbeteren van foto's. Niet alle AI-functies zitten standaard
+            op mijn telefoon; sommige functies werken via apps of internet.
+        </p>
+
+        <div class="phone">
+            <div class="screen">
+                <div class="emoji">📱</div>
+                <h3 style="color: white;">iPhone 11 Pro Max</h3>
+                <p>Apps · Google · Slimme functies</p>
+            </div>
+        </div>
+
+        <div class="example">
+            <strong>Voorbeelden van AI op een telefoon:</strong>
+            <ul>
+                <li>Google kan helpen bij het zoeken naar informatie.</li>
+                <li>De camera kan foto's automatisch verbeteren.</li>
+                <li>Toetsenborden kunnen woorden voorspellen.</li>
+                <li>Sommige apps kunnen tekst, foto's of spraak herkennen.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3>Wat zijn de voordelen en nadelen?</h3>
+
+        <p><strong>Voordelen:</strong></p>
+        <ul>
+            <li>Je kunt snel uitleg en informatie vinden.</li>
+            <li>AI kan helpen bij leren en het bedenken van ideeën.</li>
+            <li>Sommige taken worden makkelijker en sneller.</li>
+        </ul>
+
+        <br>
+
+        <p><strong>Nadelen:</strong></p>
+        <ul>
+            <li>AI kan onjuiste informatie geven.</li>
+            <li>Je kunt te afhankelijk worden van AI.</li>
+            <li>Je moet opletten welke persoonlijke gegevens je deelt.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>🧠 Test je kennis</h3>
+
+        <p>
+            Wat is een verstandig gebruik van AI voor school?
+        </p>
+
+        <div class="question">
+            <label>
+                <input type="radio" name="quiz" value="a">
+                A. Alles kopiëren zonder het te lezen
+            </label>
+
+            <label>
+                <input type="radio" name="quiz" value="b">
+                B. AI om uitleg vragen en zelf controleren of het klopt
+            </label>
+
+            <label>
+                <input type="radio" name="quiz" value="c">
+                C. Denken dat AI nooit fouten maakt
+            </label>
+        </div>
+
+        <button onclick="controleerAntwoord()">
+            Controleer antwoord
+        </button>
+
+        <p id="resultaat"></p>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Hugo T | Informatica
+</footer>
+
+<script>
+    function controleerAntwoord() {
+        const antwoord = document.querySelector(
+            'input[name="quiz"]:checked'
+        );
+
+        const resultaat = document.getElementById("resultaat");
+
+        if (!antwoord) {
+            resultaat.textContent = "Kies eerst een antwoord!";
+        } else if (antwoord.value === "b") {
+            resultaat.textContent =
+                "Goed gedaan! AI kan je helpen, maar controleer de informatie zelf.";
+        } else {
+            resultaat.textContent =
+                "Niet helemaal. Gebruik AI om te leren en controleer de informatie zelf.";
+        }
+    }
+</script>
+
+</body>
+</html>
+```
