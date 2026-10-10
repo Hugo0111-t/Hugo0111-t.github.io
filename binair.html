@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Binair stelsel | Hugo T</title>
 
     <style>
@@ -117,11 +118,13 @@
             font-weight: bold;
         }
 
+        /* BINARY BONANZA LINK */
         .game-link {
             display: block;
             text-decoration: none;
             color: white;
             margin: 20px 0;
+            border-radius: 18px;
         }
 
         .game-banner {
@@ -132,7 +135,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .game-banner:hover {
+        .game-link:hover .game-banner {
             transform: translateY(-4px);
             box-shadow: 0 10px 25px #1877c940;
         }
@@ -217,12 +220,14 @@
 
     <nav>
         <a href="index.html">Home</a>
+        <a href="onderwerpen.html">Mijn onderwerpen</a>
         <a href="kleurmodellen.html">Kleurmodellen</a>
     </nav>
 </header>
 
 <section class="hero">
     <h1>💻 Het binaire stelsel</h1>
+
     <p>
         Hoe begrijpt een computer getallen? Ontdek hoe computers
         met alleen nullen en enen informatie verwerken!
@@ -231,6 +236,7 @@
 
 <main class="container">
 
+    <!-- WAT IS HET BINAIRE STELSEL? -->
     <section class="card">
         <h2>Wat is het binaire stelsel?</h2>
 
@@ -263,6 +269,7 @@
         </p>
     </section>
 
+    <!-- HOE REKEN JE BINAIR? -->
     <section class="card">
         <h2>Hoe reken je binair?</h2>
 
@@ -287,11 +294,12 @@
         </div>
     </section>
 
+    <!-- QUIZ -->
     <section class="card quiz">
         <h2>🧠 Test je kennis</h2>
 
         <p>
-            Welk gewoon getal hoort bij het binaire getal
+            Welk gewone getal hoort bij het binaire getal
             <strong>110</strong>?
         </p>
 
@@ -310,6 +318,7 @@
         <p id="resultaat" aria-live="polite"></p>
     </section>
 
+    <!-- BINARY BONANZA -->
     <section class="card">
         <h2>🎮 Speel Binary Bonanza</h2>
 
@@ -317,17 +326,19 @@
             Wil je zelf oefenen met binaire getallen? Klik op de banner
             hieronder om Binary Bonanza te openen.
         </p>
+
         <a
-<a
-    class="game-link"
-    href="https://games.penjee.com/binary-bonanza/"
-    target="_blank"
-    rel="noopener noreferrer"
->
+            class="game-link"
+            href="https://games.penjee.com/binary-bonanza/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Binary Bonanza in een nieuw tabblad"
         >
             <div class="game-banner">
                 <div class="digits">0101 1010 1100 0011</div>
+
                 <h3>BINARY BONANZA</h3>
+
                 <p>Klik hier om het spel te openen →</p>
             </div>
         </a>
@@ -338,8 +349,11 @@
         </p>
     </section>
 
+    <!-- TERUG NAAR HOMEPAGE -->
     <div class="back">
-        <a class="button" href="index.html">← Terug naar de homepage</a>
+        <a class="button" href="index.html">
+            ← Terug naar de homepage
+        </a>
     </div>
 
 </main>

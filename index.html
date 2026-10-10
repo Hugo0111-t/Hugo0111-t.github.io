@@ -105,23 +105,26 @@
             transform: scale(1.1);
         }
 
-        /* MENU MET DROPDOWN */
+        /* MENU */
         .menu-container {
             position: relative;
         }
 
         .menu {
+            display: block;
             background-color: #e9e9e9;
             padding: 15px 25px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
+            color: #222;
         }
 
         .menu:hover {
             background-color: #d8d8d8;
         }
 
+        /* DROPDOWNMENU */
         .dropdown {
             display: none;
             position: absolute;
@@ -129,7 +132,7 @@
             top: 100%;
             margin-top: 8px;
             background-color: white;
-            min-width: 180px;
+            min-width: 220px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             z-index: 10;
@@ -290,18 +293,36 @@
 
         </form>
 
-        <!-- MENU -->
+        <!-- MENU MET LINKS -->
         <div class="menu-container">
 
             <div class="menu" tabindex="0">
                 MENU ☰
             </div>
 
-            <!-- DROPDOWNMENU -->
             <div class="dropdown">
-                <a href="binair.html">Binair stelsel</a>
-            </div>
 
+                <a href="onderwerpen.html">
+                    Mijn onderwerpen
+                </a>
+
+                <a href="kleurmodellen.html">
+                    🎨 Kleurmodellen
+                </a>
+
+                <a href="compressie.html">
+                    🗜️ Compressie
+                </a>
+
+                <a href="binair.html">
+                    💻 Binair stelsel
+                </a>
+
+                <a href="ai.html">
+                    🤖 Kunstmatige intelligentie
+                </a>
+
+            </div>
         </div>
 
     </header>
