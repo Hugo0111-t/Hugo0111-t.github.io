@@ -158,6 +158,17 @@
             background: #104d80;
         }
 
+        .video {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            border: 0;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
+
         #antwoord {
             margin-top: 14px;
             font-weight: bold;
@@ -305,12 +316,13 @@
             beter te begrijpen.
         </p>
 
-        <a class="video-link"
-           href="https://schooltv.nl/video-item/hoe-krijg-je-kleuren-op-je-scherm-verschillende-kleuren-licht"
-           target="_blank"
-           rel="noopener noreferrer">
-            Bekijk de video over RGB
-        </a>
+        <iframe
+            class="video"
+            src="https://player.ntr.nl/index.php?id=WO_NTR_16087212"
+            title="Schooltv: Hoe krijg je kleuren op je scherm?"
+            allow="encrypted-media; geolocation"
+            allowfullscreen>
+        </iframe>
 
         <h3>Wat is een kleurcode?</h3>
         <p>
