@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI | Hugo T</title>
+    <title>AI - Hugo T</title>
 
     <style>
         * {
@@ -14,166 +14,108 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #dff3ff, #f3e8ff);
+            background: #dff3ff;
             color: #222;
-            line-height: 1.7;
         }
 
         header {
             background: white;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            padding: 22px 35px;
             border-bottom: 2px solid #ddd;
-        }
-
-        header h1 {
-            font-size: 28px;
-        }
-
-        nav {
             display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        nav a {
-            color: #333;
-            text-decoration: none;
+        .logo {
+            font-size: 28px;
             font-weight: bold;
         }
 
-        nav a:hover {
-            color: #6741c6;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 55px 20px;
-            background: linear-gradient(135deg, #6741c6, #3788db);
+        .terug {
+            background: #1769aa;
             color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
         }
 
-        .hero h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: auto;
+        .terug:hover {
+            background: #104d80;
         }
 
         main {
             max-width: 950px;
-            margin: 30px auto;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        section {
+        .intro {
+            text-align: center;
+            padding: 35px 20px;
+            background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+
+        .intro h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .kaart {
             background: white;
-            padding: 25px;
-            margin-bottom: 22px;
+            padding: 28px;
             border-radius: 16px;
-            box-shadow: 0 5px 16px #00000010;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px #0000000c;
         }
 
-        h3 {
-            color: #6741c6;
-            margin-bottom: 12px;
+        h2 {
+            color: #175a83;
+            margin-bottom: 14px;
         }
 
-        p {
-            margin-bottom: 10px;
+        .kaart p {
+            line-height: 1.8;
+            color: #444;
         }
 
         ul {
-            padding-left: 22px;
-        }
-
-        .example {
-            background: #f0eaff;
-            padding: 16px;
-            border-radius: 12px;
-            margin-top: 15px;
-        }
-
-        .phone {
-            max-width: 270px;
-            margin: 22px auto;
-            padding: 12px;
-            border: 6px solid #333;
-            border-radius: 30px;
-            background: #171717;
-            color: white;
-            text-align: center;
-        }
-
-        .phone-screen {
-            background: linear-gradient(135deg, #7553d9, #47a4e8);
-            border-radius: 18px;
-            padding: 30px 12px;
-        }
-
-        .phone-screen .emoji {
-            font-size: 48px;
-        }
-
-        .phone-screen h3 {
-            color: white;
-        }
-
-        .question {
-            margin: 18px 0;
-        }
-
-        .question label {
-            display: block;
-            margin: 10px 0;
-            cursor: pointer;
-        }
-
-        button {
-            background: #6741c6;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 18px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background: #50309e;
-        }
-
-        #resultaat {
-            margin-top: 15px;
-            font-weight: bold;
+            padding-left: 24px;
+            line-height: 1.9;
+            color: #444;
         }
 
         footer {
             text-align: center;
             padding: 25px;
-            color: #555;
+            background: white;
+            color: #666;
+            margin-top: 40px;
         }
 
         @media (max-width: 600px) {
             header {
-                flex-direction: column;
+                padding: 18px;
+                gap: 15px;
             }
 
-            .hero h2 {
-                font-size: 30px;
+            .logo {
+                font-size: 23px;
             }
 
-            section {
-                padding: 20px;
+            .intro h1 {
+                font-size: 34px;
+            }
+
+            .kaart {
+                padding: 22px;
             }
         }
     </style>
@@ -182,176 +124,92 @@
 <body>
 
 <header>
-    <h1>Hugo T</h1>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="onderwerpen.html">Mijn onderwerpen</a>
-        <a href="kleurmodellen.html">Kleurmodellen</a>
-        <a href="compressie.html">Compressie</a>
-        <a href="binair.html">Binair stelsel</a>
-        <a href="AI.html">AI</a>
-    </nav>
+    <div class="logo">Hugo T</div>
+    <a class="terug" href="index.html">← Terug naar home</a>
 </header>
-
-<div class="hero">
-    <h2>🤖 Kunstmatige intelligentie</h2>
-    <p>
-        Wat is AI, waarvoor kun je het gebruiken en hoe zit AI
-        verwerkt in je mobiele telefoon?
-    </p>
-</div>
 
 <main>
 
-    <section>
-        <h3>Wat is AI?</h3>
-
+    <section class="intro">
+        <h1>🤖 Kunstmatige intelligentie</h1>
         <p>
-            AI betekent kunstmatige intelligentie. Het is technologie waarmee
-            computers taken kunnen uitvoeren waarvoor normaal gesproken
-            menselijke intelligentie nodig is. AI kan bijvoorbeeld teksten
-            maken, vragen beantwoorden, afbeeldingen herkennen en helpen
-            met vertalen.
-        </p>
-
-        <div class="example">
-            <strong>Wist je dat?</strong>
-            AI kan veel informatie verwerken en patronen herkennen.
-            Toch kan AI fouten maken. Daarom is het belangrijk om informatie
-            te controleren.
-        </div>
-    </section>
-
-    <section>
-        <h3>Waar gebruik ik AI voor?</h3>
-
-        <p>
-            Ik gebruik AI vooral om dingen makkelijk en snel op te zoeken.
-            Als je AI op een goede manier gebruikt, kan het ook leerzaam zijn.
-            Je kunt bijvoorbeeld uitleg vragen over onderwerpen die je nog
-            niet goed begrijpt. Zo kun je nieuwe dingen leren.
-        </p>
-
-        <p>
-            Het is wel belangrijk om zelf na te blijven denken en te
-            controleren of de informatie klopt. AI is handig als hulpmiddel,
-            maar je moet niet zomaar alles overnemen.
+            Op deze pagina lees je wat AI is, waarvoor ik het gebruik
+            en hoe kunstmatige intelligentie in een mobiele telefoon zit.
         </p>
     </section>
 
-    <section>
-        <h3>AI in mijn mobiele telefoon</h3>
-
+    <section class="kaart">
+        <h2>Wat is AI?</h2>
         <p>
-            Ik heb een iPhone 11 Pro Max. AI is op veel plekken te vinden,
-            bijvoorbeeld in Google en verschillende apps. Het kan helpen
-            bij het zoeken naar informatie, het herkennen van dingen en het
-            verbeteren van foto's.
+            AI betekent kunstmatige intelligentie. Het is technologie
+            waarmee computers taken kunnen uitvoeren waarvoor normaal
+            gesproken menselijke intelligentie nodig is. AI kan
+            bijvoorbeeld teksten maken, vragen beantwoorden,
+            afbeeldingen herkennen en informatie uitleggen.
         </p>
-
-        <p>
-            Niet alle AI-functies zitten standaard op mijn telefoon.
-            Sommige functies werken via apps of internet. Welke functies
-            beschikbaar zijn, hangt af van de app en de software.
-        </p>
-
-        <div class="phone">
-            <div class="phone-screen">
-                <div class="emoji">📱</div>
-                <h3>iPhone 11 Pro Max</h3>
-                <p>Apps · Google · Slimme functies</p>
-            </div>
-        </div>
-
-        <div class="example">
-            <strong>Voorbeelden van AI op een telefoon:</strong>
-            <ul>
-                <li>Google helpt bij het zoeken naar informatie.</li>
-                <li>De camera kan foto's automatisch verbeteren.</li>
-                <li>Een toetsenbord kan woorden voorspellen.</li>
-                <li>Sommige apps kunnen tekst, foto's of spraak herkennen.</li>
-            </ul>
-        </div>
     </section>
 
-    <section>
-        <h3>Voordelen en nadelen van AI</h3>
+    <section class="kaart">
+        <h2>Waar gebruik ik zelf AI voor en leer ik er iets van?</h2>
+        <p>
+            Ik gebruik AI vooral voor school. Ik kan vragen stellen
+            als ik iets niet begrijp en moeilijke onderwerpen op een
+            makkelijkere manier laten uitleggen. Ook kan ik AI gebruiken
+            om ideeën te bedenken en mijn werk te controleren.
+            Ik leer er iets van als ik de uitleg goed lees en zelf
+            probeer te begrijpen hoe het werkt.
+        </p>
+    </section>
 
-        <p><strong>Voordelen:</strong></p>
+    <section class="kaart">
+        <h2>Welke mobiel heb ik?</h2>
+        <p>
+            Ik heb een iPhone 11 Pro Max. Deze telefoon gebruikt
+            verschillende vormen van AI en machine learning.
+        </p>
+
         <ul>
-            <li>Je kunt snel uitleg en informatie vinden.</li>
-            <li>AI kan helpen bij leren en ideeën bedenken.</li>
-            <li>Sommige taken worden makkelijker en sneller.</li>
+            <li>
+                <strong>Face ID:</strong>
+                de telefoon herkent mijn gezicht om te ontgrendelen.
+            </li>
+            <li>
+                <strong>Camera:</strong>
+                slimme beeldverwerking helpt om foto's beter te maken.
+            </li>
+            <li>
+                <strong>Siri:</strong>
+                de spraakassistent kan gesproken vragen begrijpen
+                en opdrachten uitvoeren.
+            </li>
+            <li>
+                <strong>Toetsenbord:</strong>
+                tekstvoorspelling en autocorrectie helpen bij het typen.
+            </li>
         </ul>
 
-        <br>
-
-        <p><strong>Nadelen:</strong></p>
-        <ul>
-            <li>AI kan verkeerde informatie geven.</li>
-            <li>Je kunt te afhankelijk worden van AI.</li>
-            <li>Je moet voorzichtig zijn met persoonlijke gegevens.</li>
-        </ul>
+        <p style="margin-top: 15px;">
+            De iPhone 11 Pro Max heeft dus slimme functies die
+            machine learning gebruiken. Het toestel ondersteunt
+            niet de nieuwere Apple Intelligence-functies.
+        </p>
     </section>
 
-    <section>
-        <h3>🧠 Test je kennis</h3>
-
+    <section class="kaart">
+        <h2>Wat vind ik van AI?</h2>
         <p>
-            Wat is een verstandig gebruik van AI voor school?
+            Ik vind AI handig omdat ik snel uitleg en informatie
+            kan krijgen. Toch moet je niet alles zomaar geloven.
+            AI kan fouten maken. Daarom is het belangrijk om
+            informatie te controleren en zelf na te blijven denken.
         </p>
-
-        <div class="question">
-            <label>
-                <input type="radio" name="quiz" value="a">
-                A. Alles kopiëren zonder het te lezen
-            </label>
-
-            <label>
-                <input type="radio" name="quiz" value="b">
-                B. AI om uitleg vragen en zelf controleren of het klopt
-            </label>
-
-            <label>
-                <input type="radio" name="quiz" value="c">
-                C. Denken dat AI nooit fouten maakt
-            </label>
-        </div>
-
-        <button type="button" onclick="controleerAntwoord()">
-            Controleer antwoord
-        </button>
-
-        <p id="resultaat"></p>
     </section>
 
 </main>
 
 <footer>
-    © 2026 Hugo T | Informatica
+    Hugo T © 2026
 </footer>
-
-<script>
-    function controleerAntwoord() {
-        const antwoord = document.querySelector(
-            'input[name="quiz"]:checked'
-        );
-
-        const resultaat = document.getElementById("resultaat");
-
-        if (!antwoord) {
-            resultaat.textContent = "Kies eerst een antwoord!";
-        } else if (antwoord.value === "b") {
-            resultaat.textContent =
-                "Goed gedaan! AI kan je helpen, maar controleer de informatie zelf.";
-        } else {
-            resultaat.textContent =
-                "Niet helemaal. Gebruik AI om te leren en controleer de informatie zelf.";
-        }
-    }
-</script>
 
 </body>
 </html>
-```

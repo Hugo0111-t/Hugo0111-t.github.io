@@ -1,10 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Hugo T</title>
 
     <style>
@@ -16,237 +14,227 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #dff3ff;
-            min-height: 100vh;
-        }
-
-        /* HEADER */
-        header {
-            height: 90px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 50px;
-            border-bottom: 2px solid #ddd;
-            position: relative;
-        }
-
-        /* NAAM */
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
+            background: #dff3ff;
             color: #222;
         }
 
-        /* WEERBLOK */
+        header {
+            min-height: 90px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 35px;
+            gap: 20px;
+            border-bottom: 2px solid #ddd;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
         .weer {
-            position: absolute;
-            left: 150px;
-            top: 12px;
             background: #f3f8fc;
-            padding: 8px 14px;
-            border-radius: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
             font-size: 13px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            min-width: 150px;
         }
 
         .weer-titel {
             font-weight: bold;
-            margin-bottom: 3px;
-            color: #222;
+            margin-bottom: 5px;
         }
 
-        .weer-info {
-            color: #555;
-        }
-
-        /* ZOEKBALK */
         .zoek-container {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
             display: flex;
             align-items: center;
-            width: 400px;
-            height: 45px;
-            background-color: #f1f3f4;
+            background: #f1f3f4;
             border: 1px solid #ddd;
             border-radius: 25px;
-            padding-left: 18px;
-            transition: 0.2s;
-        }
-
-        .zoek-container:focus-within {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            padding-left: 16px;
+            height: 45px;
+            width: min(350px, 35vw);
         }
 
         .zoek-input {
+            width: 100%;
+            min-width: 0;
             border: none;
             outline: none;
             background: transparent;
-            width: 100%;
             font-size: 16px;
-            padding: 5px;
         }
 
         .zoek-knop {
             border: none;
             background: transparent;
-            font-size: 20px;
+            padding: 10px 14px;
             cursor: pointer;
-            padding: 0 15px;
+            font-size: 19px;
         }
 
-        .zoek-knop:hover {
-            transform: scale(1.1);
-        }
-
-        /* MENU */
-        .menu-container {
+        .dropdown {
             position: relative;
         }
 
-        .menu {
-            display: block;
-            background-color: #e9e9e9;
-            padding: 15px 25px;
+        .menu-knop {
+            padding: 14px 20px;
+            border: none;
             border-radius: 10px;
-            cursor: pointer;
+            background: #e9e9e9;
             font-size: 16px;
-            color: #222;
+            cursor: pointer;
         }
 
-        .menu:hover {
-            background-color: #d8d8d8;
+        .menu-knop:hover {
+            background: #d8eaff;
         }
 
-        /* DROPDOWNMENU */
-        .dropdown {
+        .dropdown-inhoud {
             display: none;
             position: absolute;
             right: 0;
-            top: 100%;
-            margin-top: 8px;
-            background-color: white;
-            min-width: 220px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 10;
+            top: calc(100% + 10px);
+            width: 230px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 8px 25px #00000020;
         }
 
-        .dropdown a {
+        .dropdown.open .dropdown-inhoud {
             display: block;
-            padding: 14px 18px;
-            color: #222;
+        }
+
+        .dropdown-inhoud a {
+            display: block;
+            padding: 15px;
             text-decoration: none;
-            font-size: 15px;
+            color: #222;
+            border-bottom: 1px solid #eee;
         }
 
-        .dropdown a:hover {
-            background-color: #e9e9e9;
+        .dropdown-inhoud a:hover {
+            background: #eaf6ff;
         }
 
-        .menu-container:hover .dropdown,
-        .menu-container:focus-within .dropdown {
-            display: block;
-        }
-
-        /* ACHTERGROND */
-        .achtergrond {
-            min-height: 600px;
-            padding: 60px;
-            position: relative;
-            background: linear-gradient(
-                rgba(190, 230, 255, 0.7),
-                rgba(220, 245, 255, 0.9)
-            );
-        }
-
-        /* TEKST */
-        .content {
+        .hero {
+            min-height: 450px;
+            padding: 65px 30px;
+            background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            margin-top: 50px;
         }
 
-        .content h1 {
-            font-size: 50px;
-            margin-bottom: 15px;
-            color: #1c1c1c;
+        .hero h1 {
+            font-size: 52px;
+            margin: 30px 0 12px;
         }
 
-        .content p {
+        .hero p {
             font-size: 20px;
             color: #444;
         }
 
-        /* BERGEN MET ZONSONDERGANG */
-        .afbeelding {
-            position: absolute;
-            right: 60px;
-            bottom: 70px;
-            width: 400px;
-            height: 250px;
+        .bergen {
+            width: min(600px, 100%);
+            height: 260px;
+            margin-top: 35px;
             border-radius: 20px;
-            background-image: url(
-                "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80"
-            );
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s;
+            object-fit: cover;
+            box-shadow: 0 8px 25px #00000025;
         }
 
-        .afbeelding:hover {
-            transform: scale(1.03);
+        .onderwerpen {
+            padding: 50px 25px;
+            background: #f5fbff;
         }
 
-        /* TELEFOON */
-        @media (max-width: 700px) {
+        .onderwerpen h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .kaarten {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .kaart {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px #0000000c;
+        }
+
+        .kaart h3 {
+            color: #175a83;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .kaart p {
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .lees-meer {
+            display: inline-block;
+            margin-top: 16px;
+            background: #1769aa;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .lees-meer:hover {
+            background: #104d80;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            color: #666;
+        }
+
+        @media (max-width: 850px) {
             header {
-                padding: 0 20px;
+                flex-wrap: wrap;
+                padding: 18px;
             }
 
             .logo {
-                font-size: 24px;
-            }
-
-            .weer {
-                left: 20px;
-                top: 58px;
+                flex: 1;
             }
 
             .zoek-container {
-                width: 250px;
-            }
-
-            .menu {
-                padding: 12px 18px;
-            }
-
-            .achtergrond {
-                padding: 30px 20px;
-            }
-
-            .content {
-                margin-top: 80px;
-            }
-
-            .content h1 {
-                font-size: 38px;
-            }
-
-            .afbeelding {
-                position: relative;
-                right: auto;
-                bottom: auto;
                 width: 100%;
-                height: 250px;
-                margin-top: 100px;
+                flex-basis: 100%;
+            }
+
+            .kaarten {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
             }
         }
     </style>
@@ -254,202 +242,226 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header>
+<header>
+    <div class="logo">Hugo T</div>
 
-        <!-- NAAM -->
-        <div class="logo">
-            Hugo T
+    <div class="weer">
+        <div class="weer-titel">🌤️ Weer in Leiden</div>
+        <div id="weerInfo">Weer laden...</div>
+    </div>
+
+    <form class="zoek-container" onsubmit="zoekGoogle(event)">
+        <input
+            class="zoek-input"
+            id="zoekInput"
+            type="text"
+            placeholder="Zoeken op Google..."
+            aria-label="Zoeken"
+        >
+        <button class="zoek-knop" type="submit">🔍</button>
+    </form>
+
+    <div class="dropdown" id="dropdown">
+        <button
+            class="menu-knop"
+            id="menuKnop"
+            type="button"
+            aria-expanded="false"
+            onclick="toggleMenu()"
+        >
+            MENU ☰
+        </button>
+
+        <nav class="dropdown-inhoud">
+            <a href="kleurmodellen.html">🎨 Kleurmodellen</a>
+            <a href="#compressie" onclick="sluitMenu()">🗜️ Compressie</a>
+            <a href="binair.html">💻 Binair stelsel</a>
+            <a href="AI.html">🤖 AI</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Welkom</h1>
+        <p>Welkom op mijn persoonlijke website!</p>
+
+        <img
+            class="bergen"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+            alt="Mooie bergen in de natuur"
+        >
+    </section>
+
+    <section class="onderwerpen">
+        <h2>Mijn onderwerpen</h2>
+        <p class="intro">
+            Ontdek hier meer over verschillende onderwerpen.
+        </p>
+
+        <div class="kaarten">
+
+            <article class="kaart">
+                <h3>🎨 Kleurmodellen</h3>
+                <p>
+                    Leer hoe RGB en CMYK werken en hoe computers
+                    verschillende kleuren maken.
+                </p>
+                <a class="lees-meer" href="kleurmodellen.html">
+                    Bekijk de pagina →
+                </a>
+            </article>
+
+            <article class="kaart" id="compressie">
+                <h3>🗜️ Compressie</h3>
+                <p>
+                    Compressie maakt bestanden kleiner.
+                    Bitmapafbeeldingen bestaan uit pixels.
+                    Vectorafbeeldingen bestaan uit lijnen en vormen.
+                </p>
+            </article>
+
+            <article class="kaart">
+                <h3>💻 Binair stelsel</h3>
+                <p>
+                    Computers gebruiken nullen en enen om
+                    informatie digitaal op te slaan.
+                </p>
+                <a class="lees-meer" href="binair.html">
+                    Bekijk de pagina →
+                </a>
+            </article>
+
+            <article class="kaart">
+                <h3>🤖 Kunstmatige intelligentie</h3>
+                <p>
+                    Lees wat AI is, waarvoor ik het gebruik
+                    en hoe AI op een mobiele telefoon werkt.
+                </p>
+                <a class="lees-meer" href="AI.html">
+                    Bekijk de AI-pagina →
+                </a>
+            </article>
+
+            <article class="kaart">
+                <h3>🔄 Invoer, verwerking en uitvoer</h3>
+                <p>
+                    Invoer is wat je in een computer stopt.
+                    De computer verwerkt die informatie.
+                    Uitvoer is het resultaat dat je terugkrijgt.
+                </p>
+            </article>
+
         </div>
+    </section>
+</main>
 
-        <!-- ACTUEEL WEER LEIDEN -->
-        <div class="weer">
-            <div class="weer-titel">
-                🌤️ Leiden
-            </div>
+<footer>
+    Hugo T © 2026
+</footer>
 
-            <div class="weer-info" id="weerInfo">
-                Weer laden...
-            </div>
-        </div>
+<script>
+    function toggleMenu() {
+        const dropdown = document.getElementById("dropdown");
+        const knop = document.getElementById("menuKnop");
 
-        <!-- ZOEKBALK -->
-        <form class="zoek-container" onsubmit="zoekGoogle(event)">
+        const geopend = dropdown.classList.toggle("open");
+        knop.setAttribute("aria-expanded", geopend);
+    }
 
-            <input
-                type="text"
-                id="zoekInput"
-                class="zoek-input"
-                placeholder="Zoeken..."
-                autocomplete="off"
-            >
+    function sluitMenu() {
+        document.getElementById("dropdown").classList.remove("open");
+        document.getElementById("menuKnop")
+            .setAttribute("aria-expanded", "false");
+    }
 
-            <button
-                type="submit"
-                class="zoek-knop"
-                aria-label="Zoeken">
-                🔍
-            </button>
+    document.addEventListener("click", function(event) {
+        const dropdown = document.getElementById("dropdown");
 
-        </form>
-
-        <!-- MENU MET LINKS -->
-        <div class="menu-container">
-
-            <div class="menu" tabindex="0">
-                MENU ☰
-            </div>
-
-            <div class="dropdown">
-
-                <a href="onderwerpen.html">
-                    Mijn onderwerpen
-                </a>
-
-                <a href="kleurmodellen.html">
-                     Kleurmodellen
-                </a>
-
-                <a href="compressie.html">
-                     Compressie
-                </a>
-
-                <a href="binair.html">
-                     Binair stelsel
-                </a>
-
-                <a href="ai.html">
-                     AI
-                </a>
-
-            </div>
-        </div>
-
-    </header>
-
-    <!-- HOOFDGEDEELTE -->
-    <main class="achtergrond">
-
-        <div class="content">
-            <h1>Welkom</h1>
-
-            <p>
-                Op mijn website
-            </p>
-        </div>
-
-        <!-- BERGEN MET ZONSONDERGANG -->
-        <div class="afbeelding"></div>
-
-    </main>
-
-    <!-- SCRIPTS -->
-    <script>
-
-        /* GOOGLE ZOEKEN */
-        function zoekGoogle(event) {
-
-            event.preventDefault();
-
-            const zoekopdracht =
-                document.getElementById("zoekInput").value.trim();
-
-            if (zoekopdracht !== "") {
-
-                window.open(
-                    "https://www.google.com/search?q=" +
-                    encodeURIComponent(zoekopdracht),
-                    "_blank"
-                );
-
-            }
+        if (!dropdown.contains(event.target)) {
+            sluitMenu();
         }
+    });
 
-        /* WEER */
-        async function laadWeer() {
-
-            const latitude = 52.1601;
-            const longitude = 4.4970;
-
-            const url =
-                `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=Europe%2FAmsterdam`;
-
-            try {
-
-                const response = await fetch(url);
-                const data = await response.json();
-                const weer = data.current;
-
-                const temperatuur =
-                    Math.round(weer.temperature_2m);
-
-                const gevoel =
-                    Math.round(weer.apparent_temperature);
-
-                const wind =
-                    Math.round(weer.wind_speed_10m);
-
-                const code = weer.weather_code;
-
-                let omschrijving = "Onbekend";
-                let emoji = "🌤️";
-
-                if (code === 0) {
-                    omschrijving = "Onbewolkt";
-                    emoji = "☀️";
-                }
-
-                else if (code <= 3) {
-                    omschrijving = "Bewolkt";
-                    emoji = "🌤️";
-                }
-
-                else if (code <= 48) {
-                    omschrijving = "Mistig";
-                    emoji = "🌫️";
-                }
-
-                else if (code <= 67) {
-                    omschrijving = "Regen";
-                    emoji = "🌧️";
-                }
-
-                else if (code <= 77) {
-                    omschrijving = "Sneeuw";
-                    emoji = "❄️";
-                }
-
-                else if (code <= 82) {
-                    omschrijving = "Buien";
-                    emoji = "🌦️";
-                }
-
-                else if (code <= 99) {
-                    omschrijving = "Onweer";
-                    emoji = "⛈️";
-                }
-
-                document.getElementById("weerInfo").innerHTML =
-                    `${emoji} ${temperatuur}°C · ${omschrijving}<br>
-                    Gevoel ${gevoel}°C · Wind ${wind} km/u`;
-
-            }
-
-            catch (error) {
-
-                document.getElementById("weerInfo").innerHTML =
-                    "Weer tijdelijk niet beschikbaar";
-
-            }
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            sluitMenu();
         }
+    });
 
-        laadWeer();
+    function zoekGoogle(event) {
+        event.preventDefault();
 
-        // Vernieuw het weer iedere 10 minuten
-        setInterval(laadWeer, 600000);
+        const zoekopdracht =
+            document.getElementById("zoekInput").value.trim();
 
-    </script>
+        if (zoekopdracht) {
+            window.open(
+                "https://www.google.com/search?q=" +
+                encodeURIComponent(zoekopdracht),
+                "_blank",
+                "noopener,noreferrer"
+            );
+        }
+    }
+
+    async function laadWeer() {
+        const url =
+            "https://api.open-meteo.com/v1/forecast" +
+            "?latitude=52.1601&longitude=4.4970" +
+            "&current=temperature_2m,weather_code,wind_speed_10m" +
+            "&timezone=Europe%2FAmsterdam";
+
+        try {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Weer niet beschikbaar");
+            }
+
+            const data = await response.json();
+            const weer = data.current;
+            const code = weer.weather_code;
+
+            let omschrijving = "Onbekend";
+            let emoji = "🌤️";
+
+            if (code === 0) {
+                omschrijving = "Onbewolkt";
+                emoji = "☀️";
+            } else if (code <= 3) {
+                omschrijving = "Bewolkt";
+                emoji = "🌤️";
+            } else if (code <= 48) {
+                omschrijving = "Mistig";
+                emoji = "🌫️";
+            } else if (code <= 67) {
+                omschrijving = "Regen";
+                emoji = "🌧️";
+            } else if (code <= 77) {
+                omschrijving = "Sneeuw";
+                emoji = "❄️";
+            } else if (code <= 82) {
+                omschrijving = "Buien";
+                emoji = "🌦️";
+            } else if (code <= 99) {
+                omschrijving = "Onweer";
+                emoji = "⛈️";
+            }
+
+            document.getElementById("weerInfo").textContent =
+                `${emoji} ${Math.round(weer.temperature_2m)}°C · ` +
+                `${omschrijving} · Wind ${Math.round(weer.wind_speed_10m)} km/u`;
+
+        } catch (error) {
+            document.getElementById("weerInfo").textContent =
+                "Weer tijdelijk niet beschikbaar";
+        }
+    }
+
+    laadWeer();
+    setInterval(laadWeer, 600000);
+</script>
 
 </body>
 </html>
-```
