@@ -1,497 +1,565 @@
-
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hugo T</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+```
+<style>
+    /* Zorgt ervoor dat de afmetingen van elementen kloppen */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    /* Zorgt voor soepel scrollen op de pagina */
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #dff3ff;
-            color: #222;
-        }
+    /* Algemene opmaak van de website */
+    body {
+        font-family: Arial, sans-serif;
+        background: #dff3ff;
+        color: #222;
+    }
 
+    /* De bovenste balk van de website */
+    header {
+        min-height: 90px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 35px;
+        gap: 20px;
+        border-bottom: 2px solid #ddd;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* De naam van de website */
+    .logo {
+        font-size: 28px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    /* WEER: het blokje met het weer in Leiden */
+    .weer {
+        background: #f3f8fc;
+        padding: 10px 14px;
+        border-radius: 12px;
+        min-width: 170px;
+        font-size: 13px;
+        box-shadow: 0 2px 8px #00000010;
+    }
+
+    /* De titel van het weerblokje */
+    .weer-titel {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* De informatie over het actuele weer */
+    #weerInfo {
+        color: #555;
+        line-height: 1.5;
+    }
+
+    /* ZOEKEN: de zoekbalk bovenaan */
+    .zoek-container {
+        display: flex;
+        align-items: center;
+        background: #f1f3f4;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        padding-left: 16px;
+        height: 45px;
+        width: min(350px, 35vw);
+    }
+
+    /* Verandert de zoekbalk als je erin klikt */
+    .zoek-container:focus-within {
+        background: white;
+        box-shadow: 0 2px 10px #00000018;
+    }
+
+    /* Het invoerveld waarin je een zoekopdracht typt */
+    .zoek-input {
+        width: 100%;
+        min-width: 0;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+    }
+
+    /* De zoekknop met het vergrootglas */
+    .zoek-knop {
+        border: none;
+        background: transparent;
+        padding: 10px 14px;
+        cursor: pointer;
+        font-size: 19px;
+    }
+
+    /* DROPDOWNMENU: de container van het menu */
+    .dropdown {
+        position: relative;
+    }
+
+    /* De knop waarmee je het menu opent */
+    .menu-knop {
+        padding: 14px 20px;
+        border: none;
+        border-radius: 10px;
+        background: #e9e9e9;
+        font-size: 16px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    /* Verandert de kleur als je over de menuknop gaat */
+    .menu-knop:hover {
+        background: #d8eaff;
+    }
+
+    /* Het pijltje naast de menuknop */
+    .pijltje {
+        display: inline-block;
+        transition: transform 0.2s;
+    }
+
+    /* Draait het pijltje als het menu open is */
+    .dropdown.open .pijltje {
+        transform: rotate(180deg);
+    }
+
+    /* De inhoud van het dropdownmenu is standaard verborgen */
+    .dropdown-inhoud {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 10px);
+        width: 230px;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px #00000020;
+    }
+
+    /* Laat het menu zien wanneer het geopend is */
+    .dropdown.open .dropdown-inhoud {
+        display: block;
+    }
+
+    /* De links in het dropdownmenu */
+    .dropdown-inhoud a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+        color: #222;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Verandert de achtergrond van een menu-item bij aanwijzen */
+    .dropdown-inhoud a:hover {
+        background: #eaf6ff;
+    }
+
+    /* WELKOM: het grote welkomgedeelte */
+    .hero {
+        min-height: 520px;
+        padding: 65px 30px;
+        background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* De grote titel Welkom */
+    .hero h1 {
+        font-size: 52px;
+        margin: 30px 0 12px;
+    }
+
+    /* De tekst onder de welkomsttitel */
+    .hero p {
+        font-size: 20px;
+        color: #444;
+    }
+
+    /* De afbeelding van de bergen */
+    .bergen {
+        width: min(600px, 100%);
+        height: 260px;
+        margin-top: 35px;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 8px 25px #00000025;
+    }
+
+    /* ONDERWERPEN: het gedeelte met de onderwerpen */
+    .onderwerpen {
+        padding: 50px 25px;
+        background: #f5fbff;
+    }
+
+    /* De titel boven de onderwerpen */
+    .onderwerpen h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    /* De korte introductietekst */
+    .intro {
+        text-align: center;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    /* Zet de onderwerpkaarten in twee kolommen */
+    .kaarten {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    /* De opmaak van iedere onderwerpkaart */
+    .kaart {
+        background: white;
+        padding: 28px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px #0000000c;
+    }
+
+    /* De titel van iedere onderwerpkaart */
+    .kaart h3 {
+        color: #175a83;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    /* De tekst in iedere onderwerpkaart */
+    .kaart p {
+        color: #444;
+        line-height: 1.7;
+    }
+
+    /* De knop waarmee je naar een onderwerp gaat */
+    .lees-meer {
+        display: inline-block;
+        margin-top: 16px;
+        background: #1769aa;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+
+    /* Verandert de kleur van de knop als je erover gaat */
+    .lees-meer:hover {
+        background: #104d80;
+    }
+
+    /* INFO OVER MIJ: de container van het informatieblok */
+    .info-mij {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 25px;
+    }
+
+    /* De knop waarmee je de informatie over mij opent */
+    .info-knop {
+        display: block;
+        width: 100%;
+        background: white;
+        color: #175a83;
+        border: none;
+        border-radius: 16px;
+        padding: 25px;
+        text-align: left;
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 15px #0000000c;
+    }
+
+    /* Verandert de achtergrond als je over de infoknop gaat */
+    .info-knop:hover {
+        background: #f5fbff;
+    }
+
+    /* De informatie is standaard verborgen */
+    .info-inhoud {
+        display: none;
+        background: white;
+        padding: 25px;
+        margin-top: 10px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px #0000000c;
+        line-height: 1.8;
+    }
+
+    /* Toont de informatie wanneer het blok geopend is */
+    .info-inhoud.open {
+        display: block;
+    }
+
+    /* De onderste balk van de website */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: white;
+        color: #666;
+    }
+
+    /* MOBIELE TELEFOONS EN TABLETS: past de website aan kleinere schermen aan */
+    @media (max-width: 850px) {
         header {
-            min-height: 90px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 35px;
-            gap: 20px;
-            border-bottom: 2px solid #ddd;
-            position: relative;
-            z-index: 10;
+            flex-wrap: wrap;
+            padding: 18px;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            white-space: nowrap;
+            flex: 1;
         }
 
-        /* WEER */
+        /* Zet het weerblokje op een andere plek */
         .weer {
-            background: #f3f8fc;
-            padding: 10px 14px;
-            border-radius: 12px;
-            min-width: 170px;
-            font-size: 13px;
-            box-shadow: 0 2px 8px #00000010;
+            order: 3;
         }
 
-        .weer-titel {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        #weerInfo {
-            color: #555;
-            line-height: 1.5;
-        }
-
-        /* ZOEKEN */
+        /* Laat de zoekbalk de volledige breedte gebruiken */
         .zoek-container {
-            display: flex;
-            align-items: center;
-            background: #f1f3f4;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            padding-left: 16px;
-            height: 45px;
-            width: min(350px, 35vw);
-        }
-
-        .zoek-container:focus-within {
-            background: white;
-            box-shadow: 0 2px 10px #00000018;
-        }
-
-        .zoek-input {
+            order: 4;
             width: 100%;
-            min-width: 0;
-            border: none;
-            outline: none;
-            background: transparent;
-            font-size: 16px;
+            flex-basis: 100%;
         }
 
-        .zoek-knop {
-            border: none;
-            background: transparent;
-            padding: 10px 14px;
-            cursor: pointer;
-            font-size: 19px;
-        }
-
-        /* DROPDOWNMENU */
         .dropdown {
-            position: relative;
+            order: 2;
+        }
+
+        /* Maakt de welkomsttitel kleiner */
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        /* Zet de onderwerpkaarten onder elkaar */
+        .kaarten {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Extra aanpassingen voor kleine telefoons */
+    @media (max-width: 450px) {
+        .logo {
+            font-size: 23px;
         }
 
         .menu-knop {
-            padding: 14px 20px;
-            border: none;
-            border-radius: 10px;
-            background: #e9e9e9;
-            font-size: 16px;
-            cursor: pointer;
-            white-space: nowrap;
+            padding: 12px;
         }
 
-        .menu-knop:hover {
-            background: #d8eaff;
-        }
-
-        .pijltje {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .dropdown.open .pijltje {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-inhoud {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: calc(100% + 10px);
-            width: 230px;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px #00000020;
-        }
-
-        .dropdown.open .dropdown-inhoud {
-            display: block;
-        }
-
-        .dropdown-inhoud a {
-            display: block;
-            padding: 15px;
-            text-decoration: none;
-            color: #222;
-            border-bottom: 1px solid #eee;
-        }
-
-        .dropdown-inhoud a:hover {
-            background: #eaf6ff;
-        }
-
-        /* WELKOM */
         .hero {
-            min-height: 520px;
-            padding: 65px 30px;
-            background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            padding: 40px 18px;
         }
 
         .hero h1 {
-            font-size: 52px;
-            margin: 30px 0 12px;
+            font-size: 35px;
         }
 
-        .hero p {
-            font-size: 20px;
-            color: #444;
-        }
-
+        /* Maakt de bergenafbeelding lager */
         .bergen {
-            width: min(600px, 100%);
-            height: 260px;
-            margin-top: 35px;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 8px 25px #00000025;
+            height: 210px;
         }
+    }
+</style>
+```
 
-        /* ONDERWERPEN */
-        .onderwerpen {
-            padding: 50px 25px;
-            background: #f5fbff;
-        }
-
-        .onderwerpen h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 12px;
-        }
-
-        .intro {
-            text-align: center;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .kaarten {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .kaart {
-            background: white;
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px #0000000c;
-        }
-
-        .kaart h3 {
-            color: #175a83;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .kaart p {
-            color: #444;
-            line-height: 1.7;
-        }
-
-        .lees-meer {
-            display: inline-block;
-            margin-top: 16px;
-            background: #1769aa;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        .lees-meer:hover {
-            background: #104d80;
-        }
-
-        /* INFO OVER MIJ */
-        .info-mij {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 25px;
-        }
-
-        .info-knop {
-            display: block;
-            width: 100%;
-            background: white;
-            color: #175a83;
-            border: none;
-            border-radius: 16px;
-            padding: 25px;
-            text-align: left;
-            font-size: 22px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px #0000000c;
-        }
-
-        .info-knop:hover {
-            background: #f5fbff;
-        }
-
-        .info-inhoud {
-            display: none;
-            background: white;
-            padding: 25px;
-            margin-top: 10px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px #0000000c;
-            line-height: 1.8;
-        }
-
-        .info-inhoud.open {
-            display: block;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: white;
-            color: #666;
-        }
-
-        /* MOBIELE TELEFOONS EN TABLETS */
-        @media (max-width: 850px) {
-            header {
-                flex-wrap: wrap;
-                padding: 18px;
-            }
-
-            .logo {
-                flex: 1;
-            }
-
-            .weer {
-                order: 3;
-            }
-
-            .zoek-container {
-                order: 4;
-                width: 100%;
-                flex-basis: 100%;
-            }
-
-            .dropdown {
-                order: 2;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .kaarten {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 450px) {
-            .logo {
-                font-size: 23px;
-            }
-
-            .menu-knop {
-                padding: 12px;
-            }
-
-            .hero {
-                padding: 40px 18px;
-            }
-
-            .hero h1 {
-                font-size: 35px;
-            }
-
-            .bergen {
-                height: 210px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
+<!-- HEADER: bovenste balk met naam, weer, zoekbalk en menu -->
+
 <header>
     <div class="logo">Hugo T</div>
 
-    <div class="weer">
-        <div class="weer-titel">🌤️ Weer in Leiden</div>
-        <div id="weerInfo">Weer laden...</div>
-    </div>
+```
+<!-- Toont het actuele weer in Leiden -->
+<div class="weer">
+    <div class="weer-titel">🌤️ Weer in Leiden</div>
+    <div id="weerInfo">Weer laden...</div>
+</div>
 
-    <form class="zoek-container" onsubmit="zoekGoogle(event)">
-        <input
-            class="zoek-input"
-            id="zoekInput"
-            type="text"
-            placeholder="Zoeken op Google..."
-            aria-label="Zoeken op Google"
-        >
+<!-- Zoekformulier dat Google opent met de zoekopdracht -->
+<form class="zoek-container" onsubmit="zoekGoogle(event)">
+    <input
+        class="zoek-input"
+        id="zoekInput"
+        type="text"
+        placeholder="Zoeken op Google..."
+        aria-label="Zoeken op Google"
+    >
 
-        <button class="zoek-knop" type="submit" aria-label="Zoeken">
-            🔍
-        </button>
-    </form>
+    <button class="zoek-knop" type="submit" aria-label="Zoeken">
+        🔍
+    </button>
+</form>
 
-    <div class="dropdown" id="dropdown">
-        <button
-            class="menu-knop"
-            id="menuKnop"
-            type="button"
-            aria-expanded="false"
-            aria-controls="dropdownInhoud"
-            onclick="toggleMenu()"
-        >
-            MENU ☰ <span class="pijltje">⌄</span>
-        </button>
+<!-- Dropdownmenu met links naar de verschillende pagina's -->
+<div class="dropdown" id="dropdown">
+    <button
+        class="menu-knop"
+        id="menuKnop"
+        type="button"
+        aria-expanded="false"
+        aria-controls="dropdownInhoud"
+        onclick="toggleMenu()"
+    >
+        MENU ☰ <span class="pijltje">⌄</span>
+    </button>
 
-        <nav class="dropdown-inhoud" id="dropdownInhoud">
-            <a href="kleurmodellen.html">Kleurmodellen</a>
-            <a href="compressie.html">Compressie</a>
-            <a href="binair.html">Binair stelsel</a>
-            <a href="AI.html">AI</a>
-        </nav>
-    </div>
+    <nav class="dropdown-inhoud" id="dropdownInhoud">
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+        <a href="compressie.html">Compressie</a>
+        <a href="binair.html">Binair stelsel</a>
+        <a href="AI.html">AI</a>
+    </nav>
+</div>
+```
+
 </header>
 
+<!-- MAIN: het belangrijkste gedeelte van de website -->
+
 <main>
+    <!-- Welkomstgedeelte met titel, tekst en afbeelding -->
     <section class="hero">
         <h1>Welkom</h1>
         <p>Welkom op mijn persoonlijke website!</p>
 
-        <img
-            class="bergen"
-            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
-            alt="Mooie bergen in de natuur"
-        >
-    </section>
+```
+    <img
+        class="bergen"
+        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+        alt="Mooie bergen in de natuur"
+    >
+</section>
 
-    <!-- INFO OVER MIJ -->
-    <section class="info-mij">
-        <button
-            class="info-knop"
-            type="button"
-            onclick="toggleInfo()"
-            aria-expanded="false"
-            aria-controls="infoInhoud"
-            id="infoKnop"
-        >
-            👋 Info over mij <span id="infoPijltje">＋</span>
-        </button>
+<!-- INFO OVER MIJ: een uitklapbaar blok met persoonlijke informatie -->
+<section class="info-mij">
+    <button
+        class="info-knop"
+        type="button"
+        onclick="toggleInfo()"
+        aria-expanded="false"
+        aria-controls="infoInhoud"
+        id="infoKnop"
+    >
+        👋 Info over mij <span id="infoPijltje">＋</span>
+    </button>
 
-        <div class="info-inhoud" id="infoInhoud">
-            <h2>Over mij</h2>
-            <p>Ik zit op tennis en vind het leuk om te sporten.</p>
-            <p>In mijn vrije tijd vind ik gamen soms leuk.</p>
-            <p>Ik spreek ook graag af met mijn vrienden.</p>
-        </div>
-    </section>
+    <!-- Deze inhoud verschijnt wanneer je op de knop klikt -->
+    <div class="info-inhoud" id="infoInhoud">
+        <h2>Over mij</h2>
+        <p>Ik zit op tennis en vind het leuk om te sporten.</p>
+        <p>In mijn vrije tijd vind ik gamen soms leuk.</p>
+        <p>Ik spreek ook graag af met mijn vrienden.</p>
+    </div>
+</section>
 
-    <section class="onderwerpen">
-        <h2>Mijn onderwerpen</h2>
+<!-- ONDERWERPEN: kaarten met links naar andere pagina's -->
+<section class="onderwerpen">
+    <h2>Mijn onderwerpen</h2>
 
-        <p class="intro">
-            Ontdek hier meer over verschillende onderwerpen.
-        </p>
+    <p class="intro">
+        Ontdek hier meer over verschillende onderwerpen.
+    </p>
 
-        <div class="kaarten">
-            <article class="kaart">
-                <h3>Kleurmodellen</h3>
-                <p>
-                    Leer hoe RGB en CMYK werken en hoe computers
-                    verschillende kleuren maken.
-                </p>
-                <a class="lees-meer" href="kleurmodellen.html">
-                    Bekijk de pagina →
-                </a>
-            </article>
+    <div class="kaarten">
+        <!-- Kaart voor kleurmodellen -->
+        <article class="kaart">
+            <h3>Kleurmodellen</h3>
+            <p>
+                Leer hoe RGB en CMYK werken en hoe computers
+                verschillende kleuren maken.
+            </p>
+            <a class="lees-meer" href="kleurmodellen.html">
+                Bekijk de pagina →
+            </a>
+        </article>
 
-            <article class="kaart">
-                <h3>Compressie</h3>
-                <p>
-                    Ontdek hoe bestanden kleiner worden en wat het
-                    verschil is tussen bitmap- en vectorafbeeldingen
-                    en verschillende soorten compressie.
-                </p>
-                <a class="lees-meer" href="compressie.html">
-                    Bekijk de pagina →
-                </a>
-            </article>
+        <!-- Kaart voor compressie -->
+        <article class="kaart">
+            <h3>Compressie</h3>
+            <p>
+                Ontdek hoe bestanden kleiner worden en wat het
+                verschil is tussen bitmap- en vectorafbeeldingen
+                en verschillende soorten compressie.
+            </p>
+            <a class="lees-meer" href="compressie.html">
+                Bekijk de pagina →
+            </a>
+        </article>
 
-            <article class="kaart">
-                <h3>Binair stelsel</h3>
-                <p>
-                    Leer hoe computers met nullen en enen werken
-                    en hoe informatie digitaal wordt opgeslagen.
-                </p>
-                <a class="lees-meer" href="binair.html">
-                    Bekijk de pagina →
-                </a>
-            </article>
+        <!-- Kaart voor het binaire stelsel -->
+        <article class="kaart">
+            <h3>Binair stelsel</h3>
+            <p>
+                Leer hoe computers met nullen en enen werken
+                en hoe informatie digitaal wordt opgeslagen.
+            </p>
+            <a class="lees-meer" href="binair.html">
+                Bekijk de pagina →
+            </a>
+        </article>
 
-            <article class="kaart">
-                <h3>Kunstmatige intelligentie</h3>
-                <p>
-                    Ontdek wat AI is en hoe computers teksten,
-                    afbeeldingen en antwoorden kunnen maken.
-                </p>
-                <a class="lees-meer" href="AI.html">
-                    Bekijk de pagina →
-                </a>
-            </article>
-        </div>
-    </section>
+        <!-- Kaart voor kunstmatige intelligentie -->
+        <article class="kaart">
+            <h3>Kunstmatige intelligentie</h3>
+            <p>
+                Ontdek wat AI is en hoe computers teksten,
+                afbeeldingen en antwoorden kunnen maken.
+            </p>
+            <a class="lees-meer" href="AI.html">
+                Bekijk de pagina →
+            </a>
+        </article>
+    </div>
+</section>
+```
+
 </main>
+
+<!-- FOOTER: de onderste balk met de copyrighttekst -->
 
 <footer>
     Hugo T © 2026
 </footer>
 
 <script>
+    // Opent of sluit het dropdownmenu
     function toggleMenu() {
         const dropdown = document.getElementById("dropdown");
         const knop = document.getElementById("menuKnop");
 
+        // Verandert de open-status van het menu
         const geopend = dropdown.classList.toggle("open");
         knop.setAttribute("aria-expanded", geopend);
     }
 
+    // Sluit het dropdownmenu
     function sluitMenu() {
         const dropdown = document.getElementById("dropdown");
         const knop = document.getElementById("menuKnop");
@@ -500,6 +568,7 @@
         knop.setAttribute("aria-expanded", "false");
     }
 
+    // Sluit het menu als je buiten het menu klikt
     document.addEventListener("click", function(event) {
         const dropdown = document.getElementById("dropdown");
 
@@ -508,29 +577,37 @@
         }
     });
 
+    // Sluit het menu als je op Escape drukt
     document.addEventListener("keydown", function(event) {
         if (event.key === "Escape") {
             sluitMenu();
         }
     });
 
+    // Opent of sluit de informatie over mij
     function toggleInfo() {
         const inhoud = document.getElementById("infoInhoud");
         const knop = document.getElementById("infoKnop");
         const pijltje = document.getElementById("infoPijltje");
 
+        // Controleert of de informatie geopend of gesloten is
         const geopend = inhoud.classList.toggle("open");
 
+        // Past de toegankelijkheidsstatus en het pijltje aan
         knop.setAttribute("aria-expanded", geopend);
         pijltje.textContent = geopend ? "－" : "＋";
     }
 
+    // Zoekt de ingevulde tekst op Google
     function zoekGoogle(event) {
+        // Voorkomt dat het formulier de pagina opnieuw laadt
         event.preventDefault();
 
+        // Haalt de zoekopdracht op en verwijdert spaties aan het begin en einde
         const zoekopdracht =
             document.getElementById("zoekInput").value.trim();
 
+        // Opent Google alleen als er tekst is ingevuld
         if (zoekopdracht) {
             window.open(
                 "https://www.google.com/search?q=" +
@@ -541,7 +618,9 @@
         }
     }
 
+    // Haalt het actuele weer op via de Open-Meteo API
     async function laadWeer() {
+        // De locatiegegevens en gewenste weersinformatie
         const url =
             "https://api.open-meteo.com/v1/forecast" +
             "?latitude=52.1601&longitude=4.4970" +
@@ -549,19 +628,24 @@
             "&timezone=Europe%2FAmsterdam";
 
         try {
+            // Vraagt de weergegevens op
             const response = await fetch(url);
 
+            // Geeft een fout als de gegevens niet beschikbaar zijn
             if (!response.ok) {
                 throw new Error("Weer niet beschikbaar");
             }
 
+            // Zet de ontvangen gegevens om naar JSON
             const data = await response.json();
             const weer = data.current;
             const code = weer.weather_code;
 
+            // Standaardwaarden voor de weersomschrijving en het icoon
             let omschrijving = "Wisselend weer";
             let emoji = "🌤️";
 
+            // Kiest de juiste omschrijving en emoji op basis van de weercode
             if (code === 0) {
                 omschrijving = "Onbewolkt";
                 emoji = "☀️";
@@ -585,17 +669,22 @@
                 emoji = "⛈️";
             }
 
+            // Toont de temperatuur, weersomschrijving en windsnelheid
             document.getElementById("weerInfo").textContent =
                 `${emoji} ${Math.round(weer.temperature_2m)}°C · ` +
                 `${omschrijving} · Wind ${Math.round(weer.wind_speed_10m)} km/u`;
 
         } catch (error) {
+            // Toont een melding als het ophalen van het weer mislukt
             document.getElementById("weerInfo").textContent =
                 "Weer tijdelijk niet beschikbaar";
         }
     }
 
+    // Laadt het weer zodra de pagina wordt geopend
     laadWeer();
+
+    // Vernieuwt de weergegevens iedere 10 minuten
     setInterval(laadWeer, 600000);
 </script>
 

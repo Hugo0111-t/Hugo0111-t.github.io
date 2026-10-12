@@ -1,18 +1,26 @@
 <!DOCTYPE html>
+<!-- Dit document gebruikt HTML5 -->
 <html lang="nl">
 <head>
+    <!-- Zorgt ervoor dat speciale tekens goed worden weergegeven -->
     <meta charset="UTF-8">
+
+    <!-- Zorgt ervoor dat de website zich aanpast aan het schermformaat -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- De titel die in het browsertabblad verschijnt -->
     <title>Binair stelsel | Hugo T</title>
 
+    <!-- CSS bepaalt hoe de website eruitziet -->
     <style>
+        /* Haalt standaardmarges weg en maakt afmetingen makkelijker te berekenen */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* Algemene opmaak en achtergrond van de website */
         body {
             font-family: Arial, sans-serif;
             color: #17324d;
@@ -20,6 +28,7 @@
             line-height: 1.7;
         }
 
+        /* De bovenbalk met het logo en menu */
         header {
             background: white;
             padding: 18px 7%;
@@ -31,50 +40,59 @@
             box-shadow: 0 3px 12px #00000010;
         }
 
+        /* Opmaak van de naam/logo */
         .logo {
             font-size: 26px;
             font-weight: bold;
             color: #1877c9;
         }
 
+        /* Zet de navigatielinks naast elkaar */
         nav {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
+        /* Opmaak van de links in het menu */
         nav a {
             color: #17324d;
             text-decoration: none;
             font-weight: bold;
         }
 
+        /* Verandert de linkkleur als je eroverheen gaat */
         nav a:hover {
             color: #1877c9;
         }
 
+        /* Introductiegedeelte bovenaan de pagina */
         .hero {
             text-align: center;
             padding: 65px 20px 45px;
         }
 
+        /* Opmaak van de grote hoofdtitel */
         .hero h1 {
             font-size: clamp(30px, 5vw, 46px);
             margin-bottom: 12px;
         }
 
+        /* Opmaak van de introtekst */
         .hero p {
             max-width: 650px;
             margin: auto;
             font-size: 18px;
         }
 
+        /* Houdt de hoofdinhoud in het midden en beperkt de breedte */
         .container {
             width: 90%;
             max-width: 950px;
             margin: 0 auto;
         }
 
+        /* Witte vakken waarin de informatie staat */
         .card {
             background: white;
             padding: 28px;
@@ -83,15 +101,18 @@
             box-shadow: 0 5px 18px #17324d12;
         }
 
+        /* Opmaak van de koppen in de informatievakken */
         h2 {
             color: #1877c9;
             margin-bottom: 12px;
         }
 
+        /* Ruimte onder alinea's */
         p {
             margin-bottom: 12px;
         }
 
+        /* Vak waarin het rekenvoorbeeld staat */
         .example {
             background: #eaf6ff;
             padding: 18px;
@@ -100,6 +121,7 @@
             text-align: center;
         }
 
+        /* Zet de binaire cijfers netjes naast elkaar */
         .binary-numbers {
             display: flex;
             justify-content: center;
@@ -108,6 +130,7 @@
             margin: 15px 0;
         }
 
+        /* Vormgeving van ieder los binair cijfer */
         .bit {
             background: #1877c9;
             color: white;
@@ -117,7 +140,7 @@
             font-weight: bold;
         }
 
-        /* VIDEO */
+        /* Maakt een videovak met een verhouding van 16:9 */
         .video {
             position: relative;
             width: 100%;
@@ -128,6 +151,7 @@
             margin: 18px 0;
         }
 
+        /* Laat de video het hele videovak vullen */
         .video iframe {
             position: absolute;
             top: 0;
@@ -137,7 +161,7 @@
             border: 0;
         }
 
-        /* BINARY BONANZA LINK */
+        /* Maakt de hele spelbanner klikbaar */
         .game-link {
             display: block;
             text-decoration: none;
@@ -146,6 +170,7 @@
             border-radius: 18px;
         }
 
+        /* Vormgeving van de Binary Bonanza-banner */
         .game-banner {
             background: linear-gradient(135deg, #10234a, #1877c9);
             border-radius: 18px;
@@ -154,11 +179,13 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
+        /* Beweegt de banner iets omhoog als je eroverheen gaat */
         .game-link:hover .game-banner {
             transform: translateY(-4px);
             box-shadow: 0 10px 25px #1877c940;
         }
 
+        /* Opmaak van de binaire cijfers op de banner */
         .game-banner .digits {
             color: #8ee8ff;
             font-size: 20px;
@@ -166,15 +193,18 @@
             overflow-wrap: anywhere;
         }
 
+        /* Opmaak van de titel op de spelbanner */
         .game-banner h3 {
             font-size: clamp(25px, 5vw, 36px);
             margin: 12px 0;
         }
 
+        /* Opmaak van de tekst op de spelbanner */
         .game-banner p {
             margin: 0;
         }
 
+        /* Opmaak van het keuzemenu in de quiz */
         .quiz select {
             display: block;
             padding: 12px;
@@ -187,6 +217,7 @@
             background: white;
         }
 
+        /* Gemeenschappelijke opmaak van knoppen en knoplinks */
         button, .button {
             display: inline-block;
             border: none;
@@ -200,26 +231,31 @@
             text-decoration: none;
         }
 
+        /* Donkerdere kleur wanneer je over een knop gaat */
         button:hover, .button:hover {
             background: #105b9c;
         }
 
+        /* Opmaak van de feedback na een quizantwoord */
         #resultaat {
             margin-top: 15px;
             font-weight: bold;
         }
 
+        /* Centreert de knop om terug te gaan */
         .back {
             text-align: center;
             margin: 35px 0;
         }
 
+        /* De onderste balk van de website */
         footer {
             text-align: center;
             padding: 25px;
             color: #5b7185;
         }
 
+        /* Past de opmaak aan voor kleine schermen, zoals telefoons */
         @media (max-width: 600px) {
             header {
                 flex-direction: column;
@@ -234,15 +270,20 @@
 
 <body>
 
+<!-- De zichtbare inhoud van de website begint hier -->
+
+<!-- Bovenbalk met logo en navigatiemenu -->
 <header>
     <div class="logo">Hugo T</div>
 
+    <!-- Navigatielinks naar andere pagina's -->
     <nav>
         <a href="index.html">Home</a>
         <a href="kleurmodellen.html">Kleurmodellen</a>
     </nav>
 </header>
 
+<!-- Introductie met de titel en uitleg over het binaire stelsel -->
 <section class="hero">
     <h1>Het binaire stelsel</h1>
 
@@ -252,9 +293,10 @@
     </p>
 </section>
 
+<!-- Hier staat de belangrijkste inhoud van de pagina -->
 <main class="container">
 
-    <!-- WAT IS HET BINAIRE STELSEL? -->
+    <!-- Uitleg over het binaire stelsel en bits en bytes -->
     <section class="card">
         <h2>Wat is het binaire stelsel?</h2>
 
@@ -271,6 +313,7 @@
             video's en games.
         </p>
 
+        <!-- Voorbeeld van binaire cijfers -->
         <div class="binary-numbers">
             <div class="bit">0</div>
             <div class="bit">1</div>
@@ -287,7 +330,7 @@
         </p>
     </section>
 
-    <!-- HOE REKEN JE BINAIR? -->
+    <!-- Voorbeeld van het omrekenen van een binair getal -->
     <section class="card">
         <h2>Hoe reken je binair?</h2>
 
@@ -296,6 +339,7 @@
             1, 2, 4, 8, 16, enzovoort. Tel de waarden op waar een 1 staat.
         </p>
 
+        <!-- Rekensom die laat zien hoe binair rekenen werkt -->
         <div class="example">
             <h3>Voorbeeld: 1011</h3>
 
@@ -312,7 +356,7 @@
         </div>
     </section>
 
-    <!-- YOUTUBE VIDEO -->
+    <!-- Video met uitleg over binaire getallen -->
     <section class="card">
         <h2>Video over het binaire stelsel</h2>
 
@@ -322,6 +366,7 @@
             naar binaire getallen.
         </p>
 
+        <!-- Plaatst de YouTube-video op de pagina -->
         <div class="video">
             <iframe
                 src="https://www.youtube-nocookie.com/embed/OpaB2SaNIyA"
@@ -331,6 +376,7 @@
             </iframe>
         </div>
 
+        <!-- Legt uit waarom deze video is gekozen -->
         <p>
             <strong>Waarom heb ik deze video gekozen?</strong>
             De video legt op een duidelijke manier uit hoe het binaire
@@ -339,7 +385,7 @@
         </p>
     </section>
 
-    <!-- QUIZ -->
+    <!-- Quiz waarmee bezoekers hun kennis kunnen testen -->
     <section class="card quiz">
         <h2>Test je kennis</h2>
 
@@ -348,6 +394,7 @@
             <strong>110</strong>?
         </p>
 
+        <!-- Keuzemenu waarin de bezoeker een antwoord kiest -->
         <select id="antwoord">
             <option value="">Kies je antwoord</option>
             <option value="4">4</option>
@@ -356,14 +403,16 @@
             <option value="7">7</option>
         </select>
 
+        <!-- Controleert het gekozen antwoord -->
         <button onclick="controleerAntwoord()">
             Controleer antwoord
         </button>
 
+        <!-- Hier verschijnt de feedback op het antwoord -->
         <p id="resultaat" aria-live="polite"></p>
     </section>
 
-    <!-- BINARY BONANZA -->
+    <!-- Link naar het spel Binary Bonanza -->
     <section class="card">
         <h2>Speel Binary Bonanza</h2>
 
@@ -372,6 +421,7 @@
             hieronder om Binary Bonanza te openen.
         </p>
 
+        <!-- Opent het spel in een nieuw tabblad als je op de banner klikt -->
         <a
             class="game-link"
             href="https://games.penjee.com/binary-bonanza/"
@@ -380,6 +430,7 @@
             aria-label="Open Binary Bonanza in een nieuw tabblad"
         >
             <div class="game-banner">
+                <!-- Decoratieve binaire cijfers -->
                 <div class="digits">0101 1010 1100 0011</div>
 
                 <h3>BINARY BONANZA</h3>
@@ -388,13 +439,14 @@
             </div>
         </a>
 
+        <!-- Uitleg over het nut van het spel -->
         <p>
             <strong>Waarom is dit handig?</strong> Door te oefenen leer je
             sneller binaire getallen herkennen en omzetten.
         </p>
     </section>
 
-    <!-- TERUG NAAR HOMEPAGE -->
+    <!-- Knop om terug te gaan naar de homepage -->
     <div class="back">
         <a class="button" href="index.html">
             ← Terug naar de homepage
@@ -403,23 +455,31 @@
 
 </main>
 
+<!-- Onderaan staat de naam en informatie over de schoolopdracht -->
 <footer>
     © 2026 Hugo T | Informatica
 </footer>
 
+<!-- JavaScript controleert het antwoord van de quiz -->
 <script>
     function controleerAntwoord() {
+        // Haalt het gekozen antwoord en het feedbackvak op
         const antwoord = document.getElementById("antwoord").value;
         const resultaat = document.getElementById("resultaat");
 
+        // Als het antwoord 6 is, is het goed
         if (antwoord === "6") {
             resultaat.textContent =
                 "Goed gedaan! 110 = 4 + 2 = 6.";
             resultaat.style.color = "green";
+
+        // Als er nog geen antwoord is gekozen, vraagt de quiz om een keuze
         } else if (antwoord === "") {
             resultaat.textContent =
                 "Kies eerst een antwoord.";
             resultaat.style.color = "#b45309";
+
+        // Alle andere antwoorden zijn niet goed
         } else {
             resultaat.textContent =
                 "Dat is niet goed. Probeer het nog eens!";

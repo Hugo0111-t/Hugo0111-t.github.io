@@ -1,383 +1,461 @@
-
 <!DOCTYPE html>
+
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kleurmodellen | Hugo T</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+```
+<style>
+    /* Zorgt ervoor dat de afmetingen van elementen kloppen */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #dff3ff;
-            color: #222;
-            line-height: 1.7;
-        }
+    /* Algemene opmaak van de website */
+    body {
+        font-family: Arial, sans-serif;
+        background: #dff3ff;
+        color: #222;
+        line-height: 1.7;
+    }
 
-        header {
-            background: white;
-            padding: 22px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #ddd;
-            gap: 15px;
-        }
+    /* De bovenste balk met de naam en terugknop */
+    header {
+        background: white;
+        padding: 22px 6%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ddd;
+        gap: 15px;
+    }
 
-        .logo {
-            font-size: 27px;
-            font-weight: bold;
-        }
+    /* De naam van de website */
+    .logo {
+        font-size: 27px;
+        font-weight: bold;
+    }
 
-        .terug {
-            background: #e9e9e9;
-            color: #222;
-            padding: 10px 17px;
-            border-radius: 9px;
-            text-decoration: none;
-        }
+    /* De knop om terug te gaan naar de homepage */
+    .terug {
+        background: #e9e9e9;
+        color: #222;
+        padding: 10px 17px;
+        border-radius: 9px;
+        text-decoration: none;
+    }
 
-        .terug:hover {
-            background: #d2eaff;
-        }
+    /* Verandert de kleur van de terugknop als je erover gaat */
+    .terug:hover {
+        background: #d2eaff;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 55px 20px;
-            background: linear-gradient(135deg, #d8efff, #fff);
-        }
+    /* Het bovenste gedeelte met de titel en uitleg */
+    .hero {
+        text-align: center;
+        padding: 55px 20px;
+        background: linear-gradient(135deg, #d8efff, #fff);
+    }
 
+    /* De grote titel van de pagina */
+    .hero h1 {
+        font-size: 42px;
+        margin-bottom: 12px;
+    }
+
+    /* De tekst onder de titel */
+    .hero p {
+        font-size: 18px;
+        color: #555;
+    }
+
+    /* Zorgt ervoor dat de inhoud netjes in het midden staat */
+    main {
+        max-width: 950px;
+        margin: 35px auto;
+        padding: 0 20px;
+    }
+
+    /* De witte kaarten waarin de uitleg staat */
+    .kaart {
+        background: white;
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 15px #0000000c;
+    }
+
+    /* De opmaak van de tussenkoppen */
+    h2 {
+        color: #175a83;
+        margin-bottom: 12px;
+    }
+
+    /* De opmaak van kleinere koppen */
+    h3 {
+        margin: 18px 0 8px;
+    }
+
+    /* Zorgt voor inspringing bij opsommingen en genummerde lijsten */
+    ul, ol {
+        padding-left: 25px;
+        margin-top: 10px;
+    }
+
+    /* Zet de drie kleurvlakken naast elkaar */
+    .kleuren {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    /* Algemene opmaak van de kleurvlakken */
+    .kleur {
+        padding: 24px 8px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Het rode kleurvlak */
+    .rood {
+        background: #ff4444;
+        color: white;
+    }
+
+    /* Het groene kleurvlak */
+    .groen {
+        background: #24b85a;
+        color: white;
+    }
+
+    /* Het blauwe kleurvlak */
+    .blauw {
+        background: #3478f6;
+        color: white;
+    }
+
+    /* Een opvallend vak met een voorbeeld of extra uitleg */
+    .voorbeeld {
+        background: #edf7ff;
+        padding: 16px;
+        border-left: 5px solid #3995d6;
+        border-radius: 8px;
+        margin-top: 15px;
+    }
+
+    /* De vraag van de quiz */
+    .quiz-vraag {
+        margin: 18px 0;
+        font-weight: bold;
+    }
+
+    /* De knoppen waarmee je de quiz beantwoordt */
+    .quiz-knop {
+        display: inline-block;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 8px;
+        background: #1769aa;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    /* De linkknop om een video te bekijken */
+    .video-link {
+        display: inline-block;
+        background: #1769aa;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin: 10px 10px 5px 0;
+    }
+
+    /* Verandert de kleur van de videoknop als je erover gaat */
+    .video-link:hover {
+        background: #104d80;
+    }
+
+    /* De grootte en vorm van de video op de pagina */
+    .video {
+        display: block;
+        width: 100%;
+        max-width: 600px;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        border: 0;
+        border-radius: 12px;
+        margin-top: 12px;
+    }
+
+    /* De plek waar het antwoord op de quiz verschijnt */
+    #antwoord {
+        margin-top: 14px;
+        font-weight: bold;
+    }
+
+    /* De onderste balk van de website */
+    footer {
+        text-align: center;
+        background: white;
+        padding: 22px;
+        color: #666;
+    }
+
+    /* Past de website aan voor kleine schermen */
+    @media (max-width: 600px) {
+        /* Maakt de hoofdtitel kleiner op telefoons */
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
+            font-size: 32px;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #555;
-        }
-
-        main {
-            max-width: 950px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
-
+        /* Geeft de kaarten minder ruimte aan de binnenkant */
         .kaart {
-            background: white;
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 15px #0000000c;
+            padding: 20px;
         }
 
-        h2 {
-            color: #175a83;
-            margin-bottom: 12px;
-        }
-
-        h3 {
-            margin: 18px 0 8px;
-        }
-
-        ul, ol {
-            padding-left: 25px;
-            margin-top: 10px;
-        }
-
+        /* Zet de kleurvlakken onder elkaar op kleine schermen */
         .kleuren {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 20px;
+            grid-template-columns: 1fr;
         }
+    }
+</style>
+```
 
-        .kleur {
-            padding: 24px 8px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .rood {
-            background: #ff4444;
-            color: white;
-        }
-
-        .groen {
-            background: #24b85a;
-            color: white;
-        }
-
-        .blauw {
-            background: #3478f6;
-            color: white;
-        }
-
-        .voorbeeld {
-            background: #edf7ff;
-            padding: 16px;
-            border-left: 5px solid #3995d6;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        .quiz-vraag {
-            margin: 18px 0;
-            font-weight: bold;
-        }
-
-        .quiz-knop {
-            display: inline-block;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            background: #1769aa;
-            color: white;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .video-link {
-            display: inline-block;
-            background: #1769aa;
-            color: white;
-            padding: 12px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin: 10px 10px 5px 0;
-        }
-
-        .video-link:hover {
-            background: #104d80;
-        }
-
-        .video {
-            display: block;
-            width: 100%;
-            max-width: 600px;
-            aspect-ratio: 16 / 9;
-            height: auto;
-            border: 0;
-            border-radius: 12px;
-            margin-top: 12px;
-        }
-
-        #antwoord {
-            margin-top: 14px;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            background: white;
-            padding: 22px;
-            color: #666;
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .kaart {
-                padding: 20px;
-            }
-
-            .kleuren {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
+
+<!-- Bovenste balk met de naam van de website en de terugknop -->
 
 <header>
     <div class="logo">Hugo T</div>
     <a class="terug" href="index.html">← Terug naar home</a>
 </header>
 
+<!-- Introductie van de pagina over kleurmodellen -->
+
 <section class="hero">
     <h1>Kleurmodellen</h1>
     <p>Leer hoe computers kleuren weergeven en afdrukken.</p>
 </section>
 
+<!-- MAIN bevat de uitleg over de verschillende kleurmodellen -->
+
 <main>
 
-    <section class="kaart">
-        <h2>1. Wat is een kleurmodel?</h2>
-        <p>
-            Een kleurmodel is een manier om kleuren met getallen
-            te beschrijven. Computers gebruiken kleurmodellen om
-            kleuren op een scherm te tonen of op papier af te drukken.
-        </p>
+```
+<!-- Eerste onderdeel: uitleg over kleurmodellen -->
+<section class="kaart">
+    <h2>1. Wat is een kleurmodel?</h2>
+    <p>
+        Een kleurmodel is een manier om kleuren met getallen
+        te beschrijven. Computers gebruiken kleurmodellen om
+        kleuren op een scherm te tonen of op papier af te drukken.
+    </p>
 
-        <div class="voorbeeld">
-            <strong>Voorbeeld:</strong>
-            Een computer kan een bepaalde kleur beschrijven met
-            waarden voor rood, groen en blauw.
-        </div>
-    </section>
+    <!-- Voorbeeld om de uitleg duidelijker te maken -->
+    <div class="voorbeeld">
+        <strong>Voorbeeld:</strong>
+        Een computer kan een bepaalde kleur beschrijven met
+        waarden voor rood, groen en blauw.
+    </div>
+</section>
 
-    <section class="kaart">
-        <h2>2. Het RGB-kleurmodel</h2>
-        <p>
-            RGB staat voor Red, Green en Blue: rood, groen en blauw.
-            Dit model wordt vooral gebruikt bij beeldschermen,
-            televisies, telefoons en computermonitoren.
-        </p>
+<!-- Tweede onderdeel: uitleg over het RGB-kleurmodel -->
+<section class="kaart">
+    <h2>2. Het RGB-kleurmodel</h2>
+    <p>
+        RGB staat voor Red, Green en Blue: rood, groen en blauw.
+        Dit model wordt vooral gebruikt bij beeldschermen,
+        televisies, telefoons en computermonitoren.
+    </p>
 
-        <div class="kleuren">
-            <div class="kleur rood">Rood</div>
-            <div class="kleur groen">Groen</div>
-            <div class="kleur blauw">Blauw</div>
-        </div>
+    <!-- Laat de drie basiskleuren van RGB zien -->
+    <div class="kleuren">
+        <div class="kleur rood">Rood</div>
+        <div class="kleur groen">Groen</div>
+        <div class="kleur blauw">Blauw</div>
+    </div>
 
-        <h3>Hoe werkt RGB?</h3>
-        <p>
-            De drie kleuren licht worden met elkaar gecombineerd.
-            Door de hoeveelheid licht van iedere kleur te veranderen,
-            kan een scherm veel verschillende kleuren maken.
-        </p>
+    <!-- Legt uit hoe RGB kleuren maakt -->
+    <h3>Hoe werkt RGB?</h3>
+    <p>
+        De drie kleuren licht worden met elkaar gecombineerd.
+        Door de hoeveelheid licht van iedere kleur te veranderen,
+        kan een scherm veel verschillende kleuren maken.
+    </p>
 
-        <ul>
-            <li>Rood: RGB (255, 0, 0)</li>
-            <li>Groen: RGB (0, 255, 0)</li>
-            <li>Blauw: RGB (0, 0, 255)</li>
-            <li>Wit: RGB (255, 255, 255)</li>
-            <li>Zwart: RGB (0, 0, 0)</li>
-        </ul>
+    <!-- Voorbeelden van RGB-kleurcodes -->
+    <ul>
+        <li>Rood: RGB (255, 0, 0)</li>
+        <li>Groen: RGB (0, 255, 0)</li>
+        <li>Blauw: RGB (0, 0, 255)</li>
+        <li>Wit: RGB (255, 255, 255)</li>
+        <li>Zwart: RGB (0, 0, 0)</li>
+    </ul>
 
-        <div class="voorbeeld">
-            <strong>Onthouden:</strong>
-            RGB gebruikt licht. Bij maximale waarden voor rood,
-            groen en blauw ontstaat wit.
-        </div>
-    </section>
+    <!-- Belangrijkste informatie over RGB -->
+    <div class="voorbeeld">
+        <strong>Onthouden:</strong>
+        RGB gebruikt licht. Bij maximale waarden voor rood,
+        groen en blauw ontstaat wit.
+    </div>
+</section>
 
-    <section class="kaart">
-        <h2>3. Het CMYK-kleurmodel</h2>
-        <p>
-            CMYK wordt vooral gebruikt bij printers. De letters
-            staan voor Cyan, Magenta, Yellow en Key (zwart).
-        </p>
+<!-- Derde onderdeel: uitleg over het CMYK-kleurmodel -->
+<section class="kaart">
+    <h2>3. Het CMYK-kleurmodel</h2>
+    <p>
+        CMYK wordt vooral gebruikt bij printers. De letters
+        staan voor Cyan, Magenta, Yellow en Key (zwart).
+    </p>
 
-        <ul>
-            <li>Cyaan: een blauwgroene kleur.</li>
-            <li>Magenta: een rozeachtige kleur.</li>
-            <li>Geel: yellow.</li>
-            <li>Zwart: zorgt onder andere voor donkere details.</li>
-        </ul>
+    <!-- Betekenis van de vier CMYK-kleuren -->
+    <ul>
+        <li>Cyaan: een blauwgroene kleur.</li>
+        <li>Magenta: een rozeachtige kleur.</li>
+        <li>Geel: yellow.</li>
+        <li>Zwart: zorgt onder andere voor donkere details.</li>
+    </ul>
 
-        <h3>Hoe werkt CMYK?</h3>
-        <p>
-            Een printer gebruikt inkt om kleuren op papier te maken.
-            Door de inktkleuren te combineren, ontstaan verschillende
-            kleuren en tinten.
-        </p>
+    <!-- Legt uit hoe een printer CMYK gebruikt -->
+    <h3>Hoe werkt CMYK?</h3>
+    <p>
+        Een printer gebruikt inkt om kleuren op papier te maken.
+        Door de inktkleuren te combineren, ontstaan verschillende
+        kleuren en tinten.
+    </p>
 
-        <div class="voorbeeld">
-            <strong>Onthouden:</strong>
-            RGB is vooral voor schermen. CMYK is vooral voor printen.
-        </div>
-    </section>
+    <!-- Belangrijkste informatie over CMYK -->
+    <div class="voorbeeld">
+        <strong>Onthouden:</strong>
+        RGB is vooral voor schermen. CMYK is vooral voor printen.
+    </div>
+</section>
 
-    <section class="kaart">
-        <h2>4. RGB versus CMYK</h2>
+<!-- Vierde onderdeel: de verschillen tussen RGB en CMYK -->
+<section class="kaart">
+    <h2>4. RGB versus CMYK</h2>
 
-        <ul>
-            <li><strong>RGB:</strong> werkt met gekleurd licht.</li>
-            <li><strong>CMYK:</strong> werkt met gekleurde inkt.</li>
-            <li><strong>RGB:</strong> gebruik je op een monitor.</li>
-            <li><strong>CMYK:</strong> gebruik je bijvoorbeeld voor flyers.</li>
-        </ul>
+    <!-- Een overzicht van de belangrijkste verschillen -->
+    <ul>
+        <li><strong>RGB:</strong> werkt met gekleurd licht.</li>
+        <li><strong>CMYK:</strong> werkt met gekleurde inkt.</li>
+        <li><strong>RGB:</strong> gebruik je op een monitor.</li>
+        <li><strong>CMYK:</strong> gebruik je bijvoorbeeld voor flyers.</li>
+    </ul>
 
-        <p>
-            Een kleur kan er op een scherm anders uitzien dan op papier.
-            Dat komt doordat een scherm licht uitzendt en papier licht
-            weerkaatst.
-        </p>
-    </section>
+    <!-- Uitleg waarom kleuren op papier anders kunnen lijken -->
+    <p>
+        Een kleur kan er op een scherm anders uitzien dan op papier.
+        Dat komt doordat een scherm licht uitzendt en papier licht
+        weerkaatst.
+    </p>
+</section>
 
-    <section class="kaart">
-        <h2>5. Video-uitleg</h2>
+<!-- Vijfde onderdeel: video's met extra uitleg -->
+<section class="kaart">
+    <h2>5. Video-uitleg</h2>
 
-        <h3>Hoe krijg je kleuren op je scherm?</h3>
-        <p>
-            Deze video legt uit hoe schermen kleuren maken met
-            rood, groen en blauw licht. Dit helpt om het RGB-model
-            beter te begrijpen.
-        </p>
+    <!-- Eerste video over kleuren op een scherm -->
+    <h3>Hoe krijg je kleuren op je scherm?</h3>
+    <p>
+        Deze video legt uit hoe schermen kleuren maken met
+        rood, groen en blauw licht. Dit helpt om het RGB-model
+        beter te begrijpen.
+    </p>
 
-        <iframe
-            class="video"
-            src="https://player.ntr.nl/index.php?id=WO_NTR_16087212"
-            title="Schooltv: Hoe krijg je kleuren op je scherm?"
-            allow="encrypted-media; geolocation"
-            allowfullscreen>
-        </iframe>
+    <!-- De video wordt op de pagina ingesloten met een iframe -->
+    <iframe
+        class="video"
+        src="https://player.ntr.nl/index.php?id=WO_NTR_16087212"
+        title="Schooltv: Hoe krijg je kleuren op je scherm?"
+        allow="encrypted-media; geolocation"
+        allowfullscreen>
+    </iframe>
 
-        <h3>Wat is een kleurcode?</h3>
-        <p>
-            Deze video gaat over kleurcodes en CMYK. Je leert hoe
-            kleuren met verschillende waarden kunnen worden gemaakt.
-        </p>
+    <!-- Tweede video over kleurcodes en CMYK -->
+    <h3>Wat is een kleurcode?</h3>
+    <p>
+        Deze video gaat over kleurcodes en CMYK. Je leert hoe
+        kleuren met verschillende waarden kunnen worden gemaakt.
+    </p>
 
-        <a class="video-link"
-           href="https://schooltv.nl/video-item/wat-is-een-kleurcode-elke-kleur-een-eigen-nummer"
-           target="_blank"
-           rel="noopener noreferrer">
-            Bekijk de video over kleurcodes
-        </a>
+    <!-- Opent de video over kleurcodes op een nieuwe pagina -->
+    <a class="video-link"
+       href="https://schooltv.nl/video-item/wat-is-een-kleurcode-elke-kleur-een-eigen-nummer"
+       target="_blank"
+       rel="noopener noreferrer">
+        Bekijk de video over kleurcodes
+    </a>
 
-        <div class="voorbeeld">
-            <strong>Waarom heb ik deze video's gekozen?</strong>
-            Ze geven extra uitleg over hoe kleuren op schermen
-            en op papier worden gemaakt. Daardoor kun je het verschil
-            tussen RGB en CMYK beter begrijpen.
-        </div>
-    </section>
+    <!-- Legt uit waarom de video's bij het onderwerp passen -->
+    <div class="voorbeeld">
+        <strong>Waarom heb ik deze video's gekozen?</strong>
+        Ze geven extra uitleg over hoe kleuren op schermen
+        en op papier worden gemaakt. Daardoor kun je het verschil
+        tussen RGB en CMYK beter begrijpen.
+    </div>
+</section>
 
-    <section class="kaart">
-        <h2>6. Test jezelf</h2>
+<!-- Zesde onderdeel: een quiz om te testen wat je hebt geleerd -->
+<section class="kaart">
+    <h2>6. Test jezelf</h2>
 
-        <p class="quiz-vraag">
-            Welk kleurmodel wordt meestal gebruikt bij beeldschermen?
-        </p>
+    <!-- De vraag van de quiz -->
+    <p class="quiz-vraag">
+        Welk kleurmodel wordt meestal gebruikt bij beeldschermen?
+    </p>
 
-        <button class="quiz-knop"
-                onclick="controleer('RGB')">RGB</button>
+    <!-- Als je op RGB klikt, wordt het antwoord gecontroleerd -->
+    <button class="quiz-knop"
+            onclick="controleer('RGB')">RGB</button>
 
-        <button class="quiz-knop"
-                onclick="controleer('CMYK')">CMYK</button>
+    <!-- Als je op CMYK klikt, wordt het antwoord gecontroleerd -->
+    <button class="quiz-knop"
+            onclick="controleer('CMYK')">CMYK</button>
 
-        <p id="antwoord" aria-live="polite"></p>
-    </section>
+    <!-- Hier verschijnt de feedback op het gekozen antwoord -->
+    <p id="antwoord" aria-live="polite"></p>
+</section>
+```
 
 </main>
+
+<!-- Onderste balk met de copyrighttekst -->
 
 <footer>
     Hugo T © 2026
 </footer>
 
 <script>
+    // Controleert het antwoord dat bij de quiz is gekozen
     function controleer(keuze) {
+        // Zoekt het HTML-element waarin de feedback verschijnt
         const antwoord = document.getElementById("antwoord");
 
+        // Controleert of de gebruiker RGB heeft gekozen
         if (keuze === "RGB") {
+            // Toont een bericht bij een goed antwoord
             antwoord.textContent =
                 "Goed gedaan! RGB wordt vooral gebruikt bij schermen.";
+
+            // Maakt de tekst groen bij een goed antwoord
             antwoord.style.color = "#16803c";
         } else {
+            // Toont een bericht bij een fout antwoord
             antwoord.textContent =
                 "Nog niet goed. Denk aan rood, groen en blauw. Probeer opnieuw!";
+
+            // Maakt de tekst rood bij een fout antwoord
             antwoord.style.color = "#c0392b";
         }
     }

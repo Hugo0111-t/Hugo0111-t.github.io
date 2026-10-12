@@ -1,25 +1,33 @@
-
 <!DOCTYPE html>
+<!-- Geeft aan dat dit een HTML5-document is -->
 <html lang="nl">
 <head>
+    <!-- Zorgt ervoor dat speciale tekens goed worden weergegeven -->
     <meta charset="UTF-8">
+
+    <!-- Zorgt ervoor dat de website goed werkt op mobiel en computer -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- De titel die bovenaan het browsertabblad staat -->
     <title>AI - Hugo T</title>
 
+    <!-- Hier begint de CSS waarmee de website wordt vormgegeven -->
     <style>
+        /* Zorgt ervoor dat de afmetingen van elementen goed worden berekend */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* De algemene opmaak van de website */
         body {
             font-family: Arial, sans-serif;
             background-color: #dff3ff;
             color: #222;
         }
 
+        /* De bovenbalk van de website */
         header {
             background: white;
             padding: 22px 35px;
@@ -29,12 +37,14 @@
             align-items: center;
         }
 
+        /* De opmaak van het logo */
         .logo {
             font-size: 28px;
             font-weight: bold;
             color: #222;
         }
 
+        /* De opmaak van de terugknop */
         .terug {
             background: #1769aa;
             color: white;
@@ -43,16 +53,19 @@
             text-decoration: none;
         }
 
+        /* Verandert de kleur van de terugknop als je eroverheen gaat */
         .terug:hover {
             background: #104d80;
         }
 
+        /* De hoofdinhoud krijgt een maximale breedte en komt in het midden */
         main {
             max-width: 950px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
+        /* De blauwe introductiebalk bovenaan de pagina */
         .intro {
             background: linear-gradient(135deg, #1769aa, #55b8ed);
             color: white;
@@ -62,15 +75,18 @@
             margin-bottom: 30px;
         }
 
+        /* De titel in de introductiebalk */
         .intro h1 {
             font-size: 36px;
             margin-bottom: 15px;
         }
 
+        /* De tekst in de introductiebalk */
         .intro p {
             line-height: 1.8;
         }
 
+        /* De witte vakken waarin de informatie staat */
         .kaart {
             background: white;
             padding: 28px;
@@ -79,21 +95,25 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
+        /* De titels van de witte informatievakken */
         .kaart h2 {
             color: #1769aa;
             margin-bottom: 15px;
         }
 
+        /* De opmaak van de alinea's in de informatievakken */
         .kaart p {
             line-height: 1.8;
             margin-bottom: 12px;
         }
 
+        /* De opmaak van opsommingen */
         .kaart ul {
             margin-left: 25px;
             line-height: 1.8;
         }
 
+        /* Zorgt ervoor dat de video op de juiste grootte wordt weergegeven */
         .video {
             position: relative;
             width: 100%;
@@ -104,6 +124,7 @@
             margin: 15px 0;
         }
 
+        /* Zorgt ervoor dat de video het hele videovak vult */
         .video iframe {
             position: absolute;
             top: 0;
@@ -113,6 +134,7 @@
             border: 0;
         }
 
+        /* De onderste balk van de website */
         footer {
             text-align: center;
             padding: 25px;
@@ -120,6 +142,7 @@
             color: #666;
         }
 
+        /* Past de website aan voor kleine schermen, zoals telefoons */
         @media (max-width: 600px) {
             header {
                 padding: 18px;
@@ -127,14 +150,17 @@
                 flex-wrap: wrap;
             }
 
+            /* Maakt het logo kleiner op een telefoon */
             .logo {
                 font-size: 24px;
             }
 
+            /* Maakt de hoofdtitel kleiner op een telefoon */
             .intro h1 {
                 font-size: 28px;
             }
 
+            /* Past de ruimte binnen de informatievakken aan */
             .kaart {
                 padding: 20px;
             }
@@ -144,14 +170,18 @@
 
 <body>
 
+<!-- De bovenbalk met het logo en de terugknop -->
 <header>
     <div class="logo">Hugo T</div>
 
+    <!-- Linkt terug naar de homepage -->
     <a class="terug" href="index.html">← Terug naar home</a>
 </header>
 
+<!-- Hier begint de hoofdinhoud van de pagina -->
 <main>
 
+    <!-- Introductie van het onderwerp AI -->
     <section class="intro">
         <h1>AI</h1>
         <p>
@@ -160,6 +190,7 @@
         </p>
     </section>
 
+    <!-- Uitleg over wat AI betekent -->
     <section class="kaart">
         <h2>Wat is AI?</h2>
 
@@ -175,6 +206,7 @@
         </p>
     </section>
 
+    <!-- Vertelt waarvoor ik AI gebruik en wat ik ervan leer -->
     <section class="kaart">
         <h2>Waar gebruik ik zelf AI voor en leer ik er iets van?</h2>
 
@@ -191,6 +223,7 @@
         </p>
     </section>
 
+    <!-- Informatie over mijn mobiel en de AI-functies -->
     <section class="kaart">
         <h2>Welke mobiel heb ik?</h2>
 
@@ -200,6 +233,7 @@
             hebben.
         </p>
 
+        <!-- Voorbeelden van slimme functies op de telefoon -->
         <ul>
             <li><strong>Face ID:</strong> herkent mijn gezicht om de telefoon te ontgrendelen.</li>
             <li><strong>Camera:</strong> verwerkt foto's om ze er beter uit te laten zien.</li>
@@ -212,6 +246,7 @@
         </p>
     </section>
 
+    <!-- Mijn eigen mening over AI -->
     <section class="kaart">
         <h2>Wat vind ik van AI?</h2>
 
@@ -226,6 +261,7 @@
         </p>
     </section>
 
+    <!-- Een video met uitleg over kunstmatige intelligentie -->
     <section class="kaart">
         <h2>Video over kunstmatige intelligentie</h2>
 
@@ -234,6 +270,7 @@
             kunstmatige intelligentie voor wordt gebruikt.
         </p>
 
+        <!-- Hiermee wordt de YouTube-video in de website geplaatst -->
         <div class="video">
             <iframe
                 src="https://www.youtube-nocookie.com/embed/C4SHDZQwLYA"
@@ -243,6 +280,7 @@
             </iframe>
         </div>
 
+        <!-- Legt uit waarom deze video is gekozen -->
         <p>
             <strong>Waarom deze video?</strong>
             Ik heb deze video gekozen omdat hij uitlegt wat AI is en
@@ -253,6 +291,7 @@
 
 </main>
 
+<!-- De onderste balk met mijn naam en het jaartal -->
 <footer>
     Hugo T © 2026
 </footer>

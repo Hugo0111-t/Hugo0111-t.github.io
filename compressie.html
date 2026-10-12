@@ -1,18 +1,26 @@
 <!DOCTYPE html>
+<!-- Dit document gebruikt HTML5 -->
 <html lang="nl">
 <head>
+    <!-- Zorgt ervoor dat speciale tekens goed worden weergegeven -->
     <meta charset="UTF-8">
+
+    <!-- Zorgt ervoor dat de website zich aanpast aan het schermformaat -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- De titel die in het browsertabblad staat -->
     <title>Compressie | Hugo T</title>
 
+    <!-- CSS bepaalt hoe de website eruitziet -->
     <style>
+        /* Haalt standaardmarges weg en maakt afmetingen makkelijker te berekenen */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* Algemene opmaak van de website */
         body {
             font-family: Arial, sans-serif;
             color: #17324d;
@@ -20,6 +28,7 @@
             line-height: 1.7;
         }
 
+        /* De bovenbalk van de website */
         header {
             background: white;
             padding: 18px 7%;
@@ -31,50 +40,59 @@
             box-shadow: 0 3px 12px #00000010;
         }
 
+        /* Opmaak van het logo */
         .logo {
             font-size: 26px;
             font-weight: bold;
             color: #1877c9;
         }
 
+        /* Zet de navigatielinks naast elkaar */
         nav {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
+        /* Opmaak van de links in het menu */
         nav a {
             color: #17324d;
             text-decoration: none;
             font-weight: bold;
         }
 
+        /* Verandert de linkkleur als je eroverheen gaat */
         nav a:hover {
             color: #1877c9;
         }
 
+        /* Introductiegedeelte bovenaan de pagina */
         .hero {
             text-align: center;
             padding: 65px 20px 45px;
         }
 
+        /* Opmaak van de hoofdtitel */
         .hero h1 {
             font-size: clamp(30px, 5vw, 46px);
             margin-bottom: 12px;
         }
 
+        /* Opmaak van de introductietekst */
         .hero p {
             max-width: 700px;
             margin: auto;
             font-size: 18px;
         }
 
+        /* Houdt de inhoud in het midden en beperkt de breedte */
         .container {
             width: 90%;
             max-width: 950px;
             margin: 0 auto;
         }
 
+        /* Witte informatievakken op de pagina */
         .card {
             background: white;
             padding: 28px;
@@ -83,15 +101,18 @@
             box-shadow: 0 5px 18px #17324d12;
         }
 
+        /* Opmaak van de koppen */
         h2 {
             color: #1877c9;
             margin-bottom: 12px;
         }
 
+        /* Ruimte onder alinea's */
         p {
             margin-bottom: 12px;
         }
 
+        /* Vak met een voorbeeld */
         .example {
             background: #eaf6ff;
             padding: 20px;
@@ -99,6 +120,7 @@
             margin: 18px 0;
         }
 
+        /* Zet de twee vergelijkingen naast elkaar */
         .comparison {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -106,6 +128,7 @@
             margin-top: 20px;
         }
 
+        /* Opmaak van de vakken waarin bitmap en vector worden uitgelegd */
         .comparison-box {
             background: #f3f9ff;
             padding: 20px;
@@ -113,11 +136,13 @@
             text-align: center;
         }
 
+        /* Opmaak van de titels van de vergelijkingsvakken */
         .comparison-box h3 {
             color: #1769aa;
             margin-bottom: 10px;
         }
 
+        /* Maakt een raster van 8 bij 8 vakjes voor de bitmap */
         .pixel-art {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
@@ -127,20 +152,24 @@
             aspect-ratio: 1;
         }
 
+        /* De standaardkleur van een pixel */
         .pixel {
             background: #1877c9;
             border-radius: 2px;
         }
 
+        /* Geeft sommige pixels een andere kleur */
         .pixel:nth-child(2n),
         .pixel:nth-child(5n) {
             background: #8ee8ff;
         }
 
+        /* Geeft elke derde pixel een donkerblauwe kleur */
         .pixel:nth-child(3n) {
             background: #17324d;
         }
 
+        /* Opmaak en grootte van het vectorvoorbeeld */
         .vector-example {
             max-width: 240px;
             width: 100%;
@@ -149,7 +178,7 @@
             display: block;
         }
 
-        /* VIDEO */
+        /* Maakt een videovak met een verhouding van 16:9 */
         .video {
             position: relative;
             width: 100%;
@@ -160,6 +189,7 @@
             margin: 18px 0;
         }
 
+        /* Laat de video het hele videovak vullen */
         .video iframe {
             position: absolute;
             top: 0;
@@ -169,6 +199,7 @@
             border: 0;
         }
 
+        /* Opmaak van het keuzemenu in de quiz */
         .quiz select {
             display: block;
             padding: 12px;
@@ -181,6 +212,7 @@
             background: white;
         }
 
+        /* Gemeenschappelijke opmaak van knoppen en knoplinks */
         button, .button {
             display: inline-block;
             border: none;
@@ -194,35 +226,42 @@
             text-decoration: none;
         }
 
+        /* Verandert de knopkleur als je eroverheen gaat */
         button:hover, .button:hover {
             background: #105b9c;
         }
 
+        /* Opmaak van de feedback bij de quiz */
         #resultaat {
             margin-top: 15px;
             font-weight: bold;
         }
 
+        /* Centreert de knop om terug te gaan */
         .back {
             text-align: center;
             margin: 35px 0;
         }
 
+        /* De onderste balk van de website */
         footer {
             text-align: center;
             padding: 25px;
             color: #5b7185;
         }
 
+        /* Past de website aan voor kleine schermen, zoals telefoons */
         @media (max-width: 600px) {
             header {
                 flex-direction: column;
             }
 
+            /* Geeft de informatievakken minder ruimte aan de binnenkant */
             .card {
                 padding: 20px;
             }
 
+            /* Zet de vergelijkingsvakken onder elkaar op een telefoon */
             .comparison {
                 grid-template-columns: 1fr;
             }
@@ -232,9 +271,11 @@
 
 <body>
 
+<!-- De bovenbalk met het logo en navigatiemenu -->
 <header>
     <div class="logo">Hugo T</div>
 
+    <!-- Links naar de homepage en andere pagina's -->
     <nav>
         <a href="index.html">Home</a>
         <a href="kleurmodellen.html">Kleurmodellen</a>
@@ -242,6 +283,7 @@
     </nav>
 </header>
 
+<!-- Introductie van het onderwerp compressie -->
 <section class="hero">
     <h1>Compressie</h1>
 
@@ -252,9 +294,10 @@
     </p>
 </section>
 
+<!-- Hier begint de hoofdinhoud van de pagina -->
 <main class="container">
 
-    <!-- WAT IS COMPRESSIE? -->
+    <!-- Uitleg over wat compressie is -->
     <section class="card">
         <h2>Wat is compressie?</h2>
 
@@ -269,6 +312,7 @@
             video's, muziek en documenten.
         </p>
 
+        <!-- Voorbeeld van een bestand dat kleiner wordt -->
         <div class="example">
             <h3>Voorbeeld</h3>
 
@@ -284,12 +328,14 @@
         </div>
     </section>
 
-    <!-- SOORTEN COMPRESSIE -->
+    <!-- Uitleg over de twee soorten compressie -->
     <section class="card">
         <h2>Compressie met en zonder kwaliteitsverlies</h2>
 
+        <!-- De twee soorten compressie worden naast elkaar getoond -->
         <div class="comparison">
 
+            <!-- Compressie waarbij alle oorspronkelijke informatie behouden blijft -->
             <div class="comparison-box">
                 <h3>Zonder kwaliteitsverlies</h3>
 
@@ -303,6 +349,7 @@
                 </p>
             </div>
 
+            <!-- Compressie waarbij een deel van de informatie verdwijnt -->
             <div class="comparison-box">
                 <h3>Met kwaliteitsverlies</h3>
 
@@ -320,7 +367,7 @@
         </div>
     </section>
 
-    <!-- BITMAP EN VECTOR -->
+    <!-- Uitleg over bitmap- en vectorafbeeldingen -->
     <section class="card">
         <h2>Bitmap en vector</h2>
 
@@ -329,11 +376,14 @@
             Twee belangrijke soorten zijn bitmap en vector.
         </p>
 
+        <!-- Vergelijkt bitmap en vector in twee vakken -->
         <div class="comparison">
 
+            <!-- Uitleg en voorbeeld van een bitmap -->
             <div class="comparison-box">
                 <h3>Bitmap</h3>
 
+                <!-- Dit raster stelt pixels van een bitmap voor -->
                 <div class="pixel-art" aria-label="Voorbeeld van pixels">
                     <div class="pixel"></div>
                     <div class="pixel"></div>
@@ -418,9 +468,11 @@
                 </p>
             </div>
 
+            <!-- Uitleg en voorbeeld van een vectorafbeelding -->
             <div class="comparison-box">
                 <h3>Vector</h3>
 
+                <!-- SVG maakt een vectorafbeelding met een cirkel en ster -->
                 <svg class="vector-example"
                      viewBox="0 0 200 200"
                      role="img"
@@ -453,7 +505,7 @@
         </div>
     </section>
 
-    <!-- VIDEO OVER COMPRESSIE -->
+    <!-- Video met extra uitleg over compressie -->
     <section class="card">
         <h2>Video over compressie</h2>
 
@@ -461,6 +513,7 @@
             In deze video krijg je extra uitleg over compressie.
         </p>
 
+        <!-- Plaatst de YouTube-video op de website -->
         <div class="video">
             <iframe
                 src="https://www.youtube.com/embed/xHyhBIlmcus"
@@ -471,13 +524,14 @@
             </iframe>
         </div>
 
+        <!-- Legt uit waarom deze video is gekozen -->
         <p>
             <strong>Waarom heb ik deze video gekozen?</strong>
             De video geeft extra uitleg bij het onderwerp compressie.
         </p>
     </section>
 
-    <!-- QUIZ -->
+    <!-- Quiz waarmee bezoekers hun kennis kunnen testen -->
     <section class="card quiz">
         <h2>Test je kennis</h2>
 
@@ -485,6 +539,7 @@
             Wat gebeurt er bij compressie zonder kwaliteitsverlies?
         </p>
 
+        <!-- Keuzemenu met drie mogelijke antwoorden -->
         <select id="antwoord">
             <option value="">Kies je antwoord</option>
             <option value="a">
@@ -498,31 +553,41 @@
             </option>
         </select>
 
+        <!-- Controleert het antwoord wanneer je op de knop klikt -->
         <button onclick="controleerAntwoord()">
             Controleer antwoord
         </button>
 
+        <!-- Hier verschijnt de feedback van de quiz -->
         <p id="resultaat" aria-live="polite"></p>
     </section>
 
 </main>
 
+<!-- Onderaan de website staat de naam en het schoolvak -->
 <footer>
     © 2026 Hugo T | Informatica
 </footer>
 
+<!-- JavaScript controleert het antwoord van de quiz -->
 <script>
     function controleerAntwoord() {
+        // Haalt het gekozen antwoord en het feedbackvak op
         const antwoord = document.getElementById("antwoord").value;
         const resultaat = document.getElementById("resultaat");
 
+        // Als antwoord B is gekozen, is het antwoord goed
         if (antwoord === "b") {
             resultaat.textContent =
                 "Goed gedaan! Alle oorspronkelijke informatie kan worden teruggehaald.";
             resultaat.style.color = "green";
+
+        // Als er nog geen antwoord is gekozen, vraagt de quiz om een keuze
         } else if (antwoord === "") {
             resultaat.textContent = "Kies eerst een antwoord.";
             resultaat.style.color = "#b45309";
+
+        // Alle andere antwoorden zijn fout
         } else {
             resultaat.textContent = "Dat is niet goed. Probeer het nog eens!";
             resultaat.style.color = "#c0392b";
