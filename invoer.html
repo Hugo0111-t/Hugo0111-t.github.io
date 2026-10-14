@@ -2,27 +2,36 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <!-- Zorgt ervoor dat speciale tekens goed worden weergegeven -->
     <meta charset="UTF-8">
+
+    <!-- Zorgt ervoor dat de website goed werkt op telefoons en computers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- De titel die bovenaan het browsertabblad staat -->
     <title>Invoer en uitvoer | Hugo T</title>
 
     <style>
+        /* Zorgt ervoor dat de afmetingen van elementen kloppen */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* Zorgt voor soepel scrollen op de pagina */
         html {
             scroll-behavior: smooth;
         }
 
+        /* Algemene opmaak van de website */
         body {
             font-family: Arial, sans-serif;
             background: #dff3ff;
             color: #222;
         }
 
+        /* De bovenste balk van de website */
         header {
             min-height: 90px;
             background: white;
@@ -33,11 +42,13 @@
             border-bottom: 2px solid #ddd;
         }
 
+        /* De naam van de website */
         .logo {
             font-size: 28px;
             font-weight: bold;
         }
 
+        /* De knop om terug te gaan naar de homepage */
         .terug {
             background: #1769aa;
             color: white;
@@ -46,21 +57,25 @@
             text-decoration: none;
         }
 
+        /* Verandert de kleur als je over de terugknop gaat */
         .terug:hover {
             background: #104d80;
         }
 
+        /* Het grote gedeelte bovenaan met de titel */
         .hero {
             padding: 55px 25px;
             text-align: center;
             background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
         }
 
+        /* De grote titel van de pagina */
         .hero h1 {
             font-size: 42px;
             margin-bottom: 15px;
         }
 
+        /* De tekst onder de titel */
         .hero p {
             font-size: 18px;
             color: #444;
@@ -69,12 +84,14 @@
             line-height: 1.7;
         }
 
+        /* Het hoofdgedeelte met de informatie */
         main {
             max-width: 1000px;
             margin: 35px auto;
             padding: 0 25px;
         }
 
+        /* De witte blokken met informatie */
         .blok {
             background: white;
             padding: 28px;
@@ -83,18 +100,21 @@
             box-shadow: 0 4px 15px #0000000c;
         }
 
+        /* De titels binnen de informatieblokken */
         .blok h2 {
             color: #175a83;
             font-size: 25px;
             margin-bottom: 15px;
         }
 
+        /* De gewone teksten binnen de informatieblokken */
         .blok p {
             color: #444;
             line-height: 1.8;
             margin-bottom: 12px;
         }
 
+        /* Zet de voorbeeldkaarten naast elkaar */
         .kaarten {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -102,22 +122,26 @@
             margin-top: 20px;
         }
 
+        /* De opmaak van iedere voorbeeldkaart */
         .kaart {
             background: #eef8ff;
             padding: 22px;
             border-radius: 12px;
         }
 
+        /* De titel van iedere voorbeeldkaart */
         .kaart h3 {
             color: #175a83;
             margin-bottom: 10px;
         }
 
+        /* De tekst in iedere voorbeeldkaart */
         .kaart p {
             line-height: 1.7;
             margin-bottom: 0;
         }
 
+        /* Een apart blok om een voorbeeld duidelijk te maken */
         .voorbeeld {
             background: #eef8ff;
             padding: 20px;
@@ -127,6 +151,7 @@
             line-height: 1.8;
         }
 
+        /* Zet de drie stappen van het IPO-model naast elkaar */
         .stappen {
             display: flex;
             align-items: center;
@@ -136,6 +161,7 @@
             margin: 25px 0;
         }
 
+        /* De blauwe blokken met de stappen */
         .stap {
             background: #1769aa;
             color: white;
@@ -145,12 +171,14 @@
             font-weight: bold;
         }
 
+        /* De pijlen tussen de stappen */
         .pijl {
             font-size: 25px;
             color: #1769aa;
             font-weight: bold;
         }
 
+        /* De onderste balk van de website */
         footer {
             text-align: center;
             padding: 25px;
@@ -159,24 +187,30 @@
             margin-top: 40px;
         }
 
+        /* Past de website aan voor kleinere schermen */
         @media (max-width: 700px) {
+            /* Zet de onderdelen in de bovenste balk op meerdere regels */
             header {
                 flex-wrap: wrap;
                 gap: 15px;
             }
 
+            /* Maakt de hoofdtitel kleiner */
             .hero h1 {
                 font-size: 34px;
             }
 
+            /* Zet de voorbeeldkaarten onder elkaar */
             .kaarten {
                 grid-template-columns: 1fr;
             }
 
+            /* Zet de stappen van het IPO-model onder elkaar */
             .stappen {
                 flex-direction: column;
             }
 
+            /* Draait de pijlen zodat ze naar beneden wijzen */
             .pijl {
                 transform: rotate(90deg);
             }
@@ -186,13 +220,18 @@
 
 <body>
 
+    <!-- HEADER: de bovenste balk met de naam en de terugknop -->
     <header>
         <div class="logo">Hugo T</div>
+
+        <!-- Link terug naar de homepage -->
         <a class="terug" href="index.html">← Terug naar home</a>
     </header>
 
+    <!-- HERO: de titel en introductie van de pagina -->
     <section class="hero">
         <h1>Invoer, verwerking en uitvoer</h1>
+
         <p>
             Computers krijgen gegevens binnen, verwerken deze gegevens
             en geven daarna een resultaat. Dit noemen we het IPO-model:
@@ -200,8 +239,10 @@
         </p>
     </section>
 
+    <!-- MAIN: het hoofdgedeelte van de pagina -->
     <main>
 
+        <!-- UITLEG: wat het IPO-model betekent -->
         <section class="blok">
             <h2>Wat is het IPO-model?</h2>
 
@@ -211,6 +252,7 @@
                 deze drie stappen voor.
             </p>
 
+            <!-- De drie stappen van het IPO-model -->
             <div class="stappen">
                 <div class="stap">1. Invoer</div>
                 <div class="pijl">→</div>
@@ -220,6 +262,7 @@
             </div>
         </section>
 
+        <!-- INVOER: voorbeelden van apparaten waarmee je gegevens invoert -->
         <section class="blok">
             <h2>1. Invoer</h2>
 
@@ -229,6 +272,7 @@
                 muis, microfoon of camera.
             </p>
 
+            <!-- Drie voorbeelden van invoerapparaten -->
             <div class="kaarten">
                 <div class="kaart">
                     <h3>Toetsenbord</h3>
@@ -247,6 +291,7 @@
             </div>
         </section>
 
+        <!-- VERWERKING: uitleg over wat de computer met gegevens doet -->
         <section class="blok">
             <h2>2. Verwerking</h2>
 
@@ -256,6 +301,7 @@
                 uit en berekent bijvoorbeeld antwoorden.
             </p>
 
+            <!-- Een voorbeeld van verwerking -->
             <div class="voorbeeld">
                 <strong>Voorbeeld:</strong> Je voert de som 5 + 3 in
                 op een rekenmachine. De computer berekent dat het
@@ -263,6 +309,7 @@
             </div>
         </section>
 
+        <!-- UITVOER: voorbeelden van apparaten die resultaten laten zien -->
         <section class="blok">
             <h2>3. Uitvoer</h2>
 
@@ -271,6 +318,7 @@
                 horen of op een andere manier afgeeft.
             </p>
 
+            <!-- Drie voorbeelden van uitvoerapparaten -->
             <div class="kaarten">
                 <div class="kaart">
                     <h3>Beeldscherm</h3>
@@ -289,6 +337,7 @@
             </div>
         </section>
 
+        <!-- PRAKTIJKVOORBEELD: het IPO-model bij een bericht versturen -->
         <section class="blok">
             <h2>Een voorbeeld uit het dagelijks leven</h2>
 
@@ -300,6 +349,7 @@
                 het bericht op zijn scherm. Dat is de uitvoer.
             </p>
 
+            <!-- Verdeelt het voorbeeld in de drie stappen -->
             <div class="voorbeeld">
                 <strong>Invoer:</strong> je typt een bericht.<br>
                 <strong>Verwerking:</strong> je telefoon verstuurt het bericht.<br>
@@ -307,6 +357,7 @@
             </div>
         </section>
 
+        <!-- AFSLUITING: waarom het IPO-model nuttig is -->
         <section class="blok">
             <h2>Waarom is het IPO-model handig?</h2>
 
@@ -317,13 +368,16 @@
             </p>
         </section>
 
+        <!-- Een tweede knop om terug te gaan naar de homepage -->
         <a class="terug" href="index.html">← Terug naar home</a>
 
     </main>
 
+    <!-- FOOTER: de onderste balk met de copyrighttekst -->
     <footer>
         Hugo T © 2026
     </footer>
 
 </body>
 </html>
+```
