@@ -1,0 +1,329 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoer en uitvoer | Hugo T</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #dff3ff;
+            color: #222;
+        }
+
+        header {
+            min-height: 90px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 35px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .terug {
+            background: #1769aa;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .terug:hover {
+            background: #104d80;
+        }
+
+        .hero {
+            padding: 55px 25px;
+            text-align: center;
+            background: linear-gradient(135deg, #b9e3ff, #e8f8ff);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #444;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 25px;
+        }
+
+        .blok {
+            background: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px #0000000c;
+        }
+
+        .blok h2 {
+            color: #175a83;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .blok p {
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .kaarten {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .kaart {
+            background: #eef8ff;
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .kaart h3 {
+            color: #175a83;
+            margin-bottom: 10px;
+        }
+
+        .kaart p {
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .voorbeeld {
+            background: #eef8ff;
+            padding: 20px;
+            border-left: 5px solid #1769aa;
+            border-radius: 8px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .stappen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .stap {
+            background: #1769aa;
+            color: white;
+            padding: 18px 22px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .pijl {
+            font-size: 25px;
+            color: #1769aa;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .kaarten {
+                grid-template-columns: 1fr;
+            }
+
+            .stappen {
+                flex-direction: column;
+            }
+
+            .pijl {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Hugo T</div>
+        <a class="terug" href="index.html">← Terug naar home</a>
+    </header>
+
+    <section class="hero">
+        <h1>Invoer, verwerking en uitvoer</h1>
+        <p>
+            Computers krijgen gegevens binnen, verwerken deze gegevens
+            en geven daarna een resultaat. Dit noemen we het IPO-model:
+            invoer, verwerking en uitvoer.
+        </p>
+    </section>
+
+    <main>
+
+        <section class="blok">
+            <h2>Wat is het IPO-model?</h2>
+
+            <p>
+                IPO staat voor invoer, verwerking en uitvoer.
+                Bij bijna alles wat je met een computer doet, komen
+                deze drie stappen voor.
+            </p>
+
+            <div class="stappen">
+                <div class="stap">1. Invoer</div>
+                <div class="pijl">→</div>
+                <div class="stap">2. Verwerking</div>
+                <div class="pijl">→</div>
+                <div class="stap">3. Uitvoer</div>
+            </div>
+        </section>
+
+        <section class="blok">
+            <h2>1. Invoer</h2>
+
+            <p>
+                Invoer is informatie die je aan een computer geeft.
+                Je gebruikt hiervoor bijvoorbeeld een toetsenbord,
+                muis, microfoon of camera.
+            </p>
+
+            <div class="kaarten">
+                <div class="kaart">
+                    <h3>Toetsenbord</h3>
+                    <p>Je typt letters, cijfers en woorden in.</p>
+                </div>
+
+                <div class="kaart">
+                    <h3>Muis</h3>
+                    <p>Je klikt op knoppen en kiest bestanden.</p>
+                </div>
+
+                <div class="kaart">
+                    <h3>Microfoon</h3>
+                    <p>Je voert geluid of je stem in.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blok">
+            <h2>2. Verwerking</h2>
+
+            <p>
+                Bij verwerking gaat de computer met de ingevoerde
+                gegevens aan de slag. De processor voert opdrachten
+                uit en berekent bijvoorbeeld antwoorden.
+            </p>
+
+            <div class="voorbeeld">
+                <strong>Voorbeeld:</strong> Je voert de som 5 + 3 in
+                op een rekenmachine. De computer berekent dat het
+                antwoord 8 is.
+            </div>
+        </section>
+
+        <section class="blok">
+            <h2>3. Uitvoer</h2>
+
+            <p>
+                Uitvoer is het resultaat dat de computer laat zien,
+                horen of op een andere manier afgeeft.
+            </p>
+
+            <div class="kaarten">
+                <div class="kaart">
+                    <h3>Beeldscherm</h3>
+                    <p>Je ziet teksten, foto's en video's.</p>
+                </div>
+
+                <div class="kaart">
+                    <h3>Speakers</h3>
+                    <p>Je hoort muziek, stemmen en geluiden.</p>
+                </div>
+
+                <div class="kaart">
+                    <h3>Printer</h3>
+                    <p>Je kunt een document op papier afdrukken.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blok">
+            <h2>Een voorbeeld uit het dagelijks leven</h2>
+
+            <p>
+                Stel dat je een bericht naar een vriend stuurt.
+                Je typt het bericht op je telefoon. Dat is de invoer.
+                Je telefoon verwerkt het bericht en verstuurt het
+                via internet. Dat is de verwerking. Je vriend ziet
+                het bericht op zijn scherm. Dat is de uitvoer.
+            </p>
+
+            <div class="voorbeeld">
+                <strong>Invoer:</strong> je typt een bericht.<br>
+                <strong>Verwerking:</strong> je telefoon verstuurt het bericht.<br>
+                <strong>Uitvoer:</strong> je vriend ziet het bericht.
+            </div>
+        </section>
+
+        <section class="blok">
+            <h2>Waarom is het IPO-model handig?</h2>
+
+            <p>
+                Het IPO-model helpt je begrijpen hoe computers werken.
+                Als je weet wat de invoer, verwerking en uitvoer zijn,
+                kun je beter uitleggen wat een computer doet.
+            </p>
+        </section>
+
+        <a class="terug" href="index.html">← Terug naar home</a>
+
+    </main>
+
+    <footer>
+        Hugo T © 2026
+    </footer>
+
+</body>
+</html>
